@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore all destinations across Pakistan — Punjab, Sindh, KPK, Balochistan and Gilgit-Baltistan.">
+  <title>Destinations — Uncharted Travels Pakistan</title>
+  <link rel="icon" href="htmlpictures/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/destinations.css">
+  <style>
+    :root {
+      --void:#07070D; --stone:#12121A; --deep:#1C1C28; --slate:#252535;
+      --copper:#BF7A35; --gold:#D4A843; --rust:#A03820;
+      --parchment:#EBD9B8; --cream:#F7F0E0; --sand:#C8B08A; --mist:#7A7A90;
+      --white:#FAFAF5;
+      --font-serif:'Cormorant Garamond',Georgia,serif;
+      --font-sans:'Outfit',sans-serif;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--font-sans);background:var(--void);color:var(--parchment);overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.35;}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:14px 6%;background:rgba(7,7,13,0.97);border-bottom:1px solid rgba(191,122,53,0.15);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);}
+    .nav-brand{display:flex;align-items:center;gap:14px;text-decoration:none;}
+    .nav-brand img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:1px solid rgba(191,122,53,0.4);}
+    .nav-brand-text .name{color:var(--cream);font-family:var(--font-serif);font-size:18px;font-weight:600;display:block;}
+    .nav-brand-text .sub{color:var(--copper);font-size:9px;letter-spacing:0.25em;text-transform:uppercase;}
+    .nav-links{display:flex;list-style:none;gap:6px;align-items:center;}
+    .nav-links li a{color:rgba(235,217,184,0.65);text-decoration:none;font-size:10.5px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:8px 14px;border-radius:2px;transition:all 0.3s;}
+    .nav-links li a:hover,.nav-links li a.active{color:var(--gold);}
+    .nav-links li a.btn-nav{border:1px solid var(--copper);color:var(--copper);padding:8px 20px;}
+    .nav-links li a.btn-nav:hover{background:var(--copper);color:var(--void);}
+
+    /* PAGE HERO */
+    .page-hero{min-height:70vh;position:relative;display:flex;align-items:flex-end;padding:0 6% 80px;overflow:hidden;}
+    .page-hero-bg{position:absolute;inset:0;background-image:linear-gradient(to right,rgba(7,7,13,0.95) 40%,rgba(7,7,13,0.5) 100%),url('htmlpictures/Taxila-Sirkap-Gandhara-2.jpg');background-size:cover;background-position:center;}
+    .page-hero-content{position:relative;z-index:2;max-width:640px;}
+    .breadcrumb{display:flex;align-items:center;gap:10px;margin-bottom:24px;}
+    .breadcrumb a{color:var(--copper);text-decoration:none;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;}
+    .breadcrumb span{color:var(--mist);font-size:10px;}
+    .page-hero h1{font-family:var(--font-serif);font-size:clamp(3rem,7vw,6rem);font-weight:300;line-height:1;color:var(--cream);margin-bottom:20px;}
+    .page-hero h1 em{font-style:italic;color:var(--gold);}
+    .page-hero p{font-size:15px;font-weight:300;color:var(--sand);line-height:1.8;max-width:500px;}
+    /* Region tabs */
+    .region-tabs{display:flex;gap:2px;position:relative;z-index:2;margin-top:40px;flex-wrap:wrap;}
+    .rtab{padding:10px 24px;background:rgba(255,255,255,0.05);border:1px solid rgba(191,122,53,0.15);color:var(--mist);font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;text-decoration:none;}
+    .rtab:hover,.rtab.active{background:var(--copper);border-color:var(--copper);color:var(--void);}
+
+    /* REGION SECTIONS */
+    .region-section{padding:100px 6%;border-bottom:1px solid rgba(191,122,53,0.08);}
+    .region-section:nth-child(even){background:var(--stone);}
+    .region-header{display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start;margin-bottom:70px;}
+    .region-num{font-family:var(--font-serif);font-size:7rem;font-weight:300;color:rgba(191,122,53,0.1);line-height:1;margin-bottom:-20px;}
+    .region-heading{font-family:var(--font-serif);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;color:var(--cream);line-height:1;}
+    .region-heading em{font-style:italic;color:var(--gold);}
+    .region-label{font-size:9px;font-weight:600;letter-spacing:0.4em;text-transform:uppercase;color:var(--copper);margin-bottom:16px;}
+    .region-desc{font-size:14px;line-height:2.0;color:var(--mist);font-weight:300;margin-bottom:28px;}
+    .region-facts{display:flex;gap:40px;flex-wrap:wrap;}
+    .fact-item .val{font-family:var(--font-serif);font-size:2rem;font-weight:300;color:var(--gold);line-height:1;}
+    .fact-item .key{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--mist);margin-top:4px;}
+
+    /* Destination cards grid */
+    .dest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+    .dest-card{position:relative;overflow:hidden;border-radius:3px;aspect-ratio:4/3;cursor:pointer;text-decoration:none;}
+    .dest-card-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 0.7s ease;}
+    .dest-card:hover .dest-card-bg{transform:scale(1.08);}
+    .dest-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(7,7,13,0.9) 0%,rgba(7,7,13,0.2) 55%,transparent);transition:opacity 0.4s;}
+    .dest-card:hover::after{opacity:0.75;}
+    .dest-card-info{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:24px 20px;transition:transform 0.4s;}
+    .dest-card:hover .dest-card-info{transform:translateY(-4px);}
+    .dest-card-era{font-size:8px;letter-spacing:0.25em;text-transform:uppercase;color:var(--copper);display:block;margin-bottom:6px;}
+    .dest-card-name{font-family:var(--font-serif);font-size:1.5rem;font-weight:400;color:var(--cream);line-height:1.1;margin-bottom:4px;}
+    .dest-card-sub{font-size:11px;color:var(--mist);font-weight:300;}
+    .dest-card-badge{position:absolute;top:16px;right:16px;z-index:3;padding:4px 12px;background:rgba(191,122,53,0.9);color:var(--void);font-size:7px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;border-radius:20px;}
+
+    /* UNESCO badge */
+    .badge-unesco{background:rgba(212,168,67,0.9);}
+
+    /* Must See strip */
+    .must-see{padding:80px 6%;background:var(--deep);}
+    .ms-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:50px;}
+    .ms-item{padding:36px 24px;background:var(--stone);border-top:2px solid rgba(191,122,53,0.1);transition:all 0.4s;cursor:default;}
+    .ms-item:hover{border-top-color:var(--copper);background:var(--deep);}
+    .ms-icon{font-size:1.6rem;margin-bottom:16px;}
+    .ms-name{font-family:var(--font-serif);font-size:1.1rem;font-weight:400;color:var(--cream);margin-bottom:6px;}
+    .ms-loc{font-size:10px;color:var(--copper);letter-spacing:0.15em;text-transform:uppercase;}
+    .ms-desc{font-size:12px;color:var(--mist);font-weight:300;line-height:1.7;margin-top:10px;}
+
+    /* Seasonal guide */
+    .seasons{padding:100px 6%;background:var(--stone);}
+    .seasons-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:60px;}
+    .season-card{padding:48px 32px;background:var(--deep);border-bottom:3px solid transparent;transition:all 0.4s;}
+    .season-card:hover{border-bottom-color:var(--copper);}
+    .season-icon{font-size:2.5rem;margin-bottom:20px;}
+    .season-name{font-family:var(--font-serif);font-size:1.6rem;font-weight:300;color:var(--cream);margin-bottom:4px;}
+    .season-months{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--copper);margin-bottom:16px;}
+    .season-desc{font-size:13px;line-height:1.9;color:var(--mist);font-weight:300;}
+    .season-best{margin-top:16px;font-size:11px;color:var(--sand);}
+    .season-best strong{color:var(--gold);}
+
+    /* Utility */
+    .section-label{font-size:9px;font-weight:600;letter-spacing:0.4em;text-transform:uppercase;color:var(--copper);margin-bottom:16px;}
+    .section-title{font-family:var(--font-serif);font-size:clamp(2.2rem,4vw,3.4rem);font-weight:300;line-height:1.1;color:var(--cream);}
+    .section-title em{font-style:italic;color:var(--gold);}
+    .divider{width:60px;height:2px;background:linear-gradient(90deg,var(--copper),transparent);margin:32px 0;}
+    .btn-primary{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;background:var(--copper);color:var(--void);font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;border-radius:1px;transition:all 0.4s;}
+    .btn-primary:hover{background:var(--gold);transform:translateY(-2px);}
+    .btn-ghost{display:inline-flex;align-items:center;gap:10px;padding:15px 36px;border:1px solid rgba(235,217,184,0.25);color:var(--parchment);font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;border-radius:1px;transition:all 0.4s;}
+    .btn-ghost:hover{border-color:var(--copper);color:var(--copper);}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease,transform 0.8s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .delay-1{transition-delay:0.1s;} .delay-2{transition-delay:0.2s;} .delay-3{transition-delay:0.3s;}
+
+    /* FOOTER */
+    footer{background:var(--void);padding:80px 6% 32px;border-top:1px solid rgba(191,122,53,0.12);}
+    .footer-top{display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px;}
+    .footer-brand-col h3{font-family:var(--font-serif);font-size:1.8rem;font-weight:400;color:var(--cream);margin-bottom:8px;}
+    .footer-brand-col .tagline{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--copper);margin-bottom:16px;}
+    .footer-brand-col p{font-size:13px;line-height:1.9;color:var(--mist);font-weight:300;max-width:270px;}
+    .footer-socials{display:flex;gap:12px;margin-top:24px;}
+    .footer-socials a{width:38px;height:38px;border:1px solid rgba(191,122,53,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--mist);font-size:14px;text-decoration:none;transition:all 0.3s;}
+    .footer-socials a:hover{border-color:var(--copper);color:var(--copper);}
+    .footer-col h4{font-size:9px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--copper);margin-bottom:22px;}
+    .footer-col ul{list-style:none;}
+    .footer-col ul li{margin-bottom:10px;}
+    .footer-col ul li a{color:var(--mist);text-decoration:none;font-size:13px;font-weight:300;transition:color 0.3s;display:flex;align-items:center;gap:8px;}
+    .footer-col ul li a:hover{color:var(--gold);}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.05);padding-top:28px;display:flex;justify-content:space-between;align-items:center;}
+    .footer-bottom p{font-size:11px;color:rgba(122,122,144,0.5);font-weight:300;}
+    .footer-bottom a{color:var(--copper);text-decoration:none;}
+
+    @media(max-width:1000px){.dest-grid{grid-template-columns:1fr 1fr;}.ms-grid{grid-template-columns:1fr 1fr 1fr;}.seasons-grid{grid-template-columns:1fr 1fr;}.footer-top{grid-template-columns:1fr 1fr;}}
+    @media(max-width:700px){.nav-links{display:none;}.region-header{grid-template-columns:1fr;gap:20px;}.dest-grid{grid-template-columns:1fr 1fr;}.ms-grid{grid-template-columns:1fr 1fr;}.seasons-grid{grid-template-columns:1fr;}.footer-top{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;gap:12px;}}
+    @media(max-width:480px){.dest-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-brand">
+      <img src="htmlpictures/Logo1.png" alt="Uncharted Travels">
+      <div class="nav-brand-text">
+        <span class="name">Uncharted Travels</span>
+        <span class="sub">Pakistan Heritage</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="destinations.html" class="active">Destinations</a></li>
+      <li><a href="historical-sites.html">Historical Sites</a></li>
+      <li><a href="cultural-insights.html">Culture</a></li>
+      <li><a href="travel-guide.html">Travel Guide</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="btn-nav">Book Now</a></li>
+    </ul>
+    <button id="hamburger" aria-label="Toggle navigation" aria-expanded="false"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero" class="page-hero hero-padded">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-content">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span class="breadcrumb-current">Destinations</span>
+      </div>
+      <h1>All of<br><em>Pakistan</em><br>Awaits</h1>
+      <p>Five provinces. Six UNESCO World Heritage Sites. Seven thousand years of human civilisation. One country unlike anywhere else on Earth.</p>
+      <div class="region-tabs">
+        <a href="#punjab" class="rtab active">Punjab</a>
+        <a href="#sindh" class="rtab">Sindh</a>
+        <a href="#kpk" class="rtab">Khyber Pakhtunkhwa</a>
+        <a href="#balochistan" class="rtab">Balochistan</a>
+        <a href="#gb" class="rtab">Gilgit-Baltistan</a>
+        <a href="#azad-kashmir" class="rtab">Azad Kashmir</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUNJAB -->
+  <section class="region-section" id="punjab">
+    <div class="region-header reveal">
+      <div>
+        <div class="region-num">01</div>
+        <p class="region-label">Province</p>
+        <h2 class="region-heading">The Heart<br>of <em>Punjab</em></h2>
+      </div>
+      <div>
+        <p class="region-desc">The cultural and historical capital of Pakistan. Home to the Mughal Empire's greatest architectural legacy — Lahore Fort, Shalimar Gardens, Badshahi Mosque — and the ancient Buddhist university city of Taxila, the Indo-Greek ruins of Harappa, and the warrior fortress of Rohtas. Punjab holds three UNESCO World Heritage Sites alone.</p>
+        <div class="region-facts">
+          <div class="fact-item"><div class="val">3</div><div class="key">UNESCO Sites</div></div>
+          <div class="fact-item"><div class="val">14</div><div class="key">Major Sites</div></div>
+          <div class="fact-item"><div class="val">2500 BCE</div><div class="key">Oldest Site</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="dest-grid reveal">
+      <a href="historical-sites.html#taxila" class="dest-card">
+        <div class="dest-card-bg bg-taxila"></div>
+        <span class="dest-card-badge badge-unesco">UNESCO</span>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Buddhist · 600 BCE – 500 CE</span>
+          <div class="dest-card-name">Taxila</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Rawalpindi District</div>
+        </div>
+      </a>
+      <a href="historical-sites.html#lahore" class="dest-card">
+        <div class="dest-card-bg bg-lahore"></div>
+        <span class="dest-card-badge badge-unesco">UNESCO</span>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Mughal · 1566 CE</span>
+          <div class="dest-card-name">Lahore Fort & Walled City</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Lahore</div>
+        </div>
+      </a>
+      <a href="historical-sites.html#rohtas" class="dest-card">
+        <div class="dest-card-bg bg-rohtas"></div>
+        <span class="dest-card-badge badge-unesco">UNESCO</span>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Suri · 1541 CE</span>
+          <div class="dest-card-name">Rohtas Fort</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Jhelum District</div>
+        </div>
+      </a>
+      <a href="historical-sites.html#harappa" class="dest-card">
+        <div class="dest-card-bg bg-harappa"></div>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Indus Valley · 2600 BCE</span>
+          <div class="dest-card-name">Harappa</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Sahiwal District</div>
+        </div>
+      </a>
+      <a href="historical-sites.html#multan" class="dest-card">
+        <div class="dest-card-bg bg-derawar"></div>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Medieval Islamic · 700 CE</span>
+          <div class="dest-card-name">Multan — City of Saints</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>South Punjab</div>
+        </div>
+      </a>
+      <a href="historical-sites.html#derawar" class="dest-card">
+        <div class="dest-card-bg bg-sirkap"></div>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Abbasi · 9th Century</span>
+          <div class="dest-card-name">Derawar Fort</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Cholistan Desert</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- SINDH -->
+  <section class="region-section" id="sindh">
+    <div class="region-header reveal">
+      <div>
+        <div class="region-num">02</div>
+        <p class="region-label">Province</p>
+        <h2 class="region-heading">Ancient<br><em>Sindh</em></h2>
+      </div>
+      <div>
+        <p class="region-desc">Sindh cradles the oldest chapter of Pakistan's story. Mohenjo-daro, built in 2500 BCE with a sewage system more advanced than contemporary Rome, sits here. So does the vast Makli Necropolis — one of the world's largest Islamic burial grounds — and the 17th-century port city of Thatta. Sindh is where human civilisation in this subcontinent began.</p>
+        <div class="region-facts">
+          <div class="fact-item"><div class="val">2</div><div class="key">UNESCO Sites</div></div>
+          <div class="fact-item"><div class="val">10</div><div class="key">Major Sites</div></div>
+          <div class="fact-item"><div class="val">2500 BCE</div><div class="key">Oldest Site</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="dest-grid reveal">
+      <a href="historical-sites.html#mohenjo" class="dest-card">
+        <div class="dest-card-bg bg-mohenjo"></div>
+        <span class="dest-card-badge badge-unesco">UNESCO</span>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Indus Valley · 2500 BCE</span>
+          <div class="dest-card-name">Mohenjo-daro</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Larkana District</div>
+        </div>
+      </a>
+      <a href="historical-sites.html#makli" class="dest-card">
+        <div class="dest-card-bg bg-makli"></div>
+        <span class="dest-card-badge badge-unesco">UNESCO</span>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Talpur · 14th–18th CE</span>
+          <div class="dest-card-name">Makli Necropolis</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Thatta District</div>
+        </div>
+      </a>
+      <a href="historical-sites.html#thatta" class="dest-card">
+        <div class="dest-card-bg bg-thatta"></div>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Mughal · 1647 CE</span>
+          <div class="dest-card-name">Shahjahan Mosque, Thatta</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Thatta</div>
+        </div>
+      </a>
+      <a href="historical-sites.html#karachi" class="dest-card">
+        <div class="dest-card-bg bg-karachi"></div>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Colonial & Modern</span>
+          <div class="dest-card-name">Karachi Heritage Trail</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Karachi</div>
+        </div>
+      </a>
+      <a href="historical-sites.html#ranikot" class="dest-card">
+        <div class="dest-card-bg bg-ranikot"></div>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Medieval · 9th Century</span>
+          <div class="dest-card-name">Ranikot Fort</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Jamshoro District</div>
+        </div>
+      </a>
+      <a href="historical-sites.html#kot-diji" class="dest-card">
+        <div class="dest-card-bg bg-kotdiji"></div>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Pre-Harappan · 2800 BCE</span>
+          <div class="dest-card-name">Kot Diji Fort</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Khairpur District</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- KPK -->
+  <section class="region-section" id="kpk">
+    <div class="region-header reveal">
+      <div>
+        <div class="region-num">03</div>
+        <p class="region-label">Province</p>
+        <h2 class="region-heading">Frontier<br><em>Khyber</em></h2>
+      </div>
+      <div>
+        <p class="region-desc">The crossroads of civilisations. KPK was the heartland of Gandhara — where Greek sculpture merged with Buddhist spirituality to create one of antiquity's most remarkable art forms. Today Swat, Peshawar, Mardan, and Chitral preserve that legacy alongside living traditions: the Kalash people, whose culture predates Islam in the region, still celebrate ancient spring festivals in their highland valleys.</p>
+        <div class="region-facts">
+          <div class="fact-item"><div class="val">1</div><div class="key">UNESCO Site</div></div>
+          <div class="fact-item"><div class="val">12</div><div class="key">Major Sites</div></div>
+          <div class="fact-item"><div class="val">326 BCE</div><div class="key">Alexander's Visit</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="dest-grid reveal">
+      <a href="historical-sites.html#takht" class="dest-card">
+        <div class="dest-card-bg bg-takhtibahi"></div>
+        <span class="dest-card-badge badge-unesco">UNESCO</span>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Gandhara · 1st–7th CE</span>
+          <div class="dest-card-name">Takht-i-Bahi</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Mardan District</div>
+        </div>
+      </a>
+      <a href="historical-sites.html#peshawar" class="dest-card">
+        <div class="dest-card-bg bg-peshawar"></div>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Ancient · 500 BCE onward</span>
+          <div class="dest-card-name">Peshawar Old City</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Peshawar</div>
+        </div>
+      </a>
+      <a href="historical-sites.html#swat" class="dest-card">
+        <div class="dest-card-bg bg-swat"></div>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Gandhara · 3rd–7th CE</span>
+          <div class="dest-card-name">Swat Valley & Butkara</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Swat District</div>
+        </div>
+      </a>
+      <a href="historical-sites.html#chitral" class="dest-card">
+        <div class="dest-card-bg bg-chitral"></div>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Pre-Islamic · Ancient</span>
+          <div class="dest-card-name">Chitral & Kalash Valleys</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Chitral District</div>
+        </div>
+      </a>
+      <a href="historical-sites.html#fort-bala" class="dest-card">
+        <div class="dest-card-bg bg-balahisar"></div>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Mughal · 1526 CE</span>
+          <div class="dest-card-name">Bala Hisar Fort</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Peshawar</div>
+        </div>
+      </a>
+      <a href="historical-sites.html#hund" class="dest-card">
+        <div class="dest-card-bg bg-hund"></div>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Hindu Shahi · 870 CE</span>
+          <div class="dest-card-name">Hund — Ancient Capital</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Swabi District</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- BALOCHISTAN -->
+  <section class="region-section" id="balochistan">
+    <div class="region-header reveal">
+      <div>
+        <div class="region-num">04</div>
+        <p class="region-label">Province</p>
+        <h2 class="region-heading">Vast<br><em>Balochistan</em></h2>
+      </div>
+      <div>
+        <p class="region-desc">Pakistan's largest and least-visited province holds some of its most extraordinary secrets. Mehrgarh, near Quetta, is one of the earliest known farming settlements on Earth — older than the pyramids, older than Mesopotamia. The Bolān Pass has been the gateway through which armies and traders have entered the subcontinent for five millennia. Balochistan rewards the patient, adventurous traveller above all others.</p>
+        <div class="region-facts">
+          <div class="fact-item"><div class="val">0</div><div class="key">UNESCO Sites*</div></div>
+          <div class="fact-item"><div class="val">8</div><div class="key">Major Sites</div></div>
+          <div class="fact-item"><div class="val">7000 BCE</div><div class="key">Mehrgarh</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="dest-grid reveal">
+      <a href="historical-sites.html#mehrgarh" class="dest-card">
+        <div class="dest-card-bg bg-mehrgarh"></div>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Neolithic · 7000 BCE</span>
+          <div class="dest-card-name">Mehrgarh</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Kachhi Plain</div>
+        </div>
+      </a>
+      <a href="historical-sites.html#quetta" class="dest-card">
+        <div class="dest-card-bg bg-quetta"></div>
+        <div class="dest-card-info">
+          <span class="dest-card-era">British · 1877 CE</span>
+          <div class="dest-card-name">Quetta & Bolan Pass</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Quetta Division</div>
+        </div>
+      </a>
+      <a href="historical-sites.html#ziarat" class="dest-card">
+        <div class="dest-card-bg bg-ziarat"></div>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Colonial · 19th Century</span>
+          <div class="dest-card-name">Ziarat Residency</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Ziarat District</div>
+        </div>
+      </a>
+      <a href="historical-sites.html#gwadar" class="dest-card">
+        <div class="dest-card-bg bg-gwadar"></div>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Ancient Port City</span>
+          <div class="dest-card-name">Gwadar & Makran Coast</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Gwadar District</div>
+        </div>
+      </a>
+      <a href="historical-sites.html#nindowari" class="dest-card">
+        <div class="dest-card-bg bg-nindowari"></div>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Bronze Age · 2500 BCE</span>
+          <div class="dest-card-name">Nindowari</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Khuzdar District</div>
+        </div>
+      </a>
+      <a href="historical-sites.html#hinglaj" class="dest-card">
+        <div class="dest-card-bg bg-hinglaj"></div>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Ancient Hindu Site</span>
+          <div class="dest-card-name">Hinglaj Mata Temple</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Lasbela District</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- GILGIT-BALTISTAN -->
+  <section class="region-section" id="gb">
+    <div class="region-header reveal">
+      <div>
+        <div class="region-num">05</div>
+        <p class="region-label">Territory</p>
+        <h2 class="region-heading">Gilgit-<br><em>Baltistan</em></h2>
+      </div>
+      <div>
+        <p class="region-desc">Where the Karakoram, Hindu Kush, and Himalayan mountain ranges converge, Gilgit-Baltistan holds not just the world's most dramatic scenery but some of its oldest Silk Road trading posts and Buddhist rock carvings. The ancient forts of Hunza — Baltit and Altit — overlook valleys that Persian, Chinese, and Central Asian merchants traversed for over a thousand years.</p>
+        <div class="region-facts">
+          <div class="fact-item"><div class="val">0</div><div class="key">UNESCO Sites*</div></div>
+          <div class="fact-item"><div class="val">8</div><div class="key">Major Sites</div></div>
+          <div class="fact-item"><div class="val">1000 CE</div><div class="key">Baltit Fort</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="dest-grid reveal">
+      <a href="historical-sites.html#baltit" class="dest-card">
+        <div class="dest-card-bg bg-baltit"></div>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Silk Road · 700–1100 CE</span>
+          <div class="dest-card-name">Baltit Fort, Hunza</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Karimabad, Hunza</div>
+        </div>
+      </a>
+      <a href="historical-sites.html#altit" class="dest-card">
+        <div class="dest-card-bg bg-altit"></div>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Ancient · Pre-900 CE</span>
+          <div class="dest-card-name">Altit Fort</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Altit Village, Hunza</div>
+        </div>
+      </a>
+      <a href="historical-sites.html#chilas" class="dest-card">
+        <div class="dest-card-bg bg-chilas"></div>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Rock Art · 5000 BCE+</span>
+          <div class="dest-card-name">Chilas Rock Carvings</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Diamer District</div>
+        </div>
+      </a>
+      <a href="historical-sites.html#khaplu" class="dest-card">
+        <div class="dest-card-bg bg-khaplu"></div>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Yabgo Dynasty · 19th CE</span>
+          <div class="dest-card-name">Khaplu Palace</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Ghanche District</div>
+        </div>
+      </a>
+      <a href="historical-sites.html#skardu" class="dest-card">
+        <div class="dest-card-bg bg-skardu"></div>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Tibetan–Mughul · 17th CE</span>
+          <div class="dest-card-name">Skardu Fort (Kharpocho)</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Skardu</div>
+        </div>
+      </a>
+      <a href="historical-sites.html#kkh" class="dest-card">
+        <div class="dest-card-bg bg-kkh"></div>
+        <div class="dest-card-info">
+          <span class="dest-card-era">Silk Road Modern · 1978 CE</span>
+          <div class="dest-card-name">Karakoram Highway</div>
+          <div class="dest-card-sub"><i class="fas fa-map-marker-alt pin-icon"></i>Rawalpindi → Khunjerab</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- MUST SEE -->
+  <section class="must-see">
+    <div class="reveal">
+      <p class="section-label">Curator's Selection</p>
+      <h2 class="section-title">Absolute<br><em>Must-Sees</em></h2>
+    </div>
+    <div class="ms-grid reveal">
+      <div class="ms-item">
+        <div class="ms-icon">🏛️</div>
+        <div class="ms-name">Badshahi Mosque</div>
+        <div class="ms-loc">Lahore · Punjab</div>
+        <div class="ms-desc">The world's largest mosque when completed in 1673. Aurangzeb's most ambitious architectural statement — pure Mughal power made manifest in red sandstone and white marble.</div>
+      </div>
+      <div class="ms-item">
+        <div class="ms-icon">🏺</div>
+        <div class="ms-name">Taxila Museum</div>
+        <div class="ms-loc">Taxila · Punjab</div>
+        <div class="ms-desc">The finest collection of Gandhara sculpture on Earth. Fasting Buddhas, stucco reliefs, and gold jewellery from an empire that fused Greek and Buddhist art 2,000 years ago.</div>
+      </div>
+      <div class="ms-item">
+        <div class="ms-icon">🌊</div>
+        <div class="ms-name">Mohenjo-daro</div>
+        <div class="ms-loc">Larkana · Sindh</div>
+        <div class="ms-desc">The Great Bath. The world's first urban planning. Streets laid on a grid 2,500 years before Rome. Walking through Mohenjo-daro is the closest you can come to time travel.</div>
+      </div>
+      <div class="ms-item">
+        <div class="ms-icon">🔱</div>
+        <div class="ms-name">Wazir Khan Mosque</div>
+        <div class="ms-loc">Lahore · Punjab</div>
+        <div class="ms-desc">The most elaborately decorated mosque in Pakistan. Every inch of tile work is a lesson in Mughal artistry — floral, calligraphic, geometric, all alive with colour after 400 years.</div>
+      </div>
+      <div class="ms-item">
+        <div class="ms-icon">🏔️</div>
+        <div class="ms-name">Baltit Fort</div>
+        <div class="ms-loc">Hunza · GB</div>
+        <div class="ms-desc">Perched above Hunza Valley with Rakaposhi behind it. A thousand-year-old royal residence that controlled the Silk Road passes between China and the Indian subcontinent.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHEN TO VISIT -->
+  <section class="seasons" id="when-to-visit">
+    <div class="reveal">
+      <p class="section-label">When to Visit</p>
+      <h2 class="section-title">Seasons &<br><em>Best Times</em></h2>
+    </div>
+    <div class="seasons-grid reveal">
+      <div class="season-card">
+        <div class="season-icon">🌸</div>
+        <div class="season-name">Spring</div>
+        <div class="season-months">March — May</div>
+        <p class="season-desc">Ideal for Lahore, Taxila, Peshawar and KPK. Blooming orchards in Hunza. Comfortable temperatures throughout Punjab and Sindh before the summer heat builds.</p>
+        <p class="season-best"><strong>Best for:</strong> Punjab Heritage Trail, KPK Gandhara Tour</p>
+      </div>
+      <div class="season-card">
+        <div class="season-icon">☀️</div>
+        <div class="season-name">Summer</div>
+        <div class="season-months">June — August</div>
+        <p class="season-desc">Escape the plains and head to Gilgit-Baltistan and KPK highlands. Skardu, Hunza, Swat, and Chitral are at their most spectacular. Plains sites (Lahore, Sindh) are best avoided.</p>
+        <p class="season-best"><strong>Best for:</strong> Gilgit-Baltistan, KKH, Chitral</p>
+      </div>
+      <div class="season-card">
+        <div class="season-icon">🍂</div>
+        <div class="season-name">Autumn</div>
+        <div class="season-months">September — November</div>
+        <p class="season-desc">The single best season for all-Pakistan travel. Golden light, cooler temperatures everywhere, harvest festivals in Kalash valleys. Mohenjo-daro, Makli, and Lahore are outstanding.</p>
+        <p class="season-best"><strong>Best for:</strong> All regions · Our recommended season</p>
+      </div>
+      <div class="season-card">
+        <div class="season-icon">❄️</div>
+        <div class="season-name">Winter</div>
+        <div class="season-months">December — February</div>
+        <p class="season-desc">Perfect for Sindh (Mohenjo-daro, Makli) and Balochistan (Mehrgarh, Quetta). Lahore in winter mist is magical. Northern areas are snow-closed but uniquely beautiful.</p>
+        <p class="season-best"><strong>Best for:</strong> Sindh Heritage, Balochistan, Lahore</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <h3>Uncharted Travels</h3>
+        <p class="tagline">Pakistan Heritage & Land Travel</p>
+        <p>Pakistan's most comprehensive heritage travel company — covering 7,000 years of civilisation across five provinces.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-chevron-right icon-xs"></i>Home</a></li>
+          <li><a href="destinations.html"><i class="fas fa-chevron-right icon-xs"></i>Destinations</a></li>
+          <li><a href="historical-sites.html"><i class="fas fa-chevron-right icon-xs"></i>Historical Sites</a></li>
+          <li><a href="cultural-insights.html"><i class="fas fa-chevron-right icon-xs"></i>Cultural Insights</a></li>
+          <li><a href="travel-guide.html"><i class="fas fa-chevron-right icon-xs"></i>Travel Guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Regions</h4>
+        <ul>
+          <li><a href="#punjab"><i class="fas fa-chevron-right icon-xs"></i>Punjab</a></li>
+          <li><a href="#sindh"><i class="fas fa-chevron-right icon-xs"></i>Sindh</a></li>
+          <li><a href="#kpk"><i class="fas fa-chevron-right icon-xs"></i>Khyber Pakhtunkhwa</a></li>
+          <li><a href="#balochistan"><i class="fas fa-chevron-right icon-xs"></i>Balochistan</a></li>
+          <li><a href="#gb"><i class="fas fa-chevron-right icon-xs"></i>Gilgit-Baltistan</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@unchartedtravels.pk"><i class="fas fa-envelope icon-sm"></i>hello@unchartedtravels.pk</a></li>
+          <li><a href="contact.html"><i class="fas fa-calendar icon-sm"></i>Book a Tour</a></li>
+          <li><a href="about.html"><i class="fas fa-users icon-sm"></i>About Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Uncharted Travels. All rights reserved.</p>
+      <p>*Nomination pending UNESCO review</p>
+    </div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'),i*70); });
+    },{threshold:0.07});
+    reveals.forEach(el=>obs.observe(el));
+
+    // Region tab scroll highlight
+    document.querySelectorAll('.rtab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.rtab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
+  <button id="scrollTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+  <script src="js/main.js"></script>
+  <script>
+    // Region tab active state
+    document.querySelectorAll('.rtab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.rtab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

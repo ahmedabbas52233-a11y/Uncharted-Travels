@@ -1,0 +1,146 @@
+/* destinations.html — all destination card backgrounds */
+
+/* Page hero */
+.page-hero-bg {
+  background-image:
+    linear-gradient(to right,rgba(7,7,13,0.95) 40%,rgba(7,7,13,0.5) 100%),
+    url('../htmlpictures/Taxila-Sirkap-Gandhara-2.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* ── PUNJAB ── */
+.bg-taxila    { background-image: url('../htmlpictures/Jaulian-Monastery.png'); background-size:cover; background-position:center; }
+.bg-lahore    { background-image: url('../htmlpictures/Dharmarajika_stupa.jpg'); background-size:cover; background-position:center; }
+.bg-rohtas    { background-image: url('../htmlpictures/Sirkap 33.jpg'); background-size:cover; background-position:center; }
+.bg-harappa   { background-image: url('../htmlpictures/Ruins of the Ancient buildings, Taxila.jpg'); background-size:cover; background-position:center; }
+.bg-multan    {
+  background-image:
+    linear-gradient(135deg,rgba(42,26,10,0.5),rgba(74,44,16,0.6)),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Shah_Rukn_e_Alam_Multan.jpg/1280px-Shah_Rukn_e_Alam_Multan.jpg');
+  background-size:cover; background-position:center;
+}
+.bg-derawar   { background-image: url('../htmlpictures/Taxila-City-History_2.jpg'); background-size:cover; background-position:center; }
+.bg-sirkap    { background-image: url('../htmlpictures/Sirkap the brain chamber.jpeg'); background-size:cover; background-position:center; }
+
+/* ── SINDH ── */
+.bg-mohenjo   {
+  background-image:
+    linear-gradient(135deg,rgba(42,16,8,0.55),rgba(92,40,16,0.65)),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Mohenjo-daro%2C_Sindh%2C_2013.JPG/1280px-Mohenjo-daro%2C_Sindh%2C_2013.JPG');
+  background-size:cover; background-position:center;
+}
+.bg-makli     {
+  background-image:
+    linear-gradient(135deg,rgba(10,21,32,0.6),rgba(32,48,74,0.7)),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Makli_Necropolis_%28site%29.jpg/1280px-Makli_Necropolis_%28site%29.jpg');
+  background-size:cover; background-position:center;
+}
+.bg-thatta    {
+  background-image:
+    linear-gradient(135deg,rgba(26,10,16,0.55),rgba(58,16,32,0.65)),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Shah_Jahan_Mosque_Thatta.jpg/1280px-Shah_Jahan_Mosque_Thatta.jpg');
+  background-size:cover; background-position:center;
+}
+.bg-karachi   {
+  background-image:
+    linear-gradient(135deg,rgba(5,10,24,0.6),rgba(14,24,48,0.7)),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Karachi_frere_hall.jpg/1280px-Karachi_frere_hall.jpg');
+  background-size:cover; background-position:center;
+}
+.bg-ranikot   {
+  background-image:
+    linear-gradient(135deg,rgba(26,18,5,0.55),rgba(48,32,16,0.65)),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Ranikot_fort.jpg/1280px-Ranikot_fort.jpg');
+  background-size:cover; background-position:center;
+}
+.bg-kotdiji   {
+  background-image:
+    linear-gradient(135deg,rgba(26,21,8,0.55),rgba(48,42,16,0.65)),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Kot_Diji_Fort.jpg/1280px-Kot_Diji_Fort.jpg');
+  background-size:cover; background-position:center;
+}
+
+/* ── KPK ── */
+.bg-takhtibahi { background-image: url('../htmlpictures/Ruins of the Ancient buildings 1, Taxila.jpg'); background-size:cover; background-position:center; }
+.bg-peshawar  {
+  background-image:
+    linear-gradient(135deg,rgba(10,10,24,0.6),rgba(26,26,48,0.65)),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Mahabat_Khan_Mosque_Peshawar.jpg/1280px-Mahabat_Khan_Mosque_Peshawar.jpg');
+  background-size:cover; background-position:center;
+}
+.bg-swat      {
+  background-image:
+    linear-gradient(135deg,rgba(7,20,8,0.55),rgba(15,40,16,0.65)),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Swat_valley.jpg/1280px-Swat_valley.jpg');
+  background-size:cover; background-position:center;
+}
+.bg-chitral   {
+  background-image:
+    linear-gradient(135deg,rgba(10,8,16,0.55),rgba(26,16,32,0.65)),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Kalash_people_of_Chitral.jpg/1280px-Kalash_people_of_Chitral.jpg');
+  background-size:cover; background-position:center;
+}
+.bg-balahisar {
+  background-image:
+    linear-gradient(135deg,rgba(18,16,10,0.55),rgba(36,32,15,0.65)),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Bala_Hisar_Fort%2C_Peshawar.jpg/1280px-Bala_Hisar_Fort%2C_Peshawar.jpg');
+  background-size:cover; background-position:center;
+}
+.bg-hund      { background: linear-gradient(135deg,#100A0A,#201010); }
+
+/* ── BALOCHISTAN ── */
+.bg-mehrgarh  {
+  background-image:
+    linear-gradient(135deg,rgba(26,10,5,0.55),rgba(58,26,8,0.65)),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Mehrgarh%2C_Balochistan.jpg/1280px-Mehrgarh%2C_Balochistan.jpg');
+  background-size:cover; background-position:center;
+}
+.bg-quetta    {
+  background-image:
+    linear-gradient(135deg,rgba(10,10,16,0.55),rgba(26,26,32,0.65)),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Quetta.jpg/1280px-Quetta.jpg');
+  background-size:cover; background-position:center;
+}
+.bg-ziarat    { background: linear-gradient(135deg,#060A06,#0E180E); }
+.bg-gwadar    { background: linear-gradient(135deg,#050810,#0A1020); }
+.bg-nindowari { background: linear-gradient(135deg,#150A05,#2A1408); }
+.bg-hinglaj   { background: linear-gradient(135deg,#120808,#241010); }
+
+/* ── GILGIT-BALTISTAN ── */
+.bg-baltit    {
+  background-image:
+    linear-gradient(135deg,rgba(8,10,20,0.55),rgba(20,30,54,0.65)),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Baltit_fort.jpg/1280px-Baltit_fort.jpg');
+  background-size:cover; background-position:center;
+}
+.bg-altit     {
+  background-image:
+    linear-gradient(135deg,rgba(6,8,14,0.55),rgba(16,20,30,0.65)),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Altit_Fort.jpg/1280px-Altit_Fort.jpg');
+  background-size:cover; background-position:center;
+}
+.bg-chilas    {
+  background-image:
+    linear-gradient(135deg,rgba(10,10,6,0.55),rgba(26,26,14,0.65)),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Chilas_rock_carvings.jpg/1280px-Chilas_rock_carvings.jpg');
+  background-size:cover; background-position:center;
+}
+.bg-khaplu    {
+  background-image:
+    linear-gradient(135deg,rgba(12,10,14,0.55),rgba(26,22,32,0.65)),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Khaplu_Palace.jpg/1280px-Khaplu_Palace.jpg');
+  background-size:cover; background-position:center;
+}
+.bg-skardu    {
+  background-image:
+    linear-gradient(135deg,rgba(8,14,20,0.55),rgba(16,24,42,0.65)),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Kharpocho_Fort%2C_Skardu.jpg/1280px-Kharpocho_Fort%2C_Skardu.jpg');
+  background-size:cover; background-position:center;
+}
+.bg-kkh       {
+  background-image:
+    linear-gradient(135deg,rgba(5,6,10,0.55),rgba(10,12,20,0.65)),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/KarakoramHighway.jpg/1280px-KarakoramHighway.jpg');
+  background-size:cover; background-position:center;
+}

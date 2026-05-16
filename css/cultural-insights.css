@@ -1,0 +1,35 @@
+/* cultural-insights.html — page backgrounds */
+
+.hero-bg {
+  background-image:
+    linear-gradient(to top,rgba(7,7,13,0.96) 0%,rgba(7,7,13,0.4) 60%,rgba(7,7,13,0.6) 100%),
+    url('../htmlpictures/Taxila-City-History_2.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Deep-dive section visuals */
+.bg-gandhara-art {
+  background: linear-gradient(135deg,#0A0A18,#1A1A30);
+}
+.bg-sufi {
+  background: linear-gradient(135deg,#150805,#2A1008);
+}
+.bg-mughal-arch {
+  background: linear-gradient(135deg,#1A0A05,#301508);
+}
+
+/* Festival map-pin icon — size 8px */
+.pin-icon-sm {
+  color: var(--copper);
+  font-size: 8px;
+  margin-right: 4px;
+}
+
+.bg-peshawar-fest {
+  background-image:
+    linear-gradient(135deg,rgba(10,10,24,0.6),rgba(26,26,48,0.65)),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Mahabat_Khan_Mosque_Peshawar.jpg/1280px-Mahabat_Khan_Mosque_Peshawar.jpg');
+  background-size: cover;
+  background-position: center;
+}

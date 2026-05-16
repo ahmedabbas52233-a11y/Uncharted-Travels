@@ -1,0 +1,254 @@
+/* ═══════════════════════════════════════════════
+   UNCHARTED TRAVELS — SHARED COMPONENT STYLES
+   Hamburger menu · Mobile nav · Scroll-to-top
+═══════════════════════════════════════════════ */
+
+/* ── HAMBURGER BUTTON ── */
+#hamburger {
+  display: none;
+  background: none;
+  border: 1px solid rgba(191,122,53,0.3);
+  cursor: pointer;
+  color: var(--cream, #F7F0E0);
+  font-size: 18px;
+  width: 40px;
+  height: 40px;
+  border-radius: 2px;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+#hamburger:hover {
+  border-color: var(--copper, #BF7A35);
+  color: var(--copper, #BF7A35);
+}
+
+/* ── MOBILE NAV ── */
+@media (max-width: 800px) {
+  #hamburger {
+    display: flex;
+  }
+
+  /* hide the ul by default on mobile */
+  .nav-links {
+    display: none !important;
+    position: fixed;
+    top: 68px;
+    left: 0;
+    right: 0;
+    background: rgba(7, 7, 13, 0.99);
+    flex-direction: column !important;
+    gap: 2px !important;
+    padding: 16px 0 24px;
+    border-bottom: 1px solid rgba(191,122,53,0.2);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    z-index: 499;
+    animation: slideDown 0.3s ease;
+  }
+
+  /* show when .open is toggled */
+  .nav-links.open {
+    display: flex !important;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links li a {
+    display: block;
+    padding: 14px 6% !important;
+    border-bottom: 1px solid rgba(191,122,53,0.06);
+    font-size: 12px !important;
+    letter-spacing: 0.15em;
+  }
+
+  .nav-links li a.btn-nav {
+    margin: 12px 6%;
+    width: calc(100% - 12%);
+    text-align: center;
+    border: 1px solid var(--copper, #BF7A35) !important;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* ── SCROLL-TO-TOP BUTTON ── */
+#scrollTop {
+  position: fixed;
+  bottom: 36px;
+  right: 36px;
+  width: 48px;
+  height: 48px;
+  background: var(--copper, #BF7A35);
+  color: var(--void, #07070D);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 400;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+#scrollTop.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#scrollTop:hover {
+  background: var(--gold, #D4A843);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(191,122,53,0.3);
+}
+
+@media (max-width: 500px) {
+  #scrollTop {
+    bottom: 20px;
+    right: 20px;
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* ═══════════════════════════════════════
+   INLINE-STYLE REPLACEMENTS
+   All former style="" attributes now live here
+═══════════════════════════════════════ */
+
+/* Footer icon helpers (replaces style="font-size:8px;color:var(--copper);") */
+.icon-xs  { font-size: 8px;  color: var(--copper); }
+.icon-sm  { font-size: 9px;  color: var(--copper); }
+.icon-md  { font-size: 10px; color: var(--copper); }
+.icon-loc { font-size: 9px;  color: var(--copper); margin-right: 5px; }
+
+/* Map-marker pin used in site cards */
+.pin-icon { color: var(--copper); margin-right: 5px; font-size: 9px; }
+
+/* Section header centred blocks */
+.section-center {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.section-center-full { text-align: center; }
+
+/* Intro body copy on about/travel pages */
+.intro-copy {
+  font-size: 14px;
+  line-height: 2.0;
+  color: var(--mist);
+  font-weight: 300;
+  max-width: 740px;
+  margin-bottom: 40px;
+}
+.why-body {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--mist);
+  font-weight: 300;
+  margin-top: 20px;
+}
+
+/* Hero breadcrumb highlight */
+.breadcrumb-current { color: var(--gold); }
+
+/* Page hero section top padding (clears fixed nav) */
+.hero-padded { padding-top: 80px; }
+
+/* Team card placeholder backgrounds */
+.team-bg-1 { background: linear-gradient(135deg,#1A0E06,#3A2010); }
+.team-bg-2 { background: linear-gradient(135deg,#06101A,#102030); }
+.team-bg-3 { background: linear-gradient(135deg,#080814,#121224); }
+.team-bg-4 { background: linear-gradient(135deg,#070E07,#101E10); }
+
+/* Golden milestone dot */
+.ml-dot-gold { background: var(--gold) !important; }
+
+/* Cover image utility */
+.img-cover { width:100%; height:100%; object-fit:cover; }
+
+/* Gold text inline */
+.text-gold { color: var(--gold); }
+
+/* Newsletter success message text */
+.nl-success {
+  color: var(--gold);
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  padding: 20px 0;
+}
+
+/* Safety section intro text */
+.safety-intro {
+  font-size: 14px;
+  line-height: 2.0;
+  color: var(--sand);
+  font-weight: 300;
+  max-width: 740px;
+  margin-bottom: 40px;
+}
+
+/* Promise section secondary text */
+.promise-sub {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--mist);
+  margin-top: 16px;
+}
+
+/* Firefox fix: min-height:auto not supported — use 0 */
+@media (max-width: 1000px) {
+  .about-hero { min-height: 0; }
+}
+
+/* Background-image cards that cannot use external CSS (dynamic) */
+/* Use data-bg JS approach — handled in main.js */
+
+/* Historical sites image frame backgrounds */
+.bg-deep  { background: var(--deep); }
+.bg-slate { background: var(--slate); }
+
+/* Scrollable table wrapper */
+.table-scroll { overflow-x: auto; }
+
+/* Festival map-marker icon */
+.fest-pin { color: var(--copper); font-size: 8px; margin-right: 4px; }
+
+/* Safety bar widths (replaces inline width styles) */
+.sf-w-90 { width: 90%; }
+.sf-w-88 { width: 88%; }
+.sf-w-85 { width: 85%; }
+.sf-w-68 { width: 68%; }
+.sf-w-65 { width: 65%; }
+.sf-w-40 { width: 40%; }
+
+/* Contact page misc */
+.text-parchment { color: var(--parchment); }
+.text-copper    { color: var(--copper); }
+.interests-label {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--copper); margin-bottom: 14px;
+}
+.icon-arrow-right { margin-left: 8px; }
+.contact-link-sub { margin-top: 16px; color: var(--copper); }
+.faq-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem,3.5vw,3rem);
+  font-weight: 300; color: var(--cream); line-height: 1.1;
+}
+.faq-intro {
+  font-size: 13px; line-height: 1.9;
+  color: var(--mist); font-weight: 300; margin-top: 20px;
+}
+.emergency-sub { margin-top: 8px; font-size: 12px; opacity: 0.7; }

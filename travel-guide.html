@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Complete practical travel guide to Pakistan — visas, transport, safety, money, health and essential tips for every type of traveller.">
+  <title>Travel Guide — Uncharted Travels Pakistan</title>
+  <link rel="icon" href="htmlpictures/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/travel-guide.css">
+  <style>
+    :root {
+      --void:#07070D;--stone:#12121A;--deep:#1C1C28;--slate:#252535;
+      --copper:#BF7A35;--gold:#D4A843;--rust:#A03820;
+      --parchment:#EBD9B8;--cream:#F7F0E0;--sand:#C8B08A;--mist:#7A7A90;
+      --green:#2A5C45;--red:#8B2020;
+      --font-serif:'Cormorant Garamond',Georgia,serif;
+      --font-sans:'Outfit',sans-serif;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--font-sans);background:var(--void);color:var(--parchment);overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.35;}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:14px 6%;background:rgba(7,7,13,0.97);border-bottom:1px solid rgba(191,122,53,0.15);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);}
+    .nav-brand{display:flex;align-items:center;gap:14px;text-decoration:none;}
+    .nav-brand img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:1px solid rgba(191,122,53,0.4);}
+    .nav-brand-text .name{color:var(--cream);font-family:var(--font-serif);font-size:18px;font-weight:600;display:block;}
+    .nav-brand-text .sub{color:var(--copper);font-size:9px;letter-spacing:0.25em;text-transform:uppercase;}
+    .nav-links{display:flex;list-style:none;gap:6px;align-items:center;}
+    .nav-links li a{color:rgba(235,217,184,0.65);text-decoration:none;font-size:10.5px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:8px 14px;transition:all 0.3s;}
+    .nav-links li a:hover,.nav-links li a.active{color:var(--gold);}
+    .nav-links li a.btn-nav{border:1px solid var(--copper);color:var(--copper);padding:8px 20px;}
+    .nav-links li a.btn-nav:hover{background:var(--copper);color:var(--void);}
+
+    /* PAGE HERO */
+    .page-hero{min-height:65vh;position:relative;display:flex;align-items:flex-end;padding:0 6% 80px;overflow:hidden;}
+    .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;}
+    .page-hero-content{position:relative;z-index:2;}
+    .breadcrumb{display:flex;align-items:center;gap:10px;margin-bottom:24px;}
+    .breadcrumb a{color:var(--copper);text-decoration:none;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;}
+    .breadcrumb span{color:var(--mist);font-size:10px;}
+    .page-hero h1{font-family:var(--font-serif);font-size:clamp(3rem,7vw,6rem);font-weight:300;line-height:1;color:var(--cream);margin-bottom:20px;}
+    .page-hero h1 em{font-style:italic;color:var(--gold);}
+    .page-hero p{font-size:15px;font-weight:300;color:var(--sand);line-height:1.8;max-width:560px;}
+
+    /* QUICK LINKS BAR */
+    .quick-links{background:var(--stone);padding:24px 6%;display:flex;gap:8px;flex-wrap:wrap;border-bottom:1px solid rgba(191,122,53,0.1);}
+    .ql-btn{padding:9px 20px;background:transparent;border:1px solid rgba(191,122,53,0.2);color:var(--mist);font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:all 0.3s;text-decoration:none;border-radius:1px;}
+    .ql-btn:hover{background:rgba(191,122,53,0.1);border-color:var(--copper);color:var(--copper);}
+
+    /* GUIDE SECTIONS */
+    .guide-section{padding:90px 6%;border-bottom:1px solid rgba(191,122,53,0.07);}
+    .guide-section:nth-child(odd){background:var(--stone);}
+    .gs-header{display:flex;align-items:flex-start;gap:28px;margin-bottom:56px;}
+    .gs-num{font-family:var(--font-serif);font-size:5rem;font-weight:300;color:rgba(191,122,53,0.12);line-height:1;flex-shrink:0;min-width:80px;}
+    .section-label{font-size:9px;font-weight:600;letter-spacing:0.4em;text-transform:uppercase;color:var(--copper);margin-bottom:12px;}
+    .section-title{font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.1;color:var(--cream);}
+    .section-title em{font-style:italic;color:var(--gold);}
+
+    /* Info cards grid */
+    .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+    .info-card{background:var(--deep);padding:36px 28px;border-top:2px solid rgba(191,122,53,0.12);transition:all 0.4s;}
+    .info-card:hover{border-top-color:var(--copper);transform:translateY(-4px);}
+    .ic-icon{font-size:1.8rem;margin-bottom:20px;display:block;}
+    .ic-title{font-family:var(--font-serif);font-size:1.3rem;font-weight:400;color:var(--cream);margin-bottom:12px;}
+    .ic-body{font-size:13px;line-height:1.9;color:var(--mist);font-weight:300;}
+    .ic-body strong{color:var(--parchment);font-weight:500;}
+    .ic-tag{display:inline-block;margin-top:16px;padding:4px 14px;border:1px solid rgba(191,122,53,0.25);color:var(--copper);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;border-radius:20px;}
+
+    /* Two-column text layout */
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
+    .text-block h3{font-family:var(--font-serif);font-size:1.4rem;font-weight:400;color:var(--cream);margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid rgba(191,122,53,0.12);}
+    .text-block p{font-size:13px;line-height:2.0;color:var(--mist);font-weight:300;margin-bottom:14px;}
+    .text-block p strong{color:var(--parchment);font-weight:500;}
+    .check-list{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:10px;}
+    .check-list li{display:flex;align-items:flex-start;gap:12px;font-size:13px;color:var(--sand);font-weight:300;line-height:1.6;}
+    .check-list li .ck{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0;margin-top:1px;}
+    .ck-yes{background:rgba(42,92,69,0.3);color:#5DB88A;}
+    .ck-warn{background:rgba(191,122,53,0.2);color:var(--copper);}
+    .ck-no{background:rgba(139,32,32,0.3);color:#E07070;}
+
+    /* Transport table */
+    .transport-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:16px;}
+    .transport-item{background:var(--deep);padding:32px 24px;transition:all 0.3s;}
+    .transport-item:hover{background:var(--slate);}
+    .ti-icon{font-size:2rem;margin-bottom:16px;display:block;}
+    .ti-name{font-family:var(--font-serif);font-size:1.2rem;font-weight:400;color:var(--cream);margin-bottom:8px;}
+    .ti-rating{display:flex;gap:4px;margin-bottom:10px;}
+    .ti-dot{width:8px;height:8px;border-radius:50%;}
+    .dot-fill{background:var(--copper);}
+    .dot-empty{background:rgba(191,122,53,0.15);}
+    .ti-body{font-size:12px;line-height:1.8;color:var(--mist);font-weight:300;}
+
+    /* Budget table */
+    .budget-table{width:100%;border-collapse:collapse;margin-top:20px;}
+    .budget-table thead tr{border-bottom:2px solid rgba(191,122,53,0.25);}
+    .budget-table th{font-size:9px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--copper);padding:12px 16px;text-align:left;}
+    .budget-table tbody tr{border-bottom:1px solid rgba(191,122,53,0.07);transition:background 0.3s;}
+    .budget-table tbody tr:hover{background:rgba(191,122,53,0.04);}
+    .budget-table td{padding:16px;font-size:13px;color:var(--mist);font-weight:300;}
+    .budget-table td:first-child{color:var(--parchment);font-weight:400;}
+    .tier-badge{display:inline-block;padding:3px 12px;border-radius:20px;font-size:8px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;}
+    .t-budget{background:rgba(42,92,69,0.2);color:#5DB88A;border:1px solid rgba(42,92,69,0.3);}
+    .t-mid{background:rgba(191,122,53,0.15);color:var(--copper);border:1px solid rgba(191,122,53,0.25);}
+    .t-comfort{background:rgba(212,168,67,0.15);color:var(--gold);border:1px solid rgba(212,168,67,0.25);}
+
+    /* Safety meter */
+    .safety-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+    .safety-item{background:var(--deep);padding:28px 24px;border-radius:2px;}
+    .safety-item h4{font-size:13px;font-weight:500;color:var(--cream);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+    .safety-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+    .sd-green{background:#5DB88A;}
+    .sd-amber{background:#D4A843;}
+    .sd-red{background:#E07070;}
+    .safety-bar{height:4px;background:rgba(255,255,255,0.06);border-radius:2px;margin-bottom:10px;overflow:hidden;}
+    .safety-fill{height:100%;border-radius:2px;transition:width 1s ease;}
+    .sf-green{background:linear-gradient(90deg,#2A5C45,#5DB88A);}
+    .sf-amber{background:linear-gradient(90deg,#8B6020,var(--gold));}
+    .sf-red{background:linear-gradient(90deg,var(--rust),#E07070);}
+    .safety-note{font-size:12px;color:var(--mist);font-weight:300;line-height:1.7;}
+
+    /* Packing list */
+    .packing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+    .pack-cat{background:var(--deep);padding:32px 24px;}
+    .pack-cat h3{font-family:var(--font-serif);font-size:1.2rem;font-weight:400;color:var(--cream);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid rgba(191,122,53,0.12);}
+    .pack-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .pack-list li{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--mist);font-weight:300;}
+    .pack-list li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--copper);flex-shrink:0;}
+
+    /* Itinerary suggestions */
+    .itinerary-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px;}
+    .itin-card{background:var(--deep);padding:36px 28px;border-left:3px solid rgba(191,122,53,0.2);transition:all 0.4s;}
+    .itin-card:hover{border-left-color:var(--copper);}
+    .itin-duration{font-size:9px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--copper);margin-bottom:12px;}
+    .itin-title{font-family:var(--font-serif);font-size:1.4rem;font-weight:400;color:var(--cream);margin-bottom:8px;}
+    .itin-level{font-size:10px;color:var(--mist);margin-bottom:16px;}
+    .itin-stops{list-style:none;display:flex;flex-direction:column;gap:8px;}
+    .itin-stops li{font-size:12px;color:var(--sand);font-weight:300;display:flex;align-items:center;gap:8px;}
+    .itin-stops li::before{content:'→';color:var(--copper);font-size:10px;}
+    .itin-btn{display:inline-block;margin-top:20px;padding:10px 24px;background:rgba(191,122,53,0.1);border:1px solid rgba(191,122,53,0.25);color:var(--copper);font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;border-radius:1px;transition:all 0.3s;}
+    .itin-btn:hover{background:var(--copper);color:var(--void);}
+
+    /* CTA band */
+    .cta-band{background:linear-gradient(135deg,var(--rust) 0%,#6A2010 100%);padding:90px 6%;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+    .cta-band h2{font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;color:var(--cream);line-height:1.2;}
+    .cta-band h2 em{font-style:italic;color:var(--gold);}
+    .cta-band p{font-size:14px;color:rgba(235,217,184,0.7);font-weight:300;margin-top:16px;line-height:1.8;}
+    .cta-actions{display:flex;gap:16px;flex-wrap:wrap;}
+    .btn-primary{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;background:var(--gold);color:var(--void);font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;border-radius:1px;transition:all 0.4s;}
+    .btn-primary:hover{background:var(--cream);transform:translateY(-2px);}
+    .btn-outline-light{display:inline-flex;align-items:center;gap:10px;padding:15px 36px;border:1px solid rgba(235,217,184,0.3);color:var(--parchment);font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;border-radius:1px;transition:all 0.4s;}
+    .btn-outline-light:hover{border-color:var(--gold);color:var(--gold);}
+
+    /* FOOTER */
+    footer{background:var(--void);padding:80px 6% 32px;border-top:1px solid rgba(191,122,53,0.12);}
+    .footer-top{display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px;}
+    .footer-brand-col h3{font-family:var(--font-serif);font-size:1.8rem;font-weight:400;color:var(--cream);margin-bottom:8px;}
+    .footer-brand-col .tagline{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--copper);margin-bottom:16px;}
+    .footer-brand-col p{font-size:13px;line-height:1.9;color:var(--mist);font-weight:300;max-width:270px;}
+    .footer-socials{display:flex;gap:12px;margin-top:24px;}
+    .footer-socials a{width:38px;height:38px;border:1px solid rgba(191,122,53,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--mist);font-size:14px;text-decoration:none;transition:all 0.3s;}
+    .footer-socials a:hover{border-color:var(--copper);color:var(--copper);}
+    .footer-col h4{font-size:9px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--copper);margin-bottom:22px;}
+    .footer-col ul{list-style:none;}
+    .footer-col ul li{margin-bottom:10px;}
+    .footer-col ul li a{color:var(--mist);text-decoration:none;font-size:13px;font-weight:300;transition:color 0.3s;display:flex;align-items:center;gap:8px;}
+    .footer-col ul li a:hover{color:var(--gold);}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.05);padding-top:28px;display:flex;justify-content:space-between;align-items:center;}
+    .footer-bottom p{font-size:11px;color:rgba(122,122,144,0.5);}
+    .footer-bottom a{color:var(--copper);text-decoration:none;}
+
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease,transform 0.8s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+
+    @media(max-width:1000px){.info-grid{grid-template-columns:1fr 1fr;}.transport-grid{grid-template-columns:1fr 1fr;}.packing-grid{grid-template-columns:1fr 1fr;}.itinerary-cards{grid-template-columns:1fr 1fr;}.cta-band{grid-template-columns:1fr;}.footer-top{grid-template-columns:1fr 1fr;}}
+    @media(max-width:700px){.nav-links{display:none;}.two-col{grid-template-columns:1fr;}.info-grid{grid-template-columns:1fr;}.transport-grid{grid-template-columns:1fr;}.safety-grid{grid-template-columns:1fr;}.packing-grid{grid-template-columns:1fr;}.itinerary-cards{grid-template-columns:1fr;}.footer-top{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;gap:12px;}}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-brand">
+      <img src="htmlpictures/Logo1.png" alt="Uncharted Travels">
+      <div class="nav-brand-text">
+        <span class="name">Uncharted Travels</span>
+        <span class="sub">Pakistan Heritage</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="destinations.html">Destinations</a></li>
+      <li><a href="historical-sites.html">Historical Sites</a></li>
+      <li><a href="cultural-insights.html">Culture</a></li>
+      <li><a href="travel-guide.html" class="active">Travel Guide</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="btn-nav">Book Now</a></li>
+    </ul>
+    <button id="hamburger" aria-label="Toggle navigation" aria-expanded="false"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <section class="page-hero" class="page-hero hero-padded">
+    <div class="hero-bg"></div>
+    <div class="page-hero-content">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span>/</span>
+        <span class="breadcrumb-current">Travel Guide</span>
+      </div>
+      <h1>Everything You<br>Need to <em>Know</em></h1>
+      <p>The complete practical guide to visiting Pakistan — visas, getting around, money, safety, what to pack, and suggested itineraries for every type of traveller.</p>
+    </div>
+  </section>
+
+  <!-- QUICK LINKS -->
+  <div class="quick-links">
+    <a href="#visa" class="ql-btn">Visas</a>
+    <a href="#getting-there" class="ql-btn">Getting There</a>
+    <a href="#transport" class="ql-btn">Transport</a>
+    <a href="#money" class="ql-btn">Money</a>
+    <a href="#safety" class="ql-btn">Safety</a>
+    <a href="#health" class="ql-btn">Health</a>
+    <a href="#packing" class="ql-btn">Packing</a>
+    <a href="#budgets" class="ql-btn">Budgets</a>
+    <a href="#itineraries" class="ql-btn">Itineraries</a>
+  </div>
+
+  <!-- VISA -->
+  <section class="guide-section" id="visa">
+    <div class="gs-header reveal">
+      <div class="gs-num">01</div>
+      <div class="gs-title-block">
+        <p class="section-label">Entry Requirements</p>
+        <h2 class="section-title">Visas &<br><em>Entry</em></h2>
+      </div>
+    </div>
+    <div class="two-col reveal">
+      <div class="text-block">
+        <h3>e-Visa System (evisa.gov.pk)</h3>
+        <p>Pakistan operates an online e-Visa system for citizens of <strong>175+ countries</strong>. Most visitors apply entirely online — no embassy visit required. Processing typically takes 3–10 business days. The e-Visa is emailed to you and shown on arrival.</p>
+        <p><strong>Tourist visa validity:</strong> 30 days single entry or 90 days multiple entry. Extensions are available from the Ministry of Interior in Islamabad, Lahore, or Karachi.</p>
+        <ul class="check-list">
+          <li><span class="ck ck-yes">✓</span>Apply at evisa.gov.pk — straightforward process</li>
+          <li><span class="ck ck-yes">✓</span>US, UK, EU, Australian citizens all eligible</li>
+          <li><span class="ck ck-yes">✓</span>Standard fee: ~$50–75 USD depending on nationality</li>
+          <li><span class="ck ck-warn">!</span>Apply at least 2 weeks before travel to allow processing time</li>
+          <li><span class="ck ck-warn">!</span>Passport must be valid for 6 months beyond entry date</li>
+          <li><span class="ck ck-no">✗</span>Israeli passport holders are not admitted</li>
+        </ul>
+      </div>
+      <div class="text-block">
+        <h3>Special Permits: Northern Areas</h3>
+        <p>Most of Pakistan requires only a standard tourist visa. However, certain sensitive border areas require <strong>No Objection Certificates (NOC)</strong> — these are usually arranged by tour operators like us before your trip.</p>
+        <p><strong>Areas requiring NOC:</strong> Khunjerab Pass border crossing into China, certain valleys in Chitral near the Afghan border, areas near the Line of Control in Azad Kashmir.</p>
+        <ul class="check-list">
+          <li><span class="ck ck-yes">✓</span>We arrange all NOCs for tours in sensitive areas</li>
+          <li><span class="ck ck-yes">✓</span>Process takes 7–14 days before travel</li>
+          <li><span class="ck ck-yes">✓</span>Most popular tourist areas require no NOC at all</li>
+          <li><span class="ck ck-warn">!</span>Gilgit-Baltistan: foreigners must register with local police within 24h of arrival</li>
+          <li><span class="ck ck-warn">!</span>Chitral: NOC recommended for Kalash valleys and border areas</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- GETTING THERE -->
+  <section class="guide-section" id="getting-there">
+    <div class="gs-header reveal">
+      <div class="gs-num">02</div>
+      <div class="gs-title-block">
+        <p class="section-label">Arrival</p>
+        <h2 class="section-title">Getting<br><em>to Pakistan</em></h2>
+      </div>
+    </div>
+    <div class="info-grid reveal">
+      <div class="info-card">
+        <span class="ic-icon">✈️</span>
+        <div class="ic-title">By Air — International Airports</div>
+        <p class="ic-body">Pakistan has three major international airports: <strong>Islamabad (ISB)</strong> — the most modern and best connected for northern heritage sites. <strong>Lahore (LHE)</strong> — ideal for Punjab heritage. <strong>Karachi (KHI)</strong> — gateway to Sindh and Balochistan.<br><br>Major carriers: PIA, Turkish Airlines, Emirates, Qatar Airways, Etihad. Best fares are typically via Istanbul, Dubai, or Doha.</p>
+        <span class="ic-tag">Most Used Route</span>
+      </div>
+      <div class="info-card">
+        <span class="ic-icon">🚌</span>
+        <div class="ic-title">Overland from China</div>
+        <p class="ic-body">The <strong>Karakoram Highway (KKH)</strong> connects Pakistan to China via the Khunjerab Pass at 4,693m — the world's highest international border crossing. Open May–November (weather dependent). Cross by bus from Kashgar to Gilgit — one of the world's great road journeys.<br><br>Requires a Chinese visa and a Pakistan NOC for the border area. We can arrange both.</p>
+        <span class="ic-tag">Adventure Route</span>
+      </div>
+      <div class="info-card">
+        <span class="ic-icon">🚂</span>
+        <div class="ic-title">Overland from India</div>
+        <p class="ic-body">The <strong>Wagah Border Crossing</strong> between Lahore and Amritsar is the only land border between India and Pakistan open to foreign nationals. The famous flag-lowering ceremony here is a spectacle not to be missed.<br><br>Requires advance arrangement — a Pakistani visa obtained before arrival at border. Relations between the two countries affect crossing availability; check current status before planning.</p>
+        <span class="ic-tag">Flag Ceremony Crossing</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSPORT -->
+  <section class="guide-section" id="transport">
+    <div class="gs-header reveal">
+      <div class="gs-num">03</div>
+      <div class="gs-title-block">
+        <p class="section-label">Getting Around</p>
+        <h2 class="section-title">Transport<br><em>Inside Pakistan</em></h2>
+      </div>
+    </div>
+    <div class="transport-grid reveal">
+      <div class="transport-item">
+        <span class="ti-icon">🚗</span>
+        <div class="ti-name">Private Car + Driver</div>
+        <div class="ti-rating">
+          <div class="ti-dot dot-fill"></div><div class="ti-dot dot-fill"></div><div class="ti-dot dot-fill"></div><div class="ti-dot dot-fill"></div><div class="ti-dot dot-fill"></div>
+        </div>
+        <p class="ti-body">The recommended option for heritage tourism. A driver who knows the roads, the sites, and the local context is invaluable. We provide vetted drivers with all our tours. Cost: ~$60–100 per day including fuel.</p>
+      </div>
+      <div class="transport-item">
+        <span class="ti-icon">✈️</span>
+        <div class="ti-name">Domestic Flights</div>
+        <div class="ti-rating">
+          <div class="ti-dot dot-fill"></div><div class="ti-dot dot-fill"></div><div class="ti-dot dot-fill"></div><div class="ti-dot dot-fill"></div><div class="ti-dot dot-empty"></div>
+        </div>
+        <p class="ti-body">PIA, Airblue, and Serene Air connect Islamabad, Lahore, Karachi, Quetta, Peshawar, Gilgit, and Skardu. The Islamabad–Skardu flight offers spectacular mountain views. Book early — small aircraft fill quickly. Delays common in north due to weather.</p>
+      </div>
+      <div class="transport-item">
+        <span class="ti-icon">🚆</span>
+        <div class="ti-name">Train</div>
+        <div class="ti-rating">
+          <div class="ti-dot dot-fill"></div><div class="ti-dot dot-fill"></div><div class="ti-dot dot-fill"></div><div class="ti-dot dot-empty"></div><div class="ti-dot dot-empty"></div>
+        </div>
+        <p class="ti-body">Pakistan Railways runs services between major cities. The Lahore–Karachi and Lahore–Peshawar routes are scenic and comfortable in AC Business class. A quintessential Pakistani experience — chai vendors, packed platforms, unexpected conversations. Journey times are long but enjoyable.</p>
+      </div>
+      <div class="transport-item">
+        <span class="ti-icon">🚌</span>
+        <div class="ti-name">Bus Services</div>
+        <div class="ti-rating">
+          <div class="ti-dot dot-fill"></div><div class="ti-dot dot-fill"></div><div class="ti-dot dot-fill"></div><div class="ti-dot dot-empty"></div><div class="ti-dot dot-empty"></div>
+        </div>
+        <p class="ti-body">Daewoo Express, Faisal Movers, and Skyways run comfortable AC coaches between major Punjab and KPK cities. For northern areas (Gilgit, Hunza), local Coaster minibuses ply the KKH. NATCO buses serve remote northern areas. Book ahead for busy routes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MONEY -->
+  <section class="guide-section" id="money">
+    <div class="gs-header reveal">
+      <div class="gs-num">04</div>
+      <div class="gs-title-block">
+        <p class="section-label">Finances</p>
+        <h2 class="section-title">Money &<br><em>Costs</em></h2>
+      </div>
+    </div>
+    <div class="two-col reveal">
+      <div class="text-block">
+        <h3>Currency & Exchange</h3>
+        <p>Pakistan's currency is the <strong>Pakistani Rupee (PKR)</strong>. As of 2025, approximately <strong>280–290 PKR = 1 USD</strong>. Pakistan is a largely cash-based economy — carry sufficient rupees for rural areas.</p>
+        <p><strong>Best exchange method:</strong> Exchange major currencies (USD, EUR, GBP) at exchange companies in large cities — rates are significantly better than banks. Avoid airport exchange counters.</p>
+        <ul class="check-list">
+          <li><span class="ck ck-yes">✓</span>USD is the most useful foreign currency to carry</li>
+          <li><span class="ck ck-yes">✓</span>ATMs widely available in cities (HBL, UBL, MCB reliable)</li>
+          <li><span class="ck ck-yes">✓</span>Visa/Mastercard accepted at major hotels and restaurants</li>
+          <li><span class="ck ck-warn">!</span>Rural areas and northern Pakistan: cash only</li>
+          <li><span class="ck ck-warn">!</span>Notify your bank before travel to avoid card blocks</li>
+          <li><span class="ck ck-warn">!</span>Carry enough cash for 2–3 days in northern areas</li>
+        </ul>
+      </div>
+      <div class="text-block">
+        <h3>Daily Cost Comparison</h3>
+        <p>Pakistan is <strong>exceptional value for money</strong> by any international standard. A mid-range traveller will spend far less here than in comparable heritage destinations like Turkey, Egypt, or India.</p>
+        <table class="budget-table">
+          <thead><tr><th>Category</th><th>Budget</th><th>Mid-Range</th><th>Comfort</th></tr></thead>
+          <tbody>
+            <tr><td>Accommodation/night</td><td>$8–20</td><td>$40–80</td><td>$100–200</td></tr>
+            <tr><td>Meals (3x daily)</td><td>$5–10</td><td>$15–30</td><td>$40–80</td></tr>
+            <tr><td>Transport (daily)</td><td>$5–15</td><td>$30–60</td><td>$80–150</td></tr>
+            <tr><td>Site entry fees</td><td>$2–5</td><td>$5–15</td><td>$15–30</td></tr>
+            <tr><td>Total per day</td><td><span class="tier-badge t-budget">$20–50</span></td><td><span class="tier-badge t-mid">$90–185</span></td><td><span class="tier-badge t-comfort">$235–460</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAFETY -->
+  <section class="guide-section" id="safety">
+    <div class="gs-header reveal">
+      <div class="gs-num">05</div>
+      <div class="gs-title-block">
+        <p class="section-label">Security</p>
+        <h2 class="section-title">Safety &<br><em>What to Know</em></h2>
+      </div>
+    </div>
+    <p class="reveal safety-intro">Pakistan's international reputation significantly overstates the security risks for tourists visiting its heritage sites. The country has undergone a dramatic security transformation since 2014. The vast majority of travellers — including those on solo trips — complete their journeys without incident. Millions of domestic tourists visit Pakistan's historical sites every year.</p>
+    <div class="safety-grid reveal">
+      <div class="safety-item">
+        <h4><span class="safety-dot sd-green"></span>Lahore & Punjab Heritage Sites</h4>
+        <div class="safety-bar"><div class="safety-fill sf-green" class="safety-fill sf-green sf-w-90"></div></div>
+        <p class="safety-note">Extremely safe for tourists. Lahore is a vibrant, well-policed city with millions of domestic and international visitors. Police Tourist Squad provides dedicated support for foreign visitors. Standard urban travel precautions apply.</p>
+      </div>
+      <div class="safety-item">
+        <h4><span class="safety-dot sd-green"></span>Taxila & Islamabad Region</h4>
+        <div class="safety-bar"><div class="safety-fill sf-green" class="safety-fill sf-green sf-w-88"></div></div>
+        <p class="safety-note">Very safe. Islamabad and Rawalpindi are Pakistan's most security-conscious cities. Taxila is a well-established tourist destination with regular visitors. Comfortable for solo travellers and families.</p>
+      </div>
+      <div class="safety-item">
+        <h4><span class="safety-dot sd-green"></span>Gilgit-Baltistan</h4>
+        <div class="safety-bar"><div class="safety-fill sf-green" class="safety-fill sf-green sf-w-85"></div></div>
+        <p class="safety-note">Generally very safe and welcoming. Thousands of international trekkers visit annually without incident. Weather and terrain risks are the primary concerns — not security. Register with local police as required.</p>
+      </div>
+      <div class="safety-item">
+        <h4><span class="safety-dot sd-amber"></span>Sindh (Karachi, Mohenjo-daro)</h4>
+        <div class="safety-bar"><div class="safety-fill sf-amber" class="safety-fill sf-amber sf-w-68"></div></div>
+        <p class="safety-note">Karachi requires more caution than northern cities — petty crime is higher. Tourist sites themselves are generally safe. Travel with a guide, use reputable transport, avoid certain neighbourhoods after dark. Mohenjo-daro (Larkana) is remote but safe.</p>
+      </div>
+      <div class="safety-item">
+        <h4><span class="safety-dot sd-amber"></span>KPK — Peshawar, Swat</h4>
+        <div class="safety-bar"><div class="safety-fill sf-amber" class="safety-fill sf-amber sf-w-65"></div></div>
+        <p class="safety-note">Situation has improved dramatically since 2015. Swat and Peshawar are popular with domestic tourists and increasingly with international visitors. Travel with a registered local guide. Check current FCO/US State Dept advisories for specific areas before departure.</p>
+      </div>
+      <div class="safety-item">
+        <h4><span class="safety-dot sd-red"></span>Certain Balochistan Areas</h4>
+        <div class="safety-bar"><div class="safety-fill sf-red" class="safety-fill sf-red sf-w-40"></div></div>
+        <p class="safety-note">Western Balochistan near the Afghan and Iranian borders requires caution. Quetta, Ziarat, and Mehrgarh are more accessible but should be visited with local guidance. We will advise on current conditions when planning a Balochistan itinerary.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HEALTH -->
+  <section class="guide-section" id="health">
+    <div class="gs-header reveal">
+      <div class="gs-num">06</div>
+      <div class="gs-title-block">
+        <p class="section-label">Medical Preparation</p>
+        <h2 class="section-title">Health &<br><em>Vaccinations</em></h2>
+      </div>
+    </div>
+    <div class="info-grid reveal">
+      <div class="info-card">
+        <span class="ic-icon">💉</span>
+        <div class="ic-title">Recommended Vaccinations</div>
+        <p class="ic-body">Consult your GP or travel clinic 6–8 weeks before departure. Generally recommended for Pakistan:<br><br>
+        <strong>Routine:</strong> Hepatitis A, Typhoid, Tetanus-Diphtheria-Pertussis update<br><br>
+        <strong>Consider:</strong> Hepatitis B, Rabies (if visiting rural areas or caves), Cholera (if staying long-term)<br><br>
+        <strong>Required by law:</strong> Yellow Fever vaccination certificate if arriving from endemic countries.</p>
+        <span class="ic-tag">See GP 6–8 Weeks Before</span>
+      </div>
+      <div class="info-card">
+        <span class="ic-icon">💊</span>
+        <div class="ic-title">Water & Food Safety</div>
+        <p class="ic-body"><strong>Never drink tap water</strong> in Pakistan. Bottled water is inexpensive and widely available everywhere. Avoid ice in drinks outside major hotels.<br><br>
+        <strong>Food:</strong> Cooked food from busy restaurants and street stalls is generally safe — high turnover means fresh ingredients. Avoid raw salads and unpeeled fruit at cheaper establishments.<br><br>
+        Carry oral rehydration salts and a basic antibiotic (prescribed by your doctor) for stomach issues.</p>
+        <span class="ic-tag">Bottled Water Only</span>
+      </div>
+      <div class="info-card">
+        <span class="ic-icon">🏔️</span>
+        <div class="ic-title">Altitude Sickness</div>
+        <p class="ic-body">If visiting Gilgit-Baltistan, Chitral, or travelling the KKH, altitude sickness is a real concern. The Skardu airport (2,228m) and Khunjerab Pass (4,693m) require acclimatisation.<br><br>
+        <strong>Ascend gradually</strong> — spend 1–2 nights in Gilgit (1,500m) before heading higher. Symptoms: headache, nausea, dizziness. Descend immediately if symptoms are severe.<br><br>
+        Acetazolamide (Diamox) can help with acclimatisation — consult your doctor before travel.</p>
+        <span class="ic-tag">For Northern Areas</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKING -->
+  <section class="guide-section" id="packing">
+    <div class="gs-header reveal">
+      <div class="gs-num">07</div>
+      <div class="gs-title-block">
+        <p class="section-label">Preparation</p>
+        <h2 class="section-title">What to<br><em>Pack</em></h2>
+      </div>
+    </div>
+    <div class="packing-grid reveal">
+      <div class="pack-cat">
+        <h3>🧥 Clothing</h3>
+        <ul class="pack-list">
+          <li>Loose, modest clothing — covered shoulders & knees</li>
+          <li>Women: lightweight headscarf for religious sites</li>
+          <li>Warm layers for northern areas (evenings are cold)</li>
+          <li>Comfortable walking shoes — uneven ground at ruins</li>
+          <li>Sandals for easy removal at mosques & shrines</li>
+          <li>Rain jacket for KPK and monsoon travel (Jul–Sep)</li>
+          <li>Sunglasses and wide-brim hat (sun is intense)</li>
+          <li>Thermal base layers for Gilgit-Baltistan winter visits</li>
+        </ul>
+      </div>
+      <div class="pack-cat">
+        <h3>🎒 Essentials</h3>
+        <ul class="pack-list">
+          <li>Passport + printed e-Visa copy</li>
+          <li>Travel insurance with medical evacuation cover</li>
+          <li>Unlocked smartphone for local SIM card</li>
+          <li>Power bank (load-shedding is common)</li>
+          <li>Universal power adapter (Type C and D sockets)</li>
+          <li>Cash in USD and local rupees</li>
+          <li>Downloaded offline maps (Google Maps or Maps.me)</li>
+          <li>Photocopies of all documents kept separately</li>
+        </ul>
+      </div>
+      <div class="pack-cat">
+        <h3>🩺 Health & Safety</h3>
+        <ul class="pack-list">
+          <li>Prescribed medications with doctor's letter</li>
+          <li>Oral rehydration salts (ORS)</li>
+          <li>Antidiarrheal medication</li>
+          <li>High-SPF sunscreen (50+)</li>
+          <li>Insect repellent (DEET-based for rural Sindh)</li>
+          <li>Water purification tablets as backup</li>
+          <li>Basic first aid kit (plasters, antiseptic, bandages)</li>
+          <li>Altitude sickness medication if visiting north</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUGGESTED ITINERARIES -->
+  <section class="guide-section" id="itineraries">
+    <div class="gs-header reveal">
+      <div class="gs-num">08</div>
+      <div class="gs-title-block">
+        <p class="section-label">Journey Planning</p>
+        <h2 class="section-title">Suggested<br><em>Itineraries</em></h2>
+      </div>
+    </div>
+    <div class="itinerary-cards reveal">
+      <div class="itin-card">
+        <div class="itin-duration">7 Days</div>
+        <div class="itin-title">Punjab Heritage Essential</div>
+        <div class="itin-level">Moderate · All ages · Year-round</div>
+        <ul class="itin-stops">
+          <li>Islamabad — arrive, Old Rawalpindi bazaar</li>
+          <li>Taxila — full day, all major sites</li>
+          <li>Rohtas Fort — half day en route to Lahore</li>
+          <li>Lahore — 3 nights, Walled City, Fort, Badshahi</li>
+          <li>Harappa — day trip from Lahore</li>
+          <li>Departure from Lahore</li>
+        </ul>
+        <a href="contact.html" class="itin-btn">Book This Trip</a>
+      </div>
+      <div class="itin-card">
+        <div class="itin-duration">10 Days</div>
+        <div class="itin-title">Gandhara Buddhist Trail</div>
+        <div class="itin-level">Moderate · History focus · Oct–Apr best</div>
+        <ul class="itin-stops">
+          <li>Islamabad — arrive</li>
+          <li>Taxila — 2 days, all Buddhist sites</li>
+          <li>Peshawar — 2 days, museum, Old City</li>
+          <li>Mardan — Takht-i-Bahi monastery</li>
+          <li>Swat — 2 days, Butkara Stupa, museum</li>
+          <li>Chitral — optional extension (2 more days)</li>
+          <li>Return Islamabad, depart</li>
+        </ul>
+        <a href="contact.html" class="itin-btn">Book This Trip</a>
+      </div>
+      <div class="itin-card">
+        <div class="itin-duration">14 Days</div>
+        <div class="itin-title">The Full Heritage Circuit</div>
+        <div class="itin-level">Ambitious · All UNESCO sites · Autumn ideal</div>
+        <ul class="itin-stops">
+          <li>Islamabad → Taxila (2 nights)</li>
+          <li>Lahore — Fort, Shalimar, Walled City (3 nights)</li>
+          <li>Rohtas Fort → Peshawar (1 night)</li>
+          <li>Takht-i-Bahi day trip from Peshawar</li>
+          <li>Fly Karachi → Mohenjo-daro (2 nights)</li>
+          <li>Thatta — Makli Necropolis, mosque</li>
+          <li>Karachi — Heritage trail, depart</li>
+        </ul>
+        <a href="contact.html" class="itin-btn">Book This Trip</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-band reveal">
+    <div>
+      <h2>Ready to Stop<br><em>Planning and Go?</em></h2>
+      <p>Our team has personally visited every site in this guide. We handle visas, transport, accommodation, expert guides, and all NOC permits — so you just show up and experience Pakistan.</p>
+    </div>
+    <div>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn-primary">Plan My Trip <i class="fas fa-arrow-right"></i></a>
+        <a href="historical-sites.html" class="btn-outline-light">Browse Sites</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <h3>Uncharted Travels</h3>
+        <p class="tagline">Pakistan Heritage & Land Travel</p>
+        <p>Complete practical expertise for travelling Pakistan's historical landscape safely, confidently, and in depth.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Guide Sections</h4>
+        <ul>
+          <li><a href="#visa"><i class="fas fa-chevron-right icon-xs"></i>Visas & Entry</a></li>
+          <li><a href="#transport"><i class="fas fa-chevron-right icon-xs"></i>Transport</a></li>
+          <li><a href="#safety"><i class="fas fa-chevron-right icon-xs"></i>Safety</a></li>
+          <li><a href="#health"><i class="fas fa-chevron-right icon-xs"></i>Health</a></li>
+          <li><a href="#itineraries"><i class="fas fa-chevron-right icon-xs"></i>Itineraries</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="destinations.html"><i class="fas fa-chevron-right icon-xs"></i>Destinations</a></li>
+          <li><a href="historical-sites.html"><i class="fas fa-chevron-right icon-xs"></i>Historical Sites</a></li>
+          <li><a href="cultural-insights.html"><i class="fas fa-chevron-right icon-xs"></i>Cultural Insights</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="contact.html"><i class="fas fa-calendar icon-sm"></i>Book a Tour</a></li>
+          <li><a href="about.html"><i class="fas fa-users icon-sm"></i>About Us</a></li>
+          <li><a href="mailto:hello@unchartedtravels.pk"><i class="fas fa-envelope icon-sm"></i>Email Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Uncharted Travels. All rights reserved.</p>
+      <p>Safety information current as of 2025 — <a href="#">always verify with official advisories</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'),i*70); });
+    },{threshold:0.06});
+    reveals.forEach(el=>obs.observe(el));
+
+    // Animate safety bars on scroll
+
+  </script>
+</body>
+</html>
+  <button id="scrollTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+  <script src="js/main.js"></script>
+  <script>
+    // Animate safety bars on scroll
+    const safetyBars = document.querySelectorAll('.safety-fill');
+    const barObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if(e.isIntersecting) {
+          const w = e.target.getAttribute('data-width') || e.target.style.width;
+          e.target.setAttribute('data-width', w);
+          e.target.style.width = '0';
+          setTimeout(() => e.target.style.width = w, 100);
+          barObs.unobserve(e.target);
+        }
+      });
+    },{threshold:0.5});
+    safetyBars.forEach(b => barObs.observe(b));
+  </script>
+</body>
+</html>

@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Book a tour or contact Uncharted Travels — Pakistan's premier heritage travel company. Custom itineraries, group tours, and expert consultation.">
+  <title>Contact & Book — Uncharted Travels Pakistan</title>
+  <link rel="icon" href="htmlpictures/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/contact.css">
+  <style>
+    :root {
+      --void:#07070D;--stone:#12121A;--deep:#1C1C28;--slate:#252535;
+      --copper:#BF7A35;--gold:#D4A843;--rust:#A03820;
+      --parchment:#EBD9B8;--cream:#F7F0E0;--sand:#C8B08A;--mist:#7A7A90;
+      --font-serif:'Cormorant Garamond',Georgia,serif;
+      --font-sans:'Outfit',sans-serif;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--font-sans);background:var(--void);color:var(--parchment);overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.35;}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:14px 6%;background:rgba(7,7,13,0.97);border-bottom:1px solid rgba(191,122,53,0.15);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);}
+    .nav-brand{display:flex;align-items:center;gap:14px;text-decoration:none;}
+    .nav-brand img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:1px solid rgba(191,122,53,0.4);}
+    .nav-brand-text .name{color:var(--cream);font-family:var(--font-serif);font-size:18px;font-weight:600;display:block;}
+    .nav-brand-text .sub{color:var(--copper);font-size:9px;letter-spacing:0.25em;text-transform:uppercase;}
+    .nav-links{display:flex;list-style:none;gap:6px;align-items:center;}
+    .nav-links li a{color:rgba(235,217,184,0.65);text-decoration:none;font-size:10.5px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:8px 14px;transition:all 0.3s;}
+    .nav-links li a:hover,.nav-links li a.active{color:var(--gold);}
+    .nav-links li a.btn-nav{border:1px solid var(--copper);color:var(--copper);padding:8px 20px;}
+    .nav-links li a.btn-nav:hover{background:var(--copper);color:var(--void);}
+
+    /* PAGE HERO */
+    .page-hero{min-height:60vh;position:relative;display:flex;align-items:flex-end;padding:0 6% 80px;overflow:hidden;}
+    .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;}
+    .page-hero-content{position:relative;z-index:2;}
+    .breadcrumb{display:flex;align-items:center;gap:10px;margin-bottom:24px;}
+    .breadcrumb a{color:var(--copper);text-decoration:none;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;}
+    .breadcrumb span{color:var(--mist);font-size:10px;}
+    .page-hero h1{font-family:var(--font-serif);font-size:clamp(3rem,7vw,6rem);font-weight:300;line-height:1;color:var(--cream);margin-bottom:20px;}
+    .page-hero h1 em{font-style:italic;color:var(--gold);}
+    .page-hero p{font-size:15px;font-weight:300;color:var(--sand);line-height:1.8;max-width:560px;}
+
+    /* TOUR TYPES PICKER */
+    .tour-picker{padding:80px 6%;background:var(--stone);}
+    .picker-label{font-size:9px;font-weight:600;letter-spacing:0.4em;text-transform:uppercase;color:var(--copper);margin-bottom:16px;}
+    .picker-title{font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;color:var(--cream);margin-bottom:50px;}
+    .picker-title em{font-style:italic;color:var(--gold);}
+    .tour-types{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;}
+    .tt-card{padding:40px 28px;background:var(--deep);border-bottom:3px solid transparent;cursor:pointer;transition:all 0.4s;position:relative;}
+    .tt-card:hover,.tt-card.selected{border-bottom-color:var(--copper);background:var(--slate);}
+    .tt-card.selected::after{content:'✓';position:absolute;top:16px;right:16px;width:22px;height:22px;background:var(--copper);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--void);font-weight:700;}
+    .tt-icon{font-size:2rem;margin-bottom:20px;display:block;}
+    .tt-title{font-family:var(--font-serif);font-size:1.3rem;font-weight:400;color:var(--cream);margin-bottom:8px;}
+    .tt-desc{font-size:12px;line-height:1.8;color:var(--mist);font-weight:300;}
+    .tt-price{margin-top:14px;font-size:11px;color:var(--copper);font-weight:500;}
+
+    /* MAIN FORM SECTION */
+    .contact-main{padding:100px 6%;background:var(--void);display:grid;grid-template-columns:1fr 1.6fr;gap:80px;align-items:start;}
+
+    /* Left info column */
+    .contact-info{
+      position: relative;
+    }
+    .ci-title{font-family:var(--font-serif);font-size:clamp(2rem,3vw,2.8rem);font-weight:300;color:var(--cream);line-height:1.15;margin-bottom:24px;}
+    .ci-title em{font-style:italic;color:var(--gold);}
+    .ci-body{font-size:14px;line-height:2.0;color:var(--mist);font-weight:300;margin-bottom:40px;}
+    .ci-body strong{color:var(--parchment);font-weight:500;}
+    .contact-items{display:flex;flex-direction:column;gap:2px;margin-bottom:44px;}
+    .ci-item{display:flex;align-items:flex-start;gap:20px;padding:20px 22px;background:var(--stone);transition:all 0.3s;}
+    .ci-item:hover{background:var(--deep);}
+    .ci-icon{width:44px;height:44px;border-radius:50%;background:rgba(191,122,53,0.1);border:1px solid rgba(191,122,53,0.25);display:flex;align-items:center;justify-content:center;color:var(--copper);font-size:16px;flex-shrink:0;}
+    .ci-text h4{font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--copper);margin-bottom:4px;}
+    .ci-text p{font-size:13px;color:var(--sand);font-weight:300;line-height:1.5;}
+    .ci-text a{color:var(--sand);text-decoration:none;transition:color 0.3s;}
+    .ci-text a:hover{color:var(--gold);}
+    /* Response time card */
+    .response-card{background:linear-gradient(135deg,rgba(191,122,53,0.1),rgba(191,122,53,0.05));border:1px solid rgba(191,122,53,0.2);padding:28px 24px;}
+    .rc-top{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+    .rc-dot{width:10px;height:10px;border-radius:50%;background:#5DB88A;animation:pulse-dot 2s infinite;}
+    @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.6;transform:scale(1.3);}}
+    .rc-label{font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#5DB88A;}
+    .rc-text{font-size:13px;color:var(--sand);font-weight:300;line-height:1.6;}
+    /* Office hours */
+    .office-hours{margin-top:24px;padding:24px;background:var(--stone);}
+    .oh-title{font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--copper);margin-bottom:16px;}
+    .oh-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(191,122,53,0.07);font-size:12px;}
+    .oh-row:last-child{border-bottom:none;}
+    .oh-day{color:var(--sand);font-weight:400;}
+    .oh-time{color:var(--mist);font-weight:300;}
+    .oh-closed{color:rgba(122,122,144,0.4);}
+
+    /* BOOKING FORM */
+    .booking-form-wrap{background:var(--stone);padding:52px 48px;position:sticky;top:90px;}
+    .form-title{font-family:var(--font-serif);font-size:2rem;font-weight:400;color:var(--cream);margin-bottom:8px;}
+    .form-subtitle{font-size:12px;color:var(--mist);font-weight:300;margin-bottom:40px;letter-spacing:0.02em;}
+    /* Progress bar */
+    .form-progress{display:flex;gap:4px;margin-bottom:36px;}
+    .fp-step{flex:1;height:3px;background:rgba(191,122,53,0.12);border-radius:2px;transition:background 0.4s;}
+    .fp-step.active{background:var(--copper);}
+    .fp-step.done{background:var(--gold);}
+    /* Field groups */
+    .field-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+    .field{position:relative;margin-bottom:28px;}
+    .field input,.field textarea,.field select{
+      width:100%;padding:16px 0 12px;
+      background:transparent;border:none;border-bottom:1px solid rgba(191,122,53,0.2);
+      color:var(--parchment);font-family:var(--font-sans);font-size:14px;
+      outline:none;transition:border-color 0.3s;
+      -webkit-appearance:none;appearance:none;
+    }
+    .field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath fill='%23BF7A35' d='M5 7L0 2h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 4px center;cursor:pointer;}
+    .field select option{background:var(--deep);color:var(--parchment);}
+    .field textarea{min-height:90px;resize:vertical;}
+    .field input:focus,.field textarea:focus,.field select:focus{border-bottom-color:var(--copper);}
+    .field label{
+      position:absolute;left:0;top:16px;
+      font-size:12px;color:var(--mist);font-weight:300;
+      pointer-events:none;transition:all 0.3s;letter-spacing:0.02em;
+    }
+    .field input:focus~label,.field input:not(:placeholder-shown)~label,
+    .field textarea:focus~label,.field textarea:valid~label,
+    .field select:focus~label,.field select:valid~label{
+      top:-2px;font-size:10px;color:var(--copper);font-weight:600;letter-spacing:0.15em;text-transform:uppercase;
+    }
+    /* Interests checkboxes */
+    .interests-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:28px;}
+    .interest-chip{position:relative;}
+    .interest-chip input[type="checkbox"]{position:absolute;opacity:0;width:0;height:0;}
+    .interest-chip label{display:block;padding:9px 12px;border:1px solid rgba(191,122,53,0.15);color:var(--mist);font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;text-align:center;transition:all 0.3s;border-radius:1px;}
+    .interest-chip input:checked~label{background:rgba(191,122,53,0.15);border-color:var(--copper);color:var(--copper);}
+    .interest-chip label:hover{border-color:rgba(191,122,53,0.4);}
+    /* Group size slider */
+    .slider-field{margin-bottom:28px;}
+    .slider-field label{font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--copper);display:flex;justify-content:space-between;margin-bottom:12px;}
+    .slider-field label span{font-family:var(--font-serif);font-size:1.5rem;font-weight:300;color:var(--gold);text-transform:none;letter-spacing:0;}
+    .slider-field input[type="range"]{width:100%;-webkit-appearance:none;appearance: none;height:2px;background:rgba(191,122,53,0.15);border-radius:2px;outline:none;}
+    .slider-field input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--copper);cursor:pointer;border:2px solid var(--stone);}
+    /* Submit */
+    .form-submit{margin-top:8px;}
+    .btn-submit{width:100%;padding:18px;background:var(--copper);color:var(--void);border:none;font-family:var(--font-sans);font-size:12px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;transition:all 0.4s;border-radius:1px;}
+    .btn-submit:hover{background:var(--gold);transform:translateY(-2px);box-shadow:0 16px 40px rgba(191,122,53,0.3);}
+    .form-disclaimer{font-size:11px;color:var(--mist);text-align:center;margin-top:14px;font-weight:300;line-height:1.6;}
+    /* Success state */
+    .success-message{display:none;text-align:center;padding:48px 20px;}
+    .success-message .sm-icon{font-size:4rem;margin-bottom:20px;display:block;}
+    .success-message h3{font-family:var(--font-serif);font-size:2rem;font-weight:300;color:var(--cream);margin-bottom:12px;}
+    .success-message p{font-size:14px;color:var(--mist);font-weight:300;line-height:1.8;}
+
+    /* FAQ */
+    .faq-section{padding:100px 6%;background:var(--stone);}
+    .faq-inner{display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start;}
+    .faq-list{display:flex;flex-direction:column;gap:0;}
+    .faq-item{border-bottom:1px solid rgba(191,122,53,0.1);overflow:hidden;}
+    .faq-btn{width:100%;display:flex;justify-content:space-between;align-items:center;padding:22px 0;background:none;border:none;cursor:pointer;font-family:var(--font-sans);font-size:14px;font-weight:400;color:var(--parchment);text-align:left;transition:color 0.3s;}
+    .faq-btn:hover{color:var(--gold);}
+    .faq-btn .fq-icon{width:26px;height:26px;border-radius:50%;border:1px solid rgba(191,122,53,0.3);display:flex;align-items:center;justify-content:center;color:var(--copper);font-size:14px;transition:all 0.3s;flex-shrink:0;}
+    .faq-item.open .faq-btn{color:var(--gold);}
+    .faq-item.open .fq-icon{background:var(--copper);border-color:var(--copper);color:var(--void);transform:rotate(45deg);}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.45s ease,padding 0.45s ease;}
+    .faq-item.open .faq-answer{max-height:200px;}
+    .faq-answer p{padding-bottom:22px;font-size:13px;font-weight:300;color:var(--mist);line-height:1.9;}
+
+    /* EMERGENCY */
+    .emergency{background:linear-gradient(135deg,#6A1008 0%,var(--rust) 50%,#6A1008 100%);padding:80px 6%;text-align:center;position:relative;overflow:hidden;}
+    .emergency::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:400px;height:400px;border-radius:50%;background:rgba(255,255,255,0.04);}
+    .emergency-inner{position:relative;z-index:1;}
+    .em-icon{font-size:3rem;display:block;margin-bottom:16px;animation:pulse-em 2s infinite;}
+    @keyframes pulse-em{0%,100%{transform:scale(1);}50%{transform:scale(1.08);}}
+    .emergency h3{font-family:var(--font-serif);font-size:2rem;font-weight:300;color:var(--cream);margin-bottom:8px;}
+    .emergency p{font-size:14px;color:rgba(235,217,184,0.8);font-weight:300;margin-bottom:4px;}
+    .emergency .em-number{font-family:var(--font-serif);font-size:1.8rem;font-weight:300;color:var(--gold);margin-top:8px;}
+
+    /* FOOTER */
+    footer{background:var(--void);padding:80px 6% 32px;border-top:1px solid rgba(191,122,53,0.12);}
+    .footer-top{display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px;}
+    .footer-brand-col h3{font-family:var(--font-serif);font-size:1.8rem;font-weight:400;color:var(--cream);margin-bottom:8px;}
+    .footer-brand-col .tagline{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--copper);margin-bottom:16px;}
+    .footer-brand-col p{font-size:13px;line-height:1.9;color:var(--mist);font-weight:300;max-width:270px;}
+    .footer-socials{display:flex;gap:12px;margin-top:24px;}
+    .footer-socials a{width:38px;height:38px;border:1px solid rgba(191,122,53,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--mist);font-size:14px;text-decoration:none;transition:all 0.3s;}
+    .footer-socials a:hover{border-color:var(--copper);color:var(--copper);}
+    .footer-col h4{font-size:9px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--copper);margin-bottom:22px;}
+    .footer-col ul{list-style:none;}
+    .footer-col ul li{margin-bottom:10px;}
+    .footer-col ul li a{color:var(--mist);text-decoration:none;font-size:13px;font-weight:300;transition:color 0.3s;display:flex;align-items:center;gap:8px;}
+    .footer-col ul li a:hover{color:var(--gold);}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.05);padding-top:28px;display:flex;justify-content:space-between;align-items:center;}
+    .footer-bottom p{font-size:11px;color:rgba(122,122,144,0.5);}
+    .footer-bottom a{color:var(--copper);text-decoration:none;}
+
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease,transform 0.8s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+
+    @media(max-width:1000px){.contact-main{grid-template-columns:1fr;}.booking-form-wrap{position:static;}.tour-types{grid-template-columns:1fr 1fr;}.faq-inner{grid-template-columns:1fr;}.footer-top{grid-template-columns:1fr 1fr;}}
+    @media(max-width:700px){.nav-links{display:none;}.field-row{grid-template-columns:1fr;}.interests-grid{grid-template-columns:1fr 1fr;}.tour-types{grid-template-columns:1fr;}.booking-form-wrap{padding:32px 24px;}.footer-top{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;gap:12px;}}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-brand">
+      <img src="htmlpictures/Logo1.png" alt="Uncharted Travels">
+      <div class="nav-brand-text">
+        <span class="name">Uncharted Travels</span>
+        <span class="sub">Pakistan Heritage</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="destinations.html">Destinations</a></li>
+      <li><a href="historical-sites.html">Historical Sites</a></li>
+      <li><a href="cultural-insights.html">Culture</a></li>
+      <li><a href="travel-guide.html">Travel Guide</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="btn-nav active">Book Now</a></li>
+    </ul>
+    <button id="hamburger" aria-label="Toggle navigation" aria-expanded="false"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <section class="page-hero" class="page-hero hero-padded">
+    <div class="hero-bg"></div>
+    <div class="page-hero-content">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span>/</span>
+        <span class="breadcrumb-current">Book a Tour</span>
+      </div>
+      <h1>Your Journey<br>Begins <em>Here</em></h1>
+      <p>Tell us what you're dreaming of and we will build you the most extraordinary Pakistan itinerary possible. Every trip we plan is designed from scratch around you.</p>
+    </div>
+  </section>
+
+  <!-- TOUR TYPE PICKER -->
+  <section class="tour-picker">
+    <p class="picker-label">Step One</p>
+    <h2 class="picker-title">What Kind of<br><em>Journey?</em></h2>
+    <div class="tour-types reveal">
+      <div class="tt-card selected" onclick="selectTour(this)">
+        <span class="tt-icon">🏛️</span>
+        <div class="tt-title">Heritage & History</div>
+        <p class="tt-desc">Deep-dive tours of Pakistan's archaeological and architectural masterpieces. Expert historian guides. UNESCO sites and beyond.</p>
+        <div class="tt-price">From $180/person/day</div>
+      </div>
+      <div class="tt-card" onclick="selectTour(this)">
+        <span class="tt-icon">🚗</span>
+        <div class="tt-title">Land Route Journey</div>
+        <p class="tt-desc">The Grand Trunk Road, Karakoram Highway, Makran Coast. Self-drive or chauffeured — Pakistan's great road journeys.</p>
+        <div class="tt-price">From $150/person/day</div>
+      </div>
+      <div class="tt-card" onclick="selectTour(this)">
+        <span class="tt-icon">🎨</span>
+        <div class="tt-title">Culture & Arts</div>
+        <p class="tt-desc">Sufi shrines, bazaar craft tours, Gandhara art, Mughal architecture, living cultural traditions and festivals.</p>
+        <div class="tt-price">From $140/person/day</div>
+      </div>
+      <div class="tt-card" onclick="selectTour(this)">
+        <span class="tt-icon">✏️</span>
+        <div class="tt-title">Custom Itinerary</div>
+        <p class="tt-desc">Complete blank canvas — you name your interests, dates, budget, and group size. We design everything from scratch.</p>
+        <div class="tt-price">Bespoke pricing</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTACT SECTION -->
+  <section class="contact-main">
+    <div class="contact-info reveal">
+      <h2 class="ci-title">Let's Plan<br>Something<br><em>Remarkable</em></h2>
+      <p class="ci-body">Fill out the booking form and a member of our team — not an automated system — will contact you within <strong>24 hours</strong> to discuss your trip. We provide a free 30-minute consultation call for every enquiry.</p>
+
+      <div class="contact-items">
+        <div class="ci-item">
+          <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="ci-text">
+            <h4>Office</h4>
+            <p>F-7 Markaz, Islamabad, Pakistan<br>Ground Floor, Heritage House</p>
+          </div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon"><i class="fas fa-phone"></i></div>
+          <div class="ci-text">
+            <h4>Phone & WhatsApp</h4>
+            <p><a href="tel:+92000000000">+92-XXX-XXXXXXX</a><br>WhatsApp preferred for quick queries</p>
+          </div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+          <div class="ci-text">
+            <h4>Email</h4>
+            <p><a href="mailto:hello@unchartedtravels.pk">hello@unchartedtravels.pk</a><br><a href="mailto:bookings@unchartedtravels.pk">bookings@unchartedtravels.pk</a></p>
+          </div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon"><i class="fab fa-instagram"></i></div>
+          <div class="ci-text">
+            <h4>Social Media</h4>
+            <p><a href="#">@unchartedpakistan</a> on Instagram<br>Daily heritage content and travel updates</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="response-card">
+        <div class="rc-top">
+          <div class="rc-dot"></div>
+          <span class="rc-label">Currently Responding</span>
+        </div>
+        <p class="rc-text">We reply to all enquiries within <strong class="text-parchment">24 hours</strong> — usually much faster. For urgent queries, WhatsApp is the fastest way to reach us. All booking consultations are free of charge.</p>
+      </div>
+
+      <div class="office-hours">
+        <div class="oh-title">Office Hours (PKT · UTC+5)</div>
+        <div class="oh-row"><span class="oh-day">Monday – Thursday</span><span class="oh-time">9:00 AM – 6:00 PM</span></div>
+        <div class="oh-row"><span class="oh-day">Friday</span><span class="oh-time">9:00 AM – 12:30 PM</span></div>
+        <div class="oh-row"><span class="oh-day">Saturday</span><span class="oh-time">10:00 AM – 4:00 PM</span></div>
+        <div class="oh-row"><span class="oh-day">Sunday</span><span class="oh-closed">Closed</span></div>
+      </div>
+    </div>
+
+    <!-- BOOKING FORM -->
+    <div class="booking-form-wrap reveal">
+      <h3 class="form-title">Book a Tour</h3>
+      <p class="form-subtitle">All fields marked are required. We'll respond within 24 hours.</p>
+      <div class="form-progress">
+        <div class="fp-step active" id="fp1"></div>
+        <div class="fp-step" id="fp2"></div>
+        <div class="fp-step" id="fp3"></div>
+      </div>
+
+      <form id="bookingForm">
+        <!-- PERSONAL -->
+        <div class="field-row">
+          <div class="field">
+            <input type="text" id="fname" name="firstname" placeholder=" " required>
+            <label for="fname">First Name *</label>
+          </div>
+          <div class="field">
+            <input type="text" id="lname" name="lastname" placeholder=" " required>
+            <label for="lname">Last Name *</label>
+          </div>
+        </div>
+        <div class="field">
+          <input type="email" id="email" name="email" placeholder=" " required>
+          <label for="email">Email Address *</label>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <input type="tel" id="phone" name="phone" placeholder=" ">
+            <label for="phone">Phone / WhatsApp</label>
+          </div>
+          <div class="field">
+            <input type="text" id="nationality" name="nationality" placeholder=" " required>
+            <label for="nationality">Nationality *</label>
+          </div>
+        </div>
+
+        <!-- TRIP DETAILS -->
+        <div class="field-row">
+          <div class="field">
+            <input type="date" id="arrival" name="arrival" placeholder=" " required>
+            <label for="arrival">Planned Arrival *</label>
+          </div>
+          <div class="field">
+            <input type="date" id="departure" name="departure" placeholder=" ">
+            <label for="departure">Planned Departure</label>
+          </div>
+        </div>
+        <div class="field">
+          <select id="tour_type" name="tour_type" required>
+            <option value="" disabled selected></option>
+            <option value="heritage">Heritage & History Tour</option>
+            <option value="land-route">Land Route Journey</option>
+            <option value="gandhara">Gandhara Buddhist Trail</option>
+            <option value="lahore">Lahore City & Mughal Heritage</option>
+            <option value="sindh">Sindh Heritage (Mohenjo-daro + Makli)</option>
+            <option value="kkh">Karakoram Highway Silk Road</option>
+            <option value="all-unesco">All Six UNESCO Sites Circuit</option>
+            <option value="custom">Custom Itinerary</option>
+          </select>
+          <label for="tour_type">Tour Interest *</label>
+        </div>
+
+        <!-- GROUP SIZE SLIDER -->
+        <div class="slider-field">
+          <label for="group_size">Group Size <span id="groupVal">2</span></label>
+          <input type="range" id="group_size" name="group_size" min="1" max="20" value="2"
+            oninput="document.getElementById('groupVal').textContent=this.value">
+        </div>
+
+        <!-- INTERESTS -->
+        <p class="interests-label">Interests (select all that apply)</p>
+        <div class="interests-grid">
+          <div class="interest-chip"><input type="checkbox" id="i1" name="interests" value="archaeology"><label for="i1">Archaeology</label></div>
+          <div class="interest-chip"><input type="checkbox" id="i2" name="interests" value="mughal"><label for="i2">Mughal Era</label></div>
+          <div class="interest-chip"><input type="checkbox" id="i3" name="interests" value="buddhist"><label for="i3">Buddhist</label></div>
+          <div class="interest-chip"><input type="checkbox" id="i4" name="interests" value="sufism"><label for="i4">Sufism</label></div>
+          <div class="interest-chip"><input type="checkbox" id="i5" name="interests" value="food"><label for="i5">Cuisine</label></div>
+          <div class="interest-chip"><input type="checkbox" id="i6" name="interests" value="photography"><label for="i6">Photography</label></div>
+          <div class="interest-chip"><input type="checkbox" id="i7" name="interests" value="silk-road"><label for="i7">Silk Road</label></div>
+          <div class="interest-chip"><input type="checkbox" id="i8" name="interests" value="indus"><label for="i8">Indus Valley</label></div>
+          <div class="interest-chip"><input type="checkbox" id="i9" name="interests" value="craft"><label for="i9">Arts & Craft</label></div>
+        </div>
+
+        <div class="field">
+          <select id="budget" name="budget">
+            <option value="" disabled selected></option>
+            <option value="budget">Budget — $20–50/person/day</option>
+            <option value="mid">Mid-range — $90–185/person/day</option>
+            <option value="comfort">Comfort — $235–460/person/day</option>
+            <option value="luxury">Luxury — $460+/person/day</option>
+            <option value="flexible">Flexible / Discuss</option>
+          </select>
+          <label for="budget">Daily Budget</label>
+        </div>
+
+        <div class="field">
+          <textarea id="message" name="message" placeholder=" " required minlength="20"></textarea>
+          <label for="message">Tell Us About Your Dream Trip *</label>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn-submit">Send Booking Enquiry <i class="fas fa-arrow-right" class="icon-arrow-right"></i></button>
+        </div>
+        <p class="form-disclaimer">Your details are never shared with third parties. By submitting you agree to receive a response from our team within 24 hours.</p>
+      </form>
+
+      <div class="success-message" id="successMsg">
+        <span class="sm-icon">🏛️</span>
+        <h3>Enquiry Received</h3>
+        <p>Thank you for choosing Uncharted Travels. A member of our team will contact you within 24 hours — usually much sooner — to begin planning your Pakistan journey.</p>
+        <p class="contact-link-sub">In the meantime, explore our <a href="historical-sites.html" class="text-gold">historical sites guide</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="faq-inner">
+      <div class="reveal">
+        <p class="interests-label">FAQ</p>
+        <h2 class="faq-heading">Before<br><em>You Ask</em></h2>
+        <p class="faq-intro">The most common questions we receive before booking. Can't find your answer? Just ask — we enjoy the conversation.</p>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-btn">
+            <span>How far in advance should I book?</span>
+            <span class="fq-icon">+</span>
+          </button>
+          <div class="faq-answer"><p>For standard tours, 4–6 weeks is comfortable. For tours requiring NOC permits (northern areas, border regions), we recommend 8–10 weeks to allow permit processing. Our most popular circuits — especially the All-UNESCO tour — can sell out months ahead during peak season (October–November).</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">
+            <span>Is Pakistan safe to visit right now?</span>
+            <span class="fq-icon">+</span>
+          </button>
+          <div class="faq-answer"><p>The short answer is yes — for the heritage regions we cover. Lahore, Islamabad, Taxila, Hunza and the major Sindh heritage sites are all safe for tourists. We monitor conditions continuously and will never operate in areas we consider unsafe. Our <a href="travel-guide.html#safety" class="text-copper">full safety guide</a> gives a detailed breakdown by region.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">
+            <span>Do you arrange visas?</span>
+            <span class="fq-icon">+</span>
+          </button>
+          <div class="faq-answer"><p>We assist with Pakistan's e-Visa application process and all NOC permits required for specific areas — at no extra charge. The e-Visa itself must be applied for in your name, but we guide you through the process step by step and can prepare supporting documentation.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">
+            <span>Can solo travellers join group tours?</span>
+            <span class="fq-icon">+</span>
+          </button>
+          <div class="faq-answer"><p>Absolutely. Our open group tours run with 6–12 participants and are a wonderful way to meet fellow heritage enthusiasts. Solo travellers are very welcome — we also offer private tours for those who prefer a bespoke pace and itinerary.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">
+            <span>What is your cancellation policy?</span>
+            <span class="fq-icon">+</span>
+          </button>
+          <div class="faq-answer"><p>Full refund if cancelled 30+ days before departure. 50% refund for cancellations 15–29 days before. No refund within 14 days — but we always try to offer alternative dates. We strongly recommend travel insurance covering cancellation from the moment you book.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">
+            <span>Are your tours suitable for older travellers?</span>
+            <span class="fq-icon">+</span>
+          </button>
+          <div class="faq-answer"><p>Most heritage tours involve moderate walking on uneven ground — we recommend reasonable mobility but no specific fitness level is required. Some sites (Takht-i-Bahi, Rohtas Fort) involve steeper terrain. We tailor pacing to every group and can arrange vehicle support for sites where distance is a concern.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-btn">
+            <span>What's included in tour pricing?</span>
+            <span class="fq-icon">+</span>
+          </button>
+          <div class="faq-answer"><p>All tours include: expert guide fees, ground transport, accommodation as specified, breakfast daily, entry fees to all listed sites, and all NOC permits. International flights, personal travel insurance, and visa fees are not included. A detailed cost breakdown is provided before you confirm any booking.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMERGENCY -->
+  <div class="emergency reveal">
+    <div class="emergency-inner">
+      <span class="em-icon">🚨</span>
+      <h3>24/7 Emergency Contact</h3>
+      <p>For guests currently on tour requiring urgent assistance:</p>
+      <div class="em-number">+92-XXX-XXXXXXX</div>
+      <p class="emergency-sub">WhatsApp and voice — answered around the clock</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <h3>Uncharted Travels</h3>
+        <p class="tagline">Pakistan Heritage & Land Travel</p>
+        <p>Pakistan's most trusted heritage travel company. Expert historians, 50+ routes, 15 years of excellence.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-chevron-right icon-xs"></i>Home</a></li>
+          <li><a href="destinations.html"><i class="fas fa-chevron-right icon-xs"></i>Destinations</a></li>
+          <li><a href="historical-sites.html"><i class="fas fa-chevron-right icon-xs"></i>Historical Sites</a></li>
+          <li><a href="travel-guide.html"><i class="fas fa-chevron-right icon-xs"></i>Travel Guide</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right icon-xs"></i>About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Top Tours</h4>
+        <ul>
+          <li><a href="contact.html"><i class="fas fa-chevron-right icon-xs"></i>All 6 UNESCO Sites</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right icon-xs"></i>Gandhara Buddhist Trail</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right icon-xs"></i>Lahore Heritage</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right icon-xs"></i>KKH Silk Road</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right icon-xs"></i>Sindh Antiquity</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@unchartedtravels.pk"><i class="fas fa-envelope icon-sm"></i>hello@unchartedtravels.pk</a></li>
+          <li><a href="tel:+92000000000"><i class="fas fa-phone icon-sm"></i>+92-XXX-XXXXXXX</a></li>
+          <li><a href="#"><i class="fab fa-whatsapp icon-sm"></i>WhatsApp</a></li>
+          <li><a href="#"><i class="fas fa-map-marker-alt icon-sm"></i>Islamabad, Pakistan</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Uncharted Travels Private Limited. All rights reserved.</p>
+      <p>Committed to <a href="about.html">Pakistan's extraordinary story</a></p>
+    </div>
+  </footer>
+
+</html>
+  <button id="scrollTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+  <script src="js/main.js"></script>
+  <script>
+    // Tour type selector
+    function selectTour(card) {
+      document.querySelectorAll('.tt-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+    }
+    // Form progress bar
+    const form = document.getElementById('bookingForm');
+    if (form) {
+      const fields = form.querySelectorAll('input, select, textarea');
+      fields.forEach(f => f.addEventListener('input', updateProgress));
+      function updateProgress() {
+        const filled = [...fields].filter(f => f.value && f.value.trim()).length;
+        const pct = filled / fields.length;
+        const s1 = document.getElementById('fp1');
+        const s2 = document.getElementById('fp2');
+        const s3 = document.getElementById('fp3');
+        if(s1) s1.className = 'fp-step ' + (pct > 0 ? (pct > 0.3 ? 'done' : 'active') : '');
+        if(s2) s2.className = 'fp-step ' + (pct > 0.3 ? (pct > 0.65 ? 'done' : 'active') : '');
+        if(s3) s3.className = 'fp-step ' + (pct > 0.65 ? (pct >= 1 ? 'done' : 'active') : '');
+      }
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        this.style.display = 'none';
+        const msg = document.getElementById('successMsg');
+        if(msg) msg.style.display = 'block';
+      });
+    }
+    // FAQ accordion
+    document.querySelectorAll('.faq-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
+</body>
+</html>

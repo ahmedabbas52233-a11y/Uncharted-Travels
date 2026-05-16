@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Uncharted Travels — Pakistan's premier heritage travel company. Our story, our team, and our mission to share Pakistan's extraordinary history with the world.">
+  <title>About Us — Uncharted Travels Pakistan</title>
+  <link rel="icon" href="htmlpictures/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/about.css">
+  <style>
+    :root {
+      --void:#07070D;--stone:#12121A;--deep:#1C1C28;--slate:#252535;
+      --copper:#BF7A35;--gold:#D4A843;--rust:#A03820;
+      --parchment:#EBD9B8;--cream:#F7F0E0;--sand:#C8B08A;--mist:#7A7A90;
+      --font-serif:'Cormorant Garamond',Georgia,serif;
+      --font-sans:'Outfit',sans-serif;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--font-sans);background:var(--void);color:var(--parchment);overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.35;}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:14px 6%;background:rgba(7,7,13,0.97);border-bottom:1px solid rgba(191,122,53,0.15);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);}
+    .nav-brand{display:flex;align-items:center;gap:14px;text-decoration:none;}
+    .nav-brand img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:1px solid rgba(191,122,53,0.4);}
+    .nav-brand-text .name{color:var(--cream);font-family:var(--font-serif);font-size:18px;font-weight:600;display:block;}
+    .nav-brand-text .sub{color:var(--copper);font-size:9px;letter-spacing:0.25em;text-transform:uppercase;}
+    .nav-links{display:flex;list-style:none;gap:6px;align-items:center;}
+    .nav-links li a{color:rgba(235,217,184,0.65);text-decoration:none;font-size:10.5px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:8px 14px;transition:all 0.3s;}
+    .nav-links li a:hover,.nav-links li a.active{color:var(--gold);}
+    .nav-links li a.btn-nav{border:1px solid var(--copper);color:var(--copper);padding:8px 20px;}
+    .nav-links li a.btn-nav:hover{background:var(--copper);color:var(--void);}
+
+    /* HERO — split layout */
+    .about-hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:68px;}
+    .hero-left{position:relative;display:flex;flex-direction:column;justify-content:center;padding:80px 6% 80px 6%;background:var(--stone);overflow:hidden;}
+    .hero-left::before{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;border-radius:50%;background:rgba(191,122,53,0.04);}
+    .hero-right{position:relative;overflow:hidden;}
+    .hero-right-bg{position:absolute;inset:0;background-image:linear-gradient(to right,rgba(18,18,26,0.6) 0%,transparent 50%),url('htmlpictures/Taxila-Sirkap-Gandhara-2.jpg');background-size:cover;background-position:center;}
+    .hero-right-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(7,7,13,0.8));}
+    .breadcrumb{display:flex;align-items:center;gap:10px;margin-bottom:32px;}
+    .breadcrumb a{color:var(--copper);text-decoration:none;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;}
+    .breadcrumb span{color:var(--mist);font-size:10px;}
+    .about-hero h1{font-family:var(--font-serif);font-size:clamp(3rem,5vw,5.5rem);font-weight:300;line-height:1;color:var(--cream);margin-bottom:28px;}
+    .about-hero h1 em{font-style:italic;color:var(--gold);}
+    .about-hero p{font-size:15px;font-weight:300;color:var(--sand);line-height:1.9;max-width:480px;margin-bottom:40px;}
+    .founded-badge{display:inline-flex;align-items:center;gap:14px;padding:16px 24px;border:1px solid rgba(191,122,53,0.25);background:rgba(191,122,53,0.06);}
+    .founded-badge .year{font-family:var(--font-serif);font-size:2rem;font-weight:300;color:var(--gold);}
+    .founded-badge .text{font-size:11px;color:var(--sand);font-weight:300;line-height:1.4;}
+    /* Stats overlay on hero image */
+    .hero-stats-overlay{position:absolute;bottom:48px;left:40px;right:40px;z-index:3;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+    .hso-item{background:rgba(7,7,13,0.85);padding:20px 18px;border-top:2px solid rgba(191,122,53,0.3);}
+    .hso-num{font-family:var(--font-serif);font-size:2rem;font-weight:300;color:var(--gold);line-height:1;}
+    .hso-label{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--mist);margin-top:4px;}
+
+    /* ORIGIN STORY */
+    .origin{padding:120px 6%;background:var(--void);display:grid;grid-template-columns:1fr 1.6fr;gap:100px;align-items:center;}
+    .origin-left{
+      position:relative;
+    }
+    .origin-left .big-quote{font-family:var(--font-serif);font-size:clamp(1.6rem,3vw,2.4rem);font-style:italic;font-weight:300;color:var(--parchment);line-height:1.5;border-left:3px solid var(--copper);padding-left:32px;}
+    .origin-left .attribution{margin-top:24px;padding-left:32px;font-size:11px;color:var(--copper);letter-spacing:0.2em;text-transform:uppercase;}
+    .origin-right p{font-size:14px;line-height:2.1;color:var(--mist);font-weight:300;margin-bottom:20px;}
+    .origin-right p strong{color:var(--parchment);font-weight:500;}
+    .section-label{font-size:9px;font-weight:600;letter-spacing:0.4em;text-transform:uppercase;color:var(--copper);margin-bottom:14px;}
+    .section-title{font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.1;color:var(--cream);margin-bottom:32px;}
+    .section-title em{font-style:italic;color:var(--gold);}
+    .divider{width:60px;height:2px;background:linear-gradient(90deg,var(--copper),transparent);margin:32px 0;}
+
+    /* VALUES */
+    .values{padding:100px 6%;background:var(--stone);}
+    .values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:60px;}
+    .value-item{padding:48px 32px;background:var(--deep);border-bottom:3px solid transparent;transition:all 0.4s;position:relative;}
+    .value-item:hover{border-bottom-color:var(--copper);}
+    .value-num{font-family:var(--font-serif);font-size:4rem;font-weight:300;color:rgba(191,122,53,0.1);line-height:1;margin-bottom:20px;}
+    .value-item h3{font-family:var(--font-serif);font-size:1.4rem;font-weight:400;color:var(--cream);margin-bottom:12px;}
+    .value-item p{font-size:13px;line-height:1.9;color:var(--mist);font-weight:300;}
+
+    /* TEAM */
+    .team{padding:100px 6%;background:var(--void);}
+    .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:60px;}
+    .team-card{position:relative;overflow:hidden;border-radius:3px;cursor:default;}
+    .team-photo{aspect-ratio:3/4;background:var(--deep);display:flex;align-items:flex-end;justify-content:center;padding-bottom:0;overflow:hidden;position:relative;}
+    .team-photo-bg{position:absolute;inset:0;background-size:cover;background-position:center top;transition:transform 0.6s ease;}
+    .team-card:hover .team-photo-bg{transform:scale(1.04);}
+    .team-photo-initial{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-serif);font-size:5rem;font-weight:300;color:rgba(191,122,53,0.2);z-index:0;}
+    .team-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(7,7,13,0.92) 0%,transparent 60%);z-index:1;}
+    .team-info{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:24px 20px;}
+    .team-name{font-family:var(--font-serif);font-size:1.3rem;font-weight:400;color:var(--cream);margin-bottom:4px;}
+    .team-role{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--copper);margin-bottom:8px;}
+    .team-bio{font-size:11px;color:var(--mist);font-weight:300;line-height:1.6;opacity:0;transform:translateY(8px);transition:all 0.4s;}
+    .team-card:hover .team-bio{opacity:1;transform:translateY(0);}
+
+    /* MILESTONES */
+    .milestones{padding:100px 6%;background:var(--stone);position:relative;overflow:hidden;}
+    .milestones::before{content:'';position:absolute;left:50%;top:160px;bottom:60px;width:1px;background:linear-gradient(var(--copper),rgba(191,122,53,0.1));}
+    .milestone-list{max-width:900px;margin:60px auto 0;display:flex;flex-direction:column;gap:0;}
+    .milestone{display:grid;grid-template-columns:1fr 60px 1fr;align-items:start;gap:0;}
+    .milestone:nth-child(odd) .ml-content{text-align:right;padding-right:50px;}
+    .milestone:nth-child(odd) .ml-empty{order:2;}
+    .milestone:nth-child(even) .ml-content{padding-left:50px;grid-column:3;}
+    .milestone:nth-child(even) .ml-dot-col{grid-column:2;}
+    .milestone:nth-child(even) .ml-empty{grid-column:1;grid-row:1;}
+    .ml-dot-col{display:flex;justify-content:center;padding-top:6px;position:relative;z-index:2;}
+    .ml-dot{width:14px;height:14px;border-radius:50%;background:var(--copper);border:3px solid var(--stone);outline:3px solid rgba(191,122,53,0.3);}
+    .ml-content{padding-bottom:48px;}
+    .ml-year{font-family:var(--font-serif);font-size:1.3rem;font-weight:300;color:var(--gold);margin-bottom:6px;}
+    .ml-title{font-family:var(--font-serif);font-size:1.2rem;font-weight:400;color:var(--cream);margin-bottom:8px;}
+    .ml-desc{font-size:12px;line-height:1.8;color:var(--mist);font-weight:300;}
+    .ml-empty{
+      /* Empty column to create space on the opposite side of the timeline */
+      height:100%;
+      background:transparent;
+      border:0;
+      margin:0;
+    }
+
+    /* PARTNERS */
+    .partners{padding:80px 6%;background:var(--deep);text-align:center;}
+    .partners h3{font-family:var(--font-serif);font-size:1.2rem;font-weight:300;color:var(--mist);letter-spacing:0.1em;margin-bottom:48px;}
+    .partners-row{display:flex;justify-content:center;align-items:center;gap:48px;flex-wrap:wrap;}
+    .partner-badge{padding:16px 32px;border:1px solid rgba(191,122,53,0.15);color:rgba(235,217,184,0.4);font-size:12px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;transition:all 0.3s;}
+    .partner-badge:hover{border-color:rgba(191,122,53,0.4);color:var(--sand);}
+
+    /* AWARDS */
+    .awards{padding:80px 6%;background:var(--stone);}
+    .awards-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:50px;}
+    .award-item{padding:32px 24px;background:var(--deep);text-align:center;border-top:2px solid rgba(191,122,53,0.12);transition:all 0.4s;}
+    .award-item:hover{border-top-color:var(--gold);}
+    .award-icon{font-size:2rem;margin-bottom:14px;display:block;}
+    .award-title{font-family:var(--font-serif);font-size:1.1rem;font-weight:400;color:var(--cream);margin-bottom:6px;}
+    .award-org{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--copper);margin-bottom:8px;}
+    .award-year{font-size:11px;color:var(--mist);}
+
+    /* PROMISE */
+    .promise{padding:120px 6%;background:var(--void);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+    .promise-text h2{font-family:var(--font-serif);font-size:clamp(2.5rem,4vw,3.8rem);font-weight:300;color:var(--cream);line-height:1.1;margin-bottom:28px;}
+    .promise-text h2 em{font-style:italic;color:var(--gold);}
+    .promise-text p{font-size:14px;line-height:2.0;color:var(--mist);font-weight:300;margin-bottom:16px;}
+    .promise-text p strong{color:var(--parchment);font-weight:500;}
+    .promise-list{list-style:none;margin-top:28px;display:flex;flex-direction:column;gap:14px;}
+    .promise-list li{display:flex;align-items:flex-start;gap:16px;font-size:13px;color:var(--sand);font-weight:300;line-height:1.7;}
+    .promise-list li .pi{width:28px;height:28px;border-radius:50%;background:rgba(191,122,53,0.15);border:1px solid rgba(191,122,53,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--copper);font-size:11px;margin-top:1px;}
+    .promise-visual{position:relative;}
+    .pv-main{aspect-ratio:4/5;border-radius:3px;overflow:hidden;background:var(--stone);}
+    .pv-main img{width:100%;height:100%;object-fit:cover;}
+    .pv-main-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:6rem;}
+    .pv-card{position:absolute;bottom:-28px;right:-28px;width:180px;background:var(--copper);padding:24px 20px;}
+    .pv-card .big{font-family:var(--font-serif);font-size:3rem;font-weight:300;color:var(--void);line-height:1;}
+    .pv-card .small{font-size:10px;color:rgba(7,7,13,0.7);letter-spacing:0.15em;text-transform:uppercase;margin-top:4px;}
+
+    /* CTA */
+    .about-cta{background:linear-gradient(135deg,var(--rust) 0%,#3A1008 100%);padding:100px 6%;text-align:center;}
+    .about-cta h2{font-family:var(--font-serif);font-size:clamp(2.5rem,5vw,5rem);font-weight:300;color:var(--cream);line-height:1;margin-bottom:20px;}
+    .about-cta h2 em{font-style:italic;color:var(--gold);}
+    .about-cta p{font-size:15px;font-weight:300;color:rgba(235,217,184,0.7);max-width:520px;margin:0 auto 44px;line-height:1.8;}
+    .cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+    .btn-primary{display:inline-flex;align-items:center;gap:10px;padding:16px 40px;background:var(--gold);color:var(--void);font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;border-radius:1px;transition:all 0.4s;}
+    .btn-primary:hover{background:var(--cream);transform:translateY(-2px);}
+    .btn-ghost{display:inline-flex;align-items:center;gap:10px;padding:15px 40px;border:1px solid rgba(235,217,184,0.3);color:var(--parchment);font-size:11px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;border-radius:1px;transition:all 0.4s;}
+    .btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+
+    /* FOOTER */
+    footer{background:var(--void);padding:80px 6% 32px;border-top:1px solid rgba(191,122,53,0.12);}
+    .footer-top{display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px;}
+    .footer-brand-col h3{font-family:var(--font-serif);font-size:1.8rem;font-weight:400;color:var(--cream);margin-bottom:8px;}
+    .footer-brand-col .tagline{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--copper);margin-bottom:16px;}
+    .footer-brand-col p{font-size:13px;line-height:1.9;color:var(--mist);font-weight:300;max-width:270px;}
+    .footer-socials{display:flex;gap:12px;margin-top:24px;}
+    .footer-socials a{width:38px;height:38px;border:1px solid rgba(191,122,53,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--mist);font-size:14px;text-decoration:none;transition:all 0.3s;}
+    .footer-socials a:hover{border-color:var(--copper);color:var(--copper);}
+    .footer-col h4{font-size:9px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--copper);margin-bottom:22px;}
+    .footer-col ul{list-style:none;}
+    .footer-col ul li{margin-bottom:10px;}
+    .footer-col ul li a{color:var(--mist);text-decoration:none;font-size:13px;font-weight:300;transition:color 0.3s;display:flex;align-items:center;gap:8px;}
+    .footer-col ul li a:hover{color:var(--gold);}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.05);padding-top:28px;display:flex;justify-content:space-between;align-items:center;}
+    .footer-bottom p{font-size:11px;color:rgba(122,122,144,0.5);}
+    .footer-bottom a{color:var(--copper);text-decoration:none;}
+
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease,transform 0.8s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+
+    @media(max-width:1000px){.about-hero{grid-template-columns:1fr;min-height:0;}.hero-right{min-height:400px;}.values-grid{grid-template-columns:1fr 1fr;}.team-grid{grid-template-columns:1fr 1fr;}.awards-grid{grid-template-columns:1fr 1fr;}.origin{grid-template-columns:1fr;gap:40px;}.promise{grid-template-columns:1fr;}.footer-top{grid-template-columns:1fr 1fr;}}
+    @media(max-width:700px){.nav-links{display:none;}.values-grid{grid-template-columns:1fr;}.team-grid{grid-template-columns:1fr 1fr;}.milestones::before{left:30px;}.milestone{grid-template-columns:30px 1fr;}.milestone:nth-child(odd) .ml-content{text-align:left;padding-right:0;padding-left:24px;grid-column:2;}.milestone:nth-child(even) .ml-content{padding-left:24px;grid-column:2;}.milestone:nth-child(even) .ml-empty{display:none;}.ml-empty{display:none;}.awards-grid{grid-template-columns:1fr 1fr;}.footer-top{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;gap:12px;}.pv-card{display:none;}}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-brand">
+      <img src="htmlpictures/Logo1.png" alt="Uncharted Travels">
+      <div class="nav-brand-text">
+        <span class="name">Uncharted Travels</span>
+        <span class="sub">Pakistan Heritage</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="destinations.html">Destinations</a></li>
+      <li><a href="historical-sites.html">Historical Sites</a></li>
+      <li><a href="cultural-insights.html">Culture</a></li>
+      <li><a href="travel-guide.html">Travel Guide</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html" class="btn-nav">Book Now</a></li>
+    </ul>
+    <button id="hamburger" aria-label="Toggle navigation" aria-expanded="false"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <!-- HERO -->
+  <div class="about-hero">
+    <div class="hero-left">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a><span>/</span>
+        <span class="breadcrumb-current">About</span>
+      </div>
+      <h1>We Are<br><em>Pakistan's</em><br>Story Tellers</h1>
+      <p>We started because we were tired of watching one of the world's most extraordinary heritage landscapes be overlooked. Since 2010 we have guided thousands of travellers through Pakistan's 7,000-year story.</p>
+      <div class="founded-badge">
+        <span class="year">2010</span>
+        <span class="text">Founded in Islamabad<br>by heritage enthusiasts</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-right-bg"></div>
+      <div class="hero-right-overlay"></div>
+      <div class="hero-stats-overlay">
+        <div class="hso-item">
+          <div class="hso-num">15+</div>
+          <div class="hso-label">Years Operating</div>
+        </div>
+        <div class="hso-item">
+          <div class="hso-num">8,000+</div>
+          <div class="hso-label">Travellers Guided</div>
+        </div>
+        <div class="hso-item">
+          <div class="hso-num">50+</div>
+          <div class="hso-label">Heritage Routes</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORIGIN STORY -->
+  <section class="origin">
+    <div class="reveal">
+      <div class="big-quote">"Pakistan has more history per square kilometre than almost anywhere on Earth — and almost no one outside the country knows it."</div>
+      <div class="attribution">— Founder's Note, 2010</div>
+    </div>
+    <div class="reveal">
+      <p class="section-label">Our Story</p>
+      <h2 class="section-title">How We<br><em>Began</em></h2>
+      <p>Uncharted Travels was founded in 2010 by a group of Lahore-based historians, archaeologists, and travel professionals who shared a single frustration: <strong>Pakistan's remarkable heritage was invisible to the world</strong>.</p>
+      <p>The country held six UNESCO World Heritage Sites, one of the world's oldest urban civilisations, the finest Mughal architecture outside the Taj Mahal, and a Buddhist heritage of staggering depth — yet international tourism to historical sites was negligible. Most visitors who came were trekkers heading for the mountains, unaware that the ruins beneath them were equally extraordinary.</p>
+      <div class="divider"></div>
+      <p>We began with a single Taxila day tour for a group of foreign diplomats based in Islamabad. Word spread. Within two years we were operating full heritage circuits across Punjab, KPK, and Sindh. Today we are Pakistan's most comprehensive heritage travel company — still based in Islamabad, still led by people who have spent their lives studying these landscapes.</p>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="values">
+    <div class="reveal section-center">
+      <p class="section-label">What We Stand For</p>
+      <h2 class="section-title">Our Four<br><em>Commitments</em></h2>
+    </div>
+    <div class="values-grid reveal">
+      <div class="value-item">
+        <div class="value-num">01</div>
+        <h3>Scholarly Depth</h3>
+        <p>Every guide on every tour has specialist knowledge of the site they are presenting. We work with archaeologists, historians, and published researchers. We never repeat myths. We tell you what the evidence says.</p>
+      </div>
+      <div class="value-item">
+        <div class="value-num">02</div>
+        <h3>Honest Safety Guidance</h3>
+        <p>We do not minimise risks to sell tours, nor exaggerate them to justify premium prices. We give you an accurate picture of each region's conditions and only operate where we are genuinely confident in your safety.</p>
+      </div>
+      <div class="value-item">
+        <div class="value-num">03</div>
+        <h3>Local Partnership</h3>
+        <p>Over 80% of what you spend with us stays in Pakistan — with local drivers, local restaurants, locally-owned guesthouses, and local artisans. We actively avoid the international hotel chains that extract value from communities.</p>
+      </div>
+      <div class="value-item">
+        <div class="value-num">04</div>
+        <h3>Heritage Preservation</h3>
+        <p>We contribute 5% of all heritage tour profits to the Aga Khan Cultural Service Pakistan and the Taxila Institute of Asian Civilizations — both working to preserve the sites we depend on.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team">
+    <div class="reveal section-center">
+      <p class="section-label">The People</p>
+      <h2 class="section-title">Meet the<br><em>Team</em></h2>
+    </div>
+    <div class="team-grid reveal">
+      <div class="team-card">
+        <div class="team-photo" class="team-bg-1">
+          <div class="team-photo-initial">A</div>
+          <div class="team-info">
+            <div class="team-name">Ahmed Raza</div>
+            <div class="team-role">Founder & Lead Historian</div>
+            <div class="team-bio">MA Archaeology, Quaid-i-Azam University. 20 years studying Gandhara Buddhist sites. Author of "Taxila: Layers of Civilisation" (2018).</div>
+          </div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo" class="team-bg-2">
+          <div class="team-photo-initial">S</div>
+          <div class="team-info">
+            <div class="team-name">Sana Mirza</div>
+            <div class="team-role">Director of Operations</div>
+            <div class="team-bio">Former PTDC heritage programme manager. Specialist in Sindh archaeological sites. 15 years of field experience from Mohenjo-daro to Makli.</div>
+          </div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo" class="team-bg-3">
+          <div class="team-photo-initial">K</div>
+          <div class="team-info">
+            <div class="team-name">Kamran Shah</div>
+            <div class="team-role">Head Guide — Mughal Heritage</div>
+            <div class="team-bio">Lahori born and bred, with a PhD in Mughal architectural history. Has led over 600 tours of Lahore's Walled City. Speaks five languages.</div>
+          </div>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-photo" class="team-bg-4">
+          <div class="team-photo-initial">F</div>
+          <div class="team-info">
+            <div class="team-name">Fatima Khan</div>
+            <div class="team-role">Cultural Research Director</div>
+            <div class="team-bio">Anthropologist specialising in KPK tribal cultures and Kalash traditions. Fluent in Pashto, Khowar, and Burushaski. Co-authored AKCS cultural guides.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MILESTONES -->
+  <section class="milestones">
+    <div class="reveal section-center-full">
+      <p class="section-label">Our Journey</p>
+      <h2 class="section-title">Fifteen Years of<br><em>Milestones</em></h2>
+    </div>
+    <div class="milestone-list reveal">
+      <div class="milestone">
+        <div class="ml-content">
+          <div class="ml-year">2010</div>
+          <div class="ml-title">Founded in Islamabad</div>
+          <div class="ml-desc">First Taxila heritage day tour for a group of 12 foreign diplomats. Zero marketing. All word-of-mouth.</div>
+        </div>
+        <div class="ml-dot-col"><div class="ml-dot"></div></div>
+        <div class="ml-empty"></div>
+      </div>
+      <div class="milestone">
+        <div class="ml-empty"></div>
+        <div class="ml-dot-col"><div class="ml-dot"></div></div>
+        <div class="ml-content">
+          <div class="ml-year">2012</div>
+          <div class="ml-title">First Multi-Province Circuit</div>
+          <div class="ml-desc">Launched the Punjab–Sindh Heritage Circuit — the first tour to combine Taxila, Lahore, Mohenjo-daro and Makli in one itinerary.</div>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="ml-content">
+          <div class="ml-year">2014</div>
+          <div class="ml-title">All Six UNESCO Sites Covered</div>
+          <div class="ml-desc">Became the first tour operator to run a programme visiting all six of Pakistan's UNESCO World Heritage Sites. Sold out within three weeks of launch.</div>
+        </div>
+        <div class="ml-dot-col"><div class="ml-dot"></div></div>
+        <div class="ml-empty"></div>
+      </div>
+      <div class="milestone">
+        <div class="ml-empty"></div>
+        <div class="ml-dot-col"><div class="ml-dot"></div></div>
+        <div class="ml-content">
+          <div class="ml-year">2017</div>
+          <div class="ml-title">Gandhara Buddhist Trail Launch</div>
+          <div class="ml-desc">Partnered with the Taxila Institute of Asian Civilizations to create the most academically rigorous Buddhist heritage tour in Pakistan.</div>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="ml-content">
+          <div class="ml-year">2019</div>
+          <div class="ml-title">1,000th International Guest</div>
+          <div class="ml-desc">Welcomed our 1,000th international traveller — a retired schoolteacher from Oslo who had dreamed of seeing Mohenjo-daro for forty years.</div>
+        </div>
+        <div class="ml-dot-col"><div class="ml-dot"></div></div>
+        <div class="ml-empty"></div>
+      </div>
+      <div class="milestone">
+        <div class="ml-empty"></div>
+        <div class="ml-dot-col"><div class="ml-dot"></div></div>
+        <div class="ml-content">
+          <div class="ml-year">2022</div>
+          <div class="ml-title">KKH Silk Road Programme</div>
+          <div class="ml-desc">Launched the full Karakoram Highway Silk Road tour — Islamabad to Khunjerab Pass — with accompanying historian and dedicated archaeology stopovers.</div>
+        </div>
+      </div>
+      <div class="milestone">
+        <div class="ml-content">
+          <div class="ml-year">2025</div>
+          <div class="ml-title">8,000+ Guests · Growing</div>
+          <div class="ml-desc">Over eight thousand travellers guided across Pakistan's historical landscape. Now operating 50+ distinct heritage routes across all five provinces and territories.</div>
+        </div>
+        <div class="ml-dot-col"><div class="ml-dot ml-dot-gold"></div></div>
+        <div class="ml-empty"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section class="partners reveal">
+    <h3>Trusted Partners & Affiliations</h3>
+    <div class="partners-row">
+      <div class="partner-badge">UNESCO Pakistan</div>
+      <div class="partner-badge">Aga Khan Cultural Service</div>
+      <div class="partner-badge">PTDC</div>
+      <div class="partner-badge">Taxila Institute of Asian Civilizations</div>
+      <div class="partner-badge">Pakistan Tourism Authority</div>
+      <div class="partner-badge">British Council Pakistan</div>
+    </div>
+  </section>
+
+  <!-- AWARDS -->
+  <section class="awards">
+    <div class="reveal section-center-full">
+      <p class="section-label">Recognition</p>
+      <h2 class="section-title">Awards &<br><em>Accolades</em></h2>
+    </div>
+    <div class="awards-grid reveal">
+      <div class="award-item">
+        <span class="award-icon">🏆</span>
+        <div class="award-title">Best Heritage Tour Operator</div>
+        <div class="award-org">Pakistan Tourism Authority</div>
+        <div class="award-year">2023 · 2021 · 2019</div>
+      </div>
+      <div class="award-item">
+        <span class="award-icon">⭐</span>
+        <div class="award-title">Travellers' Choice Award</div>
+        <div class="award-org">TripAdvisor</div>
+        <div class="award-year">5 Consecutive Years</div>
+      </div>
+      <div class="award-item">
+        <span class="award-icon">🌍</span>
+        <div class="award-title">Responsible Tourism Award</div>
+        <div class="award-org">UNWTO South Asia</div>
+        <div class="award-year">2022</div>
+      </div>
+      <div class="award-item">
+        <span class="award-icon">📚</span>
+        <div class="award-title">Cultural Heritage Leadership</div>
+        <div class="award-org">Aga Khan Trust for Culture</div>
+        <div class="award-year">2020</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR PROMISE -->
+  <section class="promise">
+    <div class="promise-text reveal">
+      <p class="section-label">Our Guarantee</p>
+      <h2>A Promise<br><em>We Keep</em></h2>
+      <p>Every itinerary we build is one we would take ourselves. We have walked every route, entered every site, eaten in every recommended restaurant, and slept in every suggested guesthouse. Nothing goes on our programmes that we haven't personally verified.</p>
+      <ul class="promise-list">
+        <li><span class="pi"><i class="fas fa-check"></i></span>If a site is temporarily closed, we substitute an equivalent experience — no charge.</li>
+        <li><span class="pi"><i class="fas fa-check"></i></span>If your guide doesn't meet our standard, we refund the guide fee in full.</li>
+        <li><span class="pi"><i class="fas fa-check"></i></span>24/7 emergency contact throughout your journey — a real person, not an answering service.</li>
+        <li><span class="pi"><i class="fas fa-check"></i></span>Full transparency on all costs before booking. No hidden fees. No surprises.</li>
+        <li><span class="pi"><i class="fas fa-check"></i></span>We assist with visa applications, NOC permits, and all paperwork at no extra charge.</li>
+      </ul>
+    </div>
+    <div class="promise-visual reveal">
+      <div class="pv-main">
+        <img src="htmlpictures/Jaulian-Monastery.png" alt="Jaulian Monastery, Taxila" class="img-cover">
+      </div>
+      <div class="pv-card">
+        <div class="big">98%</div>
+        <div class="small">Guest satisfaction rate</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="about-cta reveal">
+    <h2>Let's Explore<br><em>Together</em></h2>
+    <p>Whether you have two weeks or two months, a specific site in mind or an open curiosity — we will build you the Pakistan journey of a lifetime.</p>
+    <div class="cta-actions">
+      <a href="contact.html" class="btn-primary">Start Planning <i class="fas fa-arrow-right"></i></a>
+      <a href="historical-sites.html" class="btn-ghost">See the Sites</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <h3>Uncharted Travels</h3>
+        <p class="tagline">Pakistan Heritage & Land Travel</p>
+        <p>15 years. 8,000+ guests. 50+ heritage routes. Pakistan's most trusted cultural travel company.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#"><i class="fas fa-chevron-right icon-xs"></i>Our Story</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right icon-xs"></i>The Team</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right icon-xs"></i>Our Values</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right icon-xs"></i>Awards</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="destinations.html"><i class="fas fa-chevron-right icon-xs"></i>Destinations</a></li>
+          <li><a href="historical-sites.html"><i class="fas fa-chevron-right icon-xs"></i>Historical Sites</a></li>
+          <li><a href="cultural-insights.html"><i class="fas fa-chevron-right icon-xs"></i>Cultural Insights</a></li>
+          <li><a href="travel-guide.html"><i class="fas fa-chevron-right icon-xs"></i>Travel Guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="contact.html"><i class="fas fa-calendar icon-sm"></i>Book a Tour</a></li>
+          <li><a href="mailto:hello@unchartedtravels.pk"><i class="fas fa-envelope icon-sm"></i>hello@unchartedtravels.pk</a></li>
+          <li><a href="tel:+92000000000"><i class="fas fa-phone icon-sm"></i>+92-XXX-XXXXXXX</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Uncharted Travels Private Limited. All rights reserved.</p>
+      <p>Islamabad, Pakistan · <a href="contact.html">Get in touch</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'),i*70); });
+    },{threshold:0.06});
+    reveals.forEach(el=>obs.observe(el));
+  </script>
+</body>
+</html>
+  <button id="scrollTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+  <script src="js/main.js"></script>
+</body>
+</html>

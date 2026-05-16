@@ -1,0 +1,46 @@
+/* historical-sites.html — site section backgrounds */
+
+.hero-bg {
+  background-image:
+    linear-gradient(to top, rgba(7,7,13,0.97) 0%, rgba(7,7,13,0.5) 50%, rgba(7,7,13,0.65) 100%),
+    url('../htmlpictures/Jaulian-Monastery.png');
+  background-size: cover;
+  background-position: center top;
+}
+
+/* Taxila image panels */
+.bg-jaulian    { background-image: url('../htmlpictures/Jaulian-Monastery.png'); background-size:cover; background-position:center; }
+.bg-dharmarajika { background-image: url('../htmlpictures/Dharmarajika_stupa.jpg'); background-size:cover; background-position:center; }
+.bg-sirkap-2   { background-image: url('../htmlpictures/Taxila-Sirkap-Gandhara-2.jpg'); background-size:cover; background-position:center; }
+
+/* Lahore Fort */
+.bg-lahore-fort { background-image: url('../htmlpictures/Dharmarajika_stupa.jpg'); background-size:cover; background-position:center; }
+
+/* Takht-i-Bahi */
+.bg-ancient-1  { background-image: url('../htmlpictures/Ruins of the Ancient buildings 1, Taxila.jpg'); background-size:cover; background-position:center; }
+.bg-ancient-2  { background-image: url('../htmlpictures/Ruins of the Ancient buildings, Taxila.jpg'); background-size:cover; background-position:center; }
+
+/* Rohtas Fort */
+.bg-sirkap-3   { background-image: url('../htmlpictures/Sirkap 33.jpg'); background-size:cover; background-position:center; }
+
+/* Mohenjo-daro placeholder (no local image) */
+.bg-mohenjo-ph { background: linear-gradient(135deg,#3A2010,#6A4020); }
+.bg-mohenjo-ph2 { background: linear-gradient(135deg,#2A1808,#4A2C12); }
+.bg-mohenjo-ph3 { background: linear-gradient(135deg,#1A1008,#30200A); }
+
+/* Lahore supplemental */
+.bg-lahore-s2  { background: linear-gradient(135deg,#150A05,#2A1408); }
+.bg-lahore-s3  { background: linear-gradient(135deg,#100808,#201010); }
+
+/* Makli supplemental */
+.bg-makli-s2   {
+  background-image:
+    linear-gradient(135deg,rgba(10,21,32,0.6),rgba(32,48,74,0.7)),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Makli_Necropolis_%28site%29.jpg/1280px-Makli_Necropolis_%28site%29.jpg');
+  background-size:cover; background-position:center;
+}
+.bg-makli-s3   { background: linear-gradient(135deg,#080E18,#141E30); }
+.bg-makli-s4   { background: linear-gradient(135deg,#060C14,#101824); }
+
+/* Rohtas supplemental */
+.bg-rohtas-s2  { background: linear-gradient(135deg,#1A0A05,#3A1808); }
