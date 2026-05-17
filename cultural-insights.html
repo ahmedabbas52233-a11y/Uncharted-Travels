@@ -15,7 +15,7 @@
     :root {
       --void:#07070D;--stone:#12121A;--deep:#1C1C28;--slate:#252535;
       --copper:#BF7A35;--gold:#D4A843;--rust:#A03820;
-      --parchment:#EBD9B8;--cream:#F7F0E0;--sand:#C8B08A;--mist:#7A7A90;
+      --parchment:#EBD9B8;--cream:#F7F0E0;--sand:#C8B08A;--mist:#9696AF;
       --font-serif:'Cormorant Garamond',Georgia,serif;
       --font-sans:'Outfit',sans-serif;
     }
@@ -142,18 +142,26 @@
 
     @media(max-width:1000px){.pillars-grid{grid-template-columns:1fr 1fr;}.fest-grid{grid-template-columns:1fr 1fr;}.food-grid{grid-template-columns:1fr 1fr 1fr;}.lang-grid{grid-template-columns:1fr 1fr;}.footer-top{grid-template-columns:1fr 1fr;}}
     @media(max-width:700px){.nav-links{display:none;}.dd-inner,.dd-inner.reverse{grid-template-columns:1fr;direction:ltr;}.pillars-grid{grid-template-columns:1fr;}.etiq-grid{grid-template-columns:1fr;}.food-grid{grid-template-columns:1fr 1fr;}.footer-top{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;gap:12px;}}
+
+    /* ── A11Y: skip link & focus ── */
+    .skip-link{position:absolute;top:-100px;left:12px;z-index:9999;padding:10px 20px;
+      background:var(--copper,#BF7A35);color:var(--void,#07070D);font-size:14px;
+      font-weight:600;border-radius:2px;text-decoration:none;transition:top .2s;}
+    .skip-link:focus{top:12px;}
+    *:focus-visible{outline:2px solid var(--copper,#BF7A35);outline-offset:3px;border-radius:2px;}
   </style>
 </head>
 <body>
-  <nav>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <nav aria-label="Main navigation">
     <a href="index.html" class="nav-brand">
-      <img src="htmlpictures/Logo1.png" alt="Uncharted Travels">
+      <img src="htmlpictures/Logo1.png" alt="Uncharted Travels logo">
       <div class="nav-brand-text">
         <span class="name">Uncharted Travels</span>
         <span class="sub">Pakistan Heritage</span>
       </div>
     </a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="destinations.html">Destinations</a></li>
       <li><a href="historical-sites.html">Historical Sites</a></li>
@@ -162,9 +170,10 @@
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html" class="btn-nav">Book Now</a></li>
     </ul>
-    <button id="hamburger" aria-label="Toggle navigation" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    <button id="hamburger" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false"><i class="fas fa-bars" aria-hidden="true"></i></button>
   </nav>
 
+  <main id="main-content">
   <section class="page-hero" class="page-hero hero-padded">
     <div class="hero-bg"></div>
     <div class="page-hero-content">
@@ -285,56 +294,56 @@
         <div class="fest-month">March</div>
         <span class="fest-icon">🌸</span>
         <div class="fest-name">Chilam Joshi</div>
-        <div class="fest-where"><i class="fas fa-map-marker-alt" class="fest-pin"></i>Kalash Valleys, Chitral</div>
+        <div class="fest-where"><i class="fas fa-map-marker-alt" aria-hidden="true" class="fest-pin"></i>Kalash Valleys, Chitral</div>
         <p class="fest-desc">The Kalash people's spring festival — one of Pakistan's most remarkable cultural events. Three days of music, dance, and ancient ritual in the mountain valleys near the Afghan border.</p>
       </div>
       <div class="fest-card">
         <div class="fest-month">July</div>
         <span class="fest-icon">🐴</span>
         <div class="fest-name">Shandur Polo Festival</div>
-        <div class="fest-where"><i class="fas fa-map-marker-alt" class="fest-pin"></i>Shandur Pass, KPK</div>
+        <div class="fest-where"><i class="fas fa-map-marker-alt" aria-hidden="true" class="fest-pin"></i>Shandur Pass, KPK</div>
         <p class="fest-desc">Polo played at 3,700m altitude on the "Roof of the World" between Gilgit and Chitral teams. The world's highest polo ground, in use for centuries — a spectacular event in extraordinary scenery.</p>
       </div>
       <div class="fest-card">
         <div class="fest-month">Variable</div>
         <span class="fest-icon">🌙</span>
         <div class="fest-name">Eid ul-Fitr</div>
-        <div class="fest-where"><i class="fas fa-map-marker-alt" class="fest-pin"></i>Nationwide</div>
+        <div class="fest-where"><i class="fas fa-map-marker-alt" aria-hidden="true" class="fest-pin"></i>Nationwide</div>
         <p class="fest-desc">The breaking of Ramadan fast — three days of celebration, family gatherings, new clothes, and extraordinary food. Experiencing Eid in Pakistan as a guest is an act of cultural generosity few countries can match.</p>
       </div>
       <div class="fest-card">
         <div class="fest-month">February</div>
         <span class="fest-icon">🪁</span>
         <div class="fest-name">Basant</div>
-        <div class="fest-where"><i class="fas fa-map-marker-alt" class="fest-pin"></i>Lahore, Punjab</div>
+        <div class="fest-where"><i class="fas fa-map-marker-alt" aria-hidden="true" class="fest-pin"></i>Lahore, Punjab</div>
         <p class="fest-desc">Lahore's kite festival — the arrival of spring celebrated with rooftop kite-fighting, mustard-yellow clothes, and night illuminations. When fully permitted, an unforgettable spectacle over the Walled City skyline.</p>
       </div>
       <div class="fest-card">
         <div class="fest-month">August</div>
         <span class="fest-icon">🇵🇰</span>
         <div class="fest-name">Independence Day</div>
-        <div class="fest-where"><i class="fas fa-map-marker-alt" class="fest-pin"></i>Islamabad & nationwide</div>
+        <div class="fest-where"><i class="fas fa-map-marker-alt" aria-hidden="true" class="fest-pin"></i>Islamabad & nationwide</div>
         <p class="fest-desc">14 August marks Pakistan's independence. Islamabad's parade, Lahore's illuminated monuments, and the extraordinary flag-lowering ceremony at the Wagah border crossing with India — a must-witness event.</p>
       </div>
       <div class="fest-card">
         <div class="fest-month">Variable</div>
         <span class="fest-icon">🌀</span>
         <div class="fest-name">Urs of Lal Shahbaz</div>
-        <div class="fest-where"><i class="fas fa-map-marker-alt" class="fest-pin"></i>Sehwan, Sindh</div>
+        <div class="fest-where"><i class="fas fa-map-marker-alt" aria-hidden="true" class="fest-pin"></i>Sehwan, Sindh</div>
         <p class="fest-desc">The death anniversary of Lal Shahbaz Qalandar draws over one million Sufi devotees to Sehwan. The Thursday dhamaal (ecstatic dance) before the shrine is one of the most spiritually intense experiences available anywhere.</p>
       </div>
       <div class="fest-card">
         <div class="fest-month">September</div>
         <span class="fest-icon">🎪</span>
         <div class="fest-name">Lok Mela</div>
-        <div class="fest-where"><i class="fas fa-map-marker-alt" class="fest-pin"></i>Islamabad</div>
+        <div class="fest-where"><i class="fas fa-map-marker-alt" aria-hidden="true" class="fest-pin"></i>Islamabad</div>
         <p class="fest-desc">Pakistan's National Folk Festival — artisans, musicians, and performers from all five provinces gathered in Islamabad for ten days. The single best opportunity to experience Pakistan's full cultural diversity in one place.</p>
       </div>
       <div class="fest-card">
         <div class="fest-month">October</div>
         <span class="fest-icon">🐫</span>
         <div class="fest-name">Cholistan Desert Rally</div>
-        <div class="fest-where"><i class="fas fa-map-marker-alt" class="fest-pin"></i>Bahawalpur, Punjab</div>
+        <div class="fest-where"><i class="fas fa-map-marker-alt" aria-hidden="true" class="fest-pin"></i>Bahawalpur, Punjab</div>
         <p class="fest-desc">Jeep rally through the Cholistan desert, combined with camel polo and traditional Bahawalpur cultural displays. An unusual and exhilarating event in one of Pakistan's most spectacular desert landscapes.</p>
       </div>
     </div>
@@ -450,6 +459,7 @@
     </div>
   </section>
 
+  </main><!-- /main -->
   <footer>
     <div class="footer-top">
       <div class="footer-brand-col">
@@ -457,34 +467,34 @@
         <p class="tagline">Pakistan Heritage & Land Travel</p>
         <p>Understanding Pakistan's living cultures is the foundation of every journey we plan.</p>
         <div class="footer-socials">
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
         </div>
       </div>
       <div class="footer-col">
         <h4>Explore</h4>
         <ul>
-          <li><a href="index.html"><i class="fas fa-chevron-right icon-xs"></i>Home</a></li>
-          <li><a href="destinations.html"><i class="fas fa-chevron-right icon-xs"></i>Destinations</a></li>
-          <li><a href="historical-sites.html"><i class="fas fa-chevron-right icon-xs"></i>Historical Sites</a></li>
-          <li><a href="travel-guide.html"><i class="fas fa-chevron-right icon-xs"></i>Travel Guide</a></li>
+          <li><a href="index.html"><i class="fas fa-chevron-right icon-xs" aria-hidden="true"></i>Home</a></li>
+          <li><a href="destinations.html"><i class="fas fa-chevron-right icon-xs" aria-hidden="true"></i>Destinations</a></li>
+          <li><a href="historical-sites.html"><i class="fas fa-chevron-right icon-xs" aria-hidden="true"></i>Historical Sites</a></li>
+          <li><a href="travel-guide.html"><i class="fas fa-chevron-right icon-xs" aria-hidden="true"></i>Travel Guide</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Culture</h4>
         <ul>
-          <li><a href="#gandhara-art"><i class="fas fa-chevron-right icon-xs"></i>Gandhara Art</a></li>
-          <li><a href="#sufi"><i class="fas fa-chevron-right icon-xs"></i>Sufism & Qawwali</a></li>
-          <li><a href="#mughal"><i class="fas fa-chevron-right icon-xs"></i>Mughal Architecture</a></li>
+          <li><a href="#gandhara-art"><i class="fas fa-chevron-right icon-xs" aria-hidden="true"></i>Gandhara Art</a></li>
+          <li><a href="#sufi"><i class="fas fa-chevron-right icon-xs" aria-hidden="true"></i>Sufism & Qawwali</a></li>
+          <li><a href="#mughal"><i class="fas fa-chevron-right icon-xs" aria-hidden="true"></i>Mughal Architecture</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
-          <li><a href="contact.html"><i class="fas fa-calendar icon-sm"></i>Book a Tour</a></li>
-          <li><a href="about.html"><i class="fas fa-users icon-sm"></i>About Us</a></li>
+          <li><a href="contact.html"><i class="fas fa-calendar icon-sm" aria-hidden="true"></i>Book a Tour</a></li>
+          <li><a href="about.html"><i class="fas fa-users icon-sm" aria-hidden="true"></i>About Us</a></li>
         </ul>
       </div>
     </div>
@@ -503,7 +513,7 @@
   </script>
 </body>
 </html>
-  <button id="scrollTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+  <button id="scrollTop" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
   <script src="js/main.js"></script>
 </body>
 </html>

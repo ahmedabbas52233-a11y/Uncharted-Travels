@@ -15,7 +15,7 @@
     :root {
       --void:#07070D;--stone:#12121A;--deep:#1C1C28;--slate:#252535;
       --copper:#BF7A35;--gold:#D4A843;--rust:#A03820;
-      --parchment:#EBD9B8;--cream:#F7F0E0;--sand:#C8B08A;--mist:#7A7A90;
+      --parchment:#EBD9B8;--cream:#F7F0E0;--sand:#C8B08A;--mist:#9696AF;
       --font-serif:'Cormorant Garamond',Georgia,serif;
       --font-sans:'Outfit',sans-serif;
     }
@@ -60,9 +60,6 @@
 
     /* ORIGIN STORY */
     .origin{padding:120px 6%;background:var(--void);display:grid;grid-template-columns:1fr 1.6fr;gap:100px;align-items:center;}
-    .origin-left{
-      position:relative;
-    }
     .origin-left .big-quote{font-family:var(--font-serif);font-size:clamp(1.6rem,3vw,2.4rem);font-style:italic;font-weight:300;color:var(--parchment);line-height:1.5;border-left:3px solid var(--copper);padding-left:32px;}
     .origin-left .attribution{margin-top:24px;padding-left:32px;font-size:11px;color:var(--copper);letter-spacing:0.2em;text-transform:uppercase;}
     .origin-right p{font-size:14px;line-height:2.1;color:var(--mist);font-weight:300;margin-bottom:20px;}
@@ -112,14 +109,6 @@
     .ml-year{font-family:var(--font-serif);font-size:1.3rem;font-weight:300;color:var(--gold);margin-bottom:6px;}
     .ml-title{font-family:var(--font-serif);font-size:1.2rem;font-weight:400;color:var(--cream);margin-bottom:8px;}
     .ml-desc{font-size:12px;line-height:1.8;color:var(--mist);font-weight:300;}
-    .ml-empty{
-      /* Empty column to create space on the opposite side of the timeline */
-      height:100%;
-      background:transparent;
-      border:0;
-      margin:0;
-    }
-
     /* PARTNERS */
     .partners{padding:80px 6%;background:var(--deep);text-align:center;}
     .partners h3{font-family:var(--font-serif);font-size:1.2rem;font-weight:300;color:var(--mist);letter-spacing:0.1em;margin-bottom:48px;}
@@ -188,19 +177,27 @@
 
     @media(max-width:1000px){.about-hero{grid-template-columns:1fr;min-height:0;}.hero-right{min-height:400px;}.values-grid{grid-template-columns:1fr 1fr;}.team-grid{grid-template-columns:1fr 1fr;}.awards-grid{grid-template-columns:1fr 1fr;}.origin{grid-template-columns:1fr;gap:40px;}.promise{grid-template-columns:1fr;}.footer-top{grid-template-columns:1fr 1fr;}}
     @media(max-width:700px){.nav-links{display:none;}.values-grid{grid-template-columns:1fr;}.team-grid{grid-template-columns:1fr 1fr;}.milestones::before{left:30px;}.milestone{grid-template-columns:30px 1fr;}.milestone:nth-child(odd) .ml-content{text-align:left;padding-right:0;padding-left:24px;grid-column:2;}.milestone:nth-child(even) .ml-content{padding-left:24px;grid-column:2;}.milestone:nth-child(even) .ml-empty{display:none;}.ml-empty{display:none;}.awards-grid{grid-template-columns:1fr 1fr;}.footer-top{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;gap:12px;}.pv-card{display:none;}}
+
+    /* ── A11Y: skip link & focus ── */
+    .skip-link{position:absolute;top:-100px;left:12px;z-index:9999;padding:10px 20px;
+      background:var(--copper,#BF7A35);color:var(--void,#07070D);font-size:14px;
+      font-weight:600;border-radius:2px;text-decoration:none;transition:top .2s;}
+    .skip-link:focus{top:12px;}
+    *:focus-visible{outline:2px solid var(--copper,#BF7A35);outline-offset:3px;border-radius:2px;}
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <nav>
+  <nav aria-label="Main navigation">
     <a href="index.html" class="nav-brand">
-      <img src="htmlpictures/Logo1.png" alt="Uncharted Travels">
+      <img src="htmlpictures/Logo1.png" alt="Uncharted Travels logo">
       <div class="nav-brand-text">
         <span class="name">Uncharted Travels</span>
         <span class="sub">Pakistan Heritage</span>
       </div>
     </a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="destinations.html">Destinations</a></li>
       <li><a href="historical-sites.html">Historical Sites</a></li>
@@ -209,7 +206,7 @@
       <li><a href="about.html" class="active">About</a></li>
       <li><a href="contact.html" class="btn-nav">Book Now</a></li>
     </ul>
-    <button id="hamburger" aria-label="Toggle navigation" aria-expanded="false"><i class="fas fa-bars"></i></button>
+    <button id="hamburger" aria-label="Open navigation menu" aria-controls="navLinks" aria-expanded="false"><i class="fas fa-bars" aria-hidden="true"></i></button>
   </nav>
 
   <!-- HERO -->
@@ -247,6 +244,7 @@
   </div>
 
   <!-- ORIGIN STORY -->
+  <main id="main-content">
   <section class="origin">
     <div class="reveal">
       <div class="big-quote">"Pakistan has more history per square kilometre than almost anywhere on Earth — and almost no one outside the country knows it."</div>
@@ -469,11 +467,11 @@
       <h2>A Promise<br><em>We Keep</em></h2>
       <p>Every itinerary we build is one we would take ourselves. We have walked every route, entered every site, eaten in every recommended restaurant, and slept in every suggested guesthouse. Nothing goes on our programmes that we haven't personally verified.</p>
       <ul class="promise-list">
-        <li><span class="pi"><i class="fas fa-check"></i></span>If a site is temporarily closed, we substitute an equivalent experience — no charge.</li>
-        <li><span class="pi"><i class="fas fa-check"></i></span>If your guide doesn't meet our standard, we refund the guide fee in full.</li>
-        <li><span class="pi"><i class="fas fa-check"></i></span>24/7 emergency contact throughout your journey — a real person, not an answering service.</li>
-        <li><span class="pi"><i class="fas fa-check"></i></span>Full transparency on all costs before booking. No hidden fees. No surprises.</li>
-        <li><span class="pi"><i class="fas fa-check"></i></span>We assist with visa applications, NOC permits, and all paperwork at no extra charge.</li>
+        <li><span class="pi"><i class="fas fa-check" aria-hidden="true"></i></span>If a site is temporarily closed, we substitute an equivalent experience — no charge.</li>
+        <li><span class="pi"><i class="fas fa-check" aria-hidden="true"></i></span>If your guide doesn't meet our standard, we refund the guide fee in full.</li>
+        <li><span class="pi"><i class="fas fa-check" aria-hidden="true"></i></span>24/7 emergency contact throughout your journey — a real person, not an answering service.</li>
+        <li><span class="pi"><i class="fas fa-check" aria-hidden="true"></i></span>Full transparency on all costs before booking. No hidden fees. No surprises.</li>
+        <li><span class="pi"><i class="fas fa-check" aria-hidden="true"></i></span>We assist with visa applications, NOC permits, and all paperwork at no extra charge.</li>
       </ul>
     </div>
     <div class="promise-visual reveal">
@@ -492,11 +490,12 @@
     <h2>Let's Explore<br><em>Together</em></h2>
     <p>Whether you have two weeks or two months, a specific site in mind or an open curiosity — we will build you the Pakistan journey of a lifetime.</p>
     <div class="cta-actions">
-      <a href="contact.html" class="btn-primary">Start Planning <i class="fas fa-arrow-right"></i></a>
+      <a href="contact.html" class="btn-primary">Start Planning <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
       <a href="historical-sites.html" class="btn-ghost">See the Sites</a>
     </div>
   </section>
 
+  </main><!-- /main -->
   <footer>
     <div class="footer-top">
       <div class="footer-brand-col">
@@ -504,36 +503,36 @@
         <p class="tagline">Pakistan Heritage & Land Travel</p>
         <p>15 years. 8,000+ guests. 50+ heritage routes. Pakistan's most trusted cultural travel company.</p>
         <div class="footer-socials">
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+          <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
         </div>
       </div>
       <div class="footer-col">
         <h4>About</h4>
         <ul>
-          <li><a href="#"><i class="fas fa-chevron-right icon-xs"></i>Our Story</a></li>
-          <li><a href="#"><i class="fas fa-chevron-right icon-xs"></i>The Team</a></li>
-          <li><a href="#"><i class="fas fa-chevron-right icon-xs"></i>Our Values</a></li>
-          <li><a href="#"><i class="fas fa-chevron-right icon-xs"></i>Awards</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right icon-xs" aria-hidden="true"></i>Our Story</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right icon-xs" aria-hidden="true"></i>The Team</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right icon-xs" aria-hidden="true"></i>Our Values</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right icon-xs" aria-hidden="true"></i>Awards</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Explore</h4>
         <ul>
-          <li><a href="destinations.html"><i class="fas fa-chevron-right icon-xs"></i>Destinations</a></li>
-          <li><a href="historical-sites.html"><i class="fas fa-chevron-right icon-xs"></i>Historical Sites</a></li>
-          <li><a href="cultural-insights.html"><i class="fas fa-chevron-right icon-xs"></i>Cultural Insights</a></li>
-          <li><a href="travel-guide.html"><i class="fas fa-chevron-right icon-xs"></i>Travel Guide</a></li>
+          <li><a href="destinations.html"><i class="fas fa-chevron-right icon-xs" aria-hidden="true"></i>Destinations</a></li>
+          <li><a href="historical-sites.html"><i class="fas fa-chevron-right icon-xs" aria-hidden="true"></i>Historical Sites</a></li>
+          <li><a href="cultural-insights.html"><i class="fas fa-chevron-right icon-xs" aria-hidden="true"></i>Cultural Insights</a></li>
+          <li><a href="travel-guide.html"><i class="fas fa-chevron-right icon-xs" aria-hidden="true"></i>Travel Guide</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
-          <li><a href="contact.html"><i class="fas fa-calendar icon-sm"></i>Book a Tour</a></li>
-          <li><a href="mailto:hello@unchartedtravels.pk"><i class="fas fa-envelope icon-sm"></i>hello@unchartedtravels.pk</a></li>
-          <li><a href="tel:+92000000000"><i class="fas fa-phone icon-sm"></i>+92-XXX-XXXXXXX</a></li>
+          <li><a href="contact.html"><i class="fas fa-calendar icon-sm" aria-hidden="true"></i>Book a Tour</a></li>
+          <li><a href="mailto:hello@unchartedtravels.pk"><i class="fas fa-envelope icon-sm" aria-hidden="true"></i>hello@unchartedtravels.pk</a></li>
+          <li><a href="tel:+92000000000"><i class="fas fa-phone icon-sm" aria-hidden="true"></i>+92-XXX-XXXXXXX</a></li>
         </ul>
       </div>
     </div>
@@ -552,7 +551,7 @@
   </script>
 </body>
 </html>
-  <button id="scrollTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+  <button id="scrollTop" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
   <script src="js/main.js"></script>
 </body>
 </html>
