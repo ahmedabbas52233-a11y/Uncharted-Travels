@@ -22,16 +22,26 @@
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;}
     body{font-family:var(--font-sans);background:var(--void);color:var(--parchment);overflow-x:hidden;}
+<<<<<<< HEAD
     body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:200;opacity:0.2;}
+=======
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.35;}
+>>>>>>> origin/main
 
     /* NAV */
     nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:14px 6%;background:rgba(7,7,13,0.97);border-bottom:1px solid rgba(191,122,53,0.15);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);}
     .nav-brand{display:flex;align-items:center;gap:14px;text-decoration:none;}
     .nav-brand img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:1px solid rgba(191,122,53,0.4);}
     .nav-brand-text .name{color:var(--cream);font-family:var(--font-serif);font-size:18px;font-weight:600;display:block;}
+<<<<<<< HEAD
     .nav-brand-text .sub{color:var(--copper);font-size:11px;letter-spacing:0.25em;text-transform:uppercase;}
     .nav-links{display:flex;list-style:none;gap:6px;align-items:center;}
     .nav-links li a{color:rgba(235,217,184,0.88);text-decoration:none;font-size:12px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:8px 14px;transition:all 0.3s;}
+=======
+    .nav-brand-text .sub{color:var(--copper);font-size:9px;letter-spacing:0.25em;text-transform:uppercase;}
+    .nav-links{display:flex;list-style:none;gap:6px;align-items:center;}
+    .nav-links li a{color:rgba(235,217,184,0.65);text-decoration:none;font-size:10.5px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:8px 14px;transition:all 0.3s;}
+>>>>>>> origin/main
     .nav-links li a:hover,.nav-links li a.active{color:var(--gold);}
     .nav-links li a.btn-nav{border:1px solid var(--copper);color:var(--copper);padding:8px 20px;}
     .nav-links li a.btn-nav:hover{background:var(--copper);color:var(--void);}
@@ -44,8 +54,13 @@
     .hero-right-bg{position:absolute;inset:0;background-image:linear-gradient(to right,rgba(18,18,26,0.6) 0%,transparent 50%),url('htmlpictures/Taxila-Sirkap-Gandhara-2.jpg');background-size:cover;background-position:center;}
     .hero-right-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(7,7,13,0.8));}
     .breadcrumb{display:flex;align-items:center;gap:10px;margin-bottom:32px;}
+<<<<<<< HEAD
     .breadcrumb a{color:var(--copper);text-decoration:none;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;}
     .breadcrumb span{color:var(--mist);font-size:12px;}
+=======
+    .breadcrumb a{color:var(--copper);text-decoration:none;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;}
+    .breadcrumb span{color:var(--mist);font-size:10px;}
+>>>>>>> origin/main
     .about-hero h1{font-family:var(--font-serif);font-size:clamp(3rem,5vw,5.5rem);font-weight:300;line-height:1;color:var(--cream);margin-bottom:28px;}
     .about-hero h1 em{font-style:italic;color:var(--gold);}
     .about-hero p{font-size:15px;font-weight:300;color:var(--sand);line-height:1.9;max-width:480px;margin-bottom:40px;}
@@ -56,7 +71,11 @@
     .hero-stats-overlay{position:absolute;bottom:48px;left:40px;right:40px;z-index:3;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
     .hso-item{background:rgba(7,7,13,0.85);padding:20px 18px;border-top:2px solid rgba(191,122,53,0.3);}
     .hso-num{font-family:var(--font-serif);font-size:2rem;font-weight:300;color:var(--gold);line-height:1;}
+<<<<<<< HEAD
     .hso-label{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--mist);margin-top:4px;}
+=======
+    .hso-label{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--mist);margin-top:4px;}
+>>>>>>> origin/main
 
     /* ORIGIN STORY */
     .origin{padding:120px 6%;background:var(--void);display:grid;grid-template-columns:1fr 1.6fr;gap:100px;align-items:center;}
@@ -64,7 +83,11 @@
     .origin-left .attribution{margin-top:24px;padding-left:32px;font-size:11px;color:var(--copper);letter-spacing:0.2em;text-transform:uppercase;}
     .origin-right p{font-size:14px;line-height:2.1;color:var(--mist);font-weight:300;margin-bottom:20px;}
     .origin-right p strong{color:var(--parchment);font-weight:500;}
+<<<<<<< HEAD
     .section-label{font-size:11px;font-weight:600;letter-spacing:0.4em;text-transform:uppercase;color:var(--copper);margin-bottom:14px;}
+=======
+    .section-label{font-size:9px;font-weight:600;letter-spacing:0.4em;text-transform:uppercase;color:var(--copper);margin-bottom:14px;}
+>>>>>>> origin/main
     .section-title{font-family:var(--font-serif);font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.1;color:var(--cream);margin-bottom:32px;}
     .section-title em{font-style:italic;color:var(--gold);}
     .divider{width:60px;height:2px;background:linear-gradient(90deg,var(--copper),transparent);margin:32px 0;}
@@ -89,7 +112,11 @@
     .team-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(7,7,13,0.92) 0%,transparent 60%);z-index:1;}
     .team-info{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:24px 20px;}
     .team-name{font-family:var(--font-serif);font-size:1.3rem;font-weight:400;color:var(--cream);margin-bottom:4px;}
+<<<<<<< HEAD
     .team-role{font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--copper);margin-bottom:8px;}
+=======
+    .team-role{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--copper);margin-bottom:8px;}
+>>>>>>> origin/main
     .team-bio{font-size:11px;color:var(--mist);font-weight:300;line-height:1.6;opacity:0;transform:translateY(8px);transition:all 0.4s;}
     .team-card:hover .team-bio{opacity:1;transform:translateY(0);}
 
@@ -113,7 +140,11 @@
     .partners{padding:80px 6%;background:var(--deep);text-align:center;}
     .partners h3{font-family:var(--font-serif);font-size:1.2rem;font-weight:300;color:var(--mist);letter-spacing:0.1em;margin-bottom:48px;}
     .partners-row{display:flex;justify-content:center;align-items:center;gap:48px;flex-wrap:wrap;}
+<<<<<<< HEAD
     .partner-badge{padding:16px 32px;border:1px solid rgba(191,122,53,0.35);color:rgba(235,217,184,0.82);font-size:12px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;transition:all 0.3s;}
+=======
+    .partner-badge{padding:16px 32px;border:1px solid rgba(191,122,53,0.15);color:rgba(235,217,184,0.4);font-size:12px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;transition:all 0.3s;}
+>>>>>>> origin/main
     .partner-badge:hover{border-color:rgba(191,122,53,0.4);color:var(--sand);}
 
     /* AWARDS */
@@ -123,7 +154,11 @@
     .award-item:hover{border-top-color:var(--gold);}
     .award-icon{font-size:2rem;margin-bottom:14px;display:block;}
     .award-title{font-family:var(--font-serif);font-size:1.1rem;font-weight:400;color:var(--cream);margin-bottom:6px;}
+<<<<<<< HEAD
     .award-org{font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--copper);margin-bottom:8px;}
+=======
+    .award-org{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--copper);margin-bottom:8px;}
+>>>>>>> origin/main
     .award-year{font-size:11px;color:var(--mist);}
 
     /* PROMISE */
@@ -158,25 +193,42 @@
     footer{background:var(--void);padding:80px 6% 32px;border-top:1px solid rgba(191,122,53,0.12);}
     .footer-top{display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px;}
     .footer-brand-col h3{font-family:var(--font-serif);font-size:1.8rem;font-weight:400;color:var(--cream);margin-bottom:8px;}
+<<<<<<< HEAD
     .footer-brand-col .tagline{font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:var(--copper);margin-bottom:16px;}
+=======
+    .footer-brand-col .tagline{font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--copper);margin-bottom:16px;}
+>>>>>>> origin/main
     .footer-brand-col p{font-size:13px;line-height:1.9;color:var(--mist);font-weight:300;max-width:270px;}
     .footer-socials{display:flex;gap:12px;margin-top:24px;}
     .footer-socials a{width:38px;height:38px;border:1px solid rgba(191,122,53,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--mist);font-size:14px;text-decoration:none;transition:all 0.3s;}
     .footer-socials a:hover{border-color:var(--copper);color:var(--copper);}
+<<<<<<< HEAD
     .footer-col h4{font-size:11px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--copper);margin-bottom:22px;}
+=======
+    .footer-col h4{font-size:9px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--copper);margin-bottom:22px;}
+>>>>>>> origin/main
     .footer-col ul{list-style:none;}
     .footer-col ul li{margin-bottom:10px;}
     .footer-col ul li a{color:var(--mist);text-decoration:none;font-size:13px;font-weight:300;transition:color 0.3s;display:flex;align-items:center;gap:8px;}
     .footer-col ul li a:hover{color:var(--gold);}
     .footer-bottom{border-top:1px solid rgba(255,255,255,0.05);padding-top:28px;display:flex;justify-content:space-between;align-items:center;}
+<<<<<<< HEAD
     .footer-bottom p{font-size:12px;color:rgba(160,160,185,0.9);}
+=======
+    .footer-bottom p{font-size:11px;color:rgba(122,122,144,0.5);}
+>>>>>>> origin/main
     .footer-bottom a{color:var(--copper);text-decoration:none;}
 
     .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease,transform 0.8s ease;}
     .reveal.visible{opacity:1;transform:translateY(0);}
 
+<<<<<<< HEAD
     @media(max-width:1024px){.about-hero{grid-template-columns:1fr;min-height:0;}.hero-right{min-height:400px;}.values-grid{grid-template-columns:1fr 1fr;}.team-grid{grid-template-columns:1fr 1fr;}.awards-grid{grid-template-columns:1fr 1fr;}.origin{grid-template-columns:1fr;gap:40px;}.promise{grid-template-columns:1fr;}.footer-top{grid-template-columns:1fr 1fr;}}
     @media(max-width:768px){.nav-links{display:none;}.values-grid{grid-template-columns:1fr;}.team-grid{grid-template-columns:1fr 1fr;}.milestones::before{left:30px;}.milestone{grid-template-columns:30px 1fr;}.milestone:nth-child(odd) .ml-content{text-align:left;padding-right:0;padding-left:24px;grid-column:2;}.milestone:nth-child(even) .ml-content{padding-left:24px;grid-column:2;}.milestone:nth-child(even) .ml-empty{display:none;}.ml-empty{display:none;}.awards-grid{grid-template-columns:1fr 1fr;}.footer-top{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;gap:12px;}.pv-card{display:none;}}
+=======
+    @media(max-width:1000px){.about-hero{grid-template-columns:1fr;min-height:0;}.hero-right{min-height:400px;}.values-grid{grid-template-columns:1fr 1fr;}.team-grid{grid-template-columns:1fr 1fr;}.awards-grid{grid-template-columns:1fr 1fr;}.origin{grid-template-columns:1fr;gap:40px;}.promise{grid-template-columns:1fr;}.footer-top{grid-template-columns:1fr 1fr;}}
+    @media(max-width:700px){.nav-links{display:none;}.values-grid{grid-template-columns:1fr;}.team-grid{grid-template-columns:1fr 1fr;}.milestones::before{left:30px;}.milestone{grid-template-columns:30px 1fr;}.milestone:nth-child(odd) .ml-content{text-align:left;padding-right:0;padding-left:24px;grid-column:2;}.milestone:nth-child(even) .ml-content{padding-left:24px;grid-column:2;}.milestone:nth-child(even) .ml-empty{display:none;}.ml-empty{display:none;}.awards-grid{grid-template-columns:1fr 1fr;}.footer-top{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;gap:12px;}.pv-card{display:none;}}
+>>>>>>> origin/main
 
     /* ── A11Y: skip link & focus ── */
     .skip-link{position:absolute;top:-100px;left:12px;z-index:9999;padding:10px 20px;
@@ -189,7 +241,11 @@
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
+<<<<<<< HEAD
   <nav aria-label="Main navigation" id="mainNav">
+=======
+  <nav aria-label="Main navigation">
+>>>>>>> origin/main
     <a href="index.html" class="nav-brand">
       <img src="htmlpictures/Logo1.png" alt="Uncharted Travels logo">
       <div class="nav-brand-text">

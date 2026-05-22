@@ -25,7 +25,11 @@
 }
 
 /* ── MOBILE NAV ── */
+<<<<<<< HEAD
 @media (max-width: 768px) {
+=======
+@media (max-width: 800px) {
+>>>>>>> origin/main
   #hamburger {
     display: flex;
   }
@@ -34,7 +38,11 @@
   .nav-links {
     display: none !important;
     position: fixed;
+<<<<<<< HEAD
     top: 69px;
+=======
+    top: 68px;
+>>>>>>> origin/main
     left: 0;
     right: 0;
     background: rgba(7, 7, 13, 0.99);
@@ -126,6 +134,7 @@
 ═══════════════════════════════════════ */
 
 /* Footer icon helpers (replaces style="font-size:8px;color:var(--copper);") */
+<<<<<<< HEAD
 .icon-xs  { font-size: 10px; color: var(--copper); }
 .icon-sm  { font-size: 11px; color: var(--copper); }
 .icon-md  { font-size: 12px; color: var(--copper); }
@@ -133,6 +142,15 @@
 
 /* Map-marker pin used in site cards */
 .pin-icon { color: var(--copper); margin-right: 5px; font-size: 10px; }
+=======
+.icon-xs  { font-size: 8px;  color: var(--copper); }
+.icon-sm  { font-size: 9px;  color: var(--copper); }
+.icon-md  { font-size: 10px; color: var(--copper); }
+.icon-loc { font-size: 9px;  color: var(--copper); margin-right: 5px; }
+
+/* Map-marker pin used in site cards */
+.pin-icon { color: var(--copper); margin-right: 5px; font-size: 9px; }
+>>>>>>> origin/main
 
 /* Section header centred blocks */
 .section-center {
@@ -223,7 +241,11 @@
 .table-scroll { overflow-x: auto; }
 
 /* Festival map-marker icon */
+<<<<<<< HEAD
 .fest-pin { color: var(--copper); font-size: 10px; margin-right: 4px; }
+=======
+.fest-pin { color: var(--copper); font-size: 8px; margin-right: 4px; }
+>>>>>>> origin/main
 
 /* Safety bar widths (replaces inline width styles) */
 .sf-w-90 { width: 90%; }
