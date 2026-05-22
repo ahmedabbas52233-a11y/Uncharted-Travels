@@ -1,0 +1,9 @@
+/* about.html — page backgrounds */
+
+.hero-right-bg {
+  background-image:
+    linear-gradient(to right,rgba(18,18,26,0.6) 0%,transparent 50%),
+    url('../htmlpictures/Taxila-Sirkap-Gandhara-2.jpg');
+  background-size: cover;
+  background-position: center;
+}

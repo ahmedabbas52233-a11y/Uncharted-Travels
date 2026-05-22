@@ -1,0 +1,45 @@
+/* index.html — page-specific background images */
+
+/* Hero */
+.hero-bg {
+  background-image:
+    linear-gradient(105deg, rgba(7,7,13,0.92) 0%, rgba(7,7,13,0.55) 50%, rgba(7,7,13,0.8) 100%),
+    url('../htmlpictures/Taxila-City-History_2.jpg');
+  background-size: cover;
+  background-position: center 30%;
+}
+
+/* Region cards */
+.bg-region-punjab {
+  background-image:
+    linear-gradient(135deg, rgba(42,26,10,0.4) 0%, rgba(74,44,16,0.6) 100%),
+    url('../htmlpictures/Taxila-City-History_2.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.bg-region-gb {
+  background-image:
+    linear-gradient(135deg, rgba(8,10,20,0.4) 0%, rgba(20,30,54,0.6) 100%),
+    url('../htmlpictures/Taxila-Sirkap-Gandhara-2.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Featured site cards */
+.bg-site-taxila      { background-image: url('../htmlpictures/Jaulian-Monastery.png'); background-size:cover; background-position:center; }
+.bg-site-mohenjo     {
+  background-image: linear-gradient(135deg,rgba(42,26,8,0.5),rgba(92,48,16,0.6)),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Mohenjo-daro_Priesterkoenig.jpg/800px-Mohenjo-daro_Priesterkoenig.jpg');
+  background-size:cover; background-position:center;
+}
+.bg-site-lahore      { background-image: url('../htmlpictures/Dharmarajika_stupa.jpg'); background-size:cover; background-position:center; }
+.bg-site-takht       { background-image: url('../htmlpictures/Ruins of the Ancient buildings 1, Taxila.jpg'); background-size:cover; background-position:center; }
+
+/* Promo banner */
+.banner-bg {
+  background-image:
+    linear-gradient(rgba(13,31,45,0.6), rgba(13,31,45,0.7)),
+    url('../Csspictures/hunza.JPG');
+  background-size: cover;
+  background-position: center;
+}
