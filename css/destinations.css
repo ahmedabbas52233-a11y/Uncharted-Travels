@@ -1,0 +1,190 @@
+/* ══════════════════════════════════════
+   DESTINATIONS PAGE
+══════════════════════════════════════ */
+
+/* Page hero background */
+.page-hero {
+  background-image:
+    linear-gradient(to right, rgba(7,7,13,0.95) 30%, rgba(7,7,13,0.6) 100%),
+    url('../htmlpictures/Taxila-Sirkap-Gandhara-2.jpg');
+}
+
+/* Region tabs */
+.region-tabs {
+  display:flex; gap:2px; position:relative; z-index:2; margin-top:40px; flex-wrap:wrap;
+}
+.rtab {
+  padding:10px 24px; background:rgba(255,255,255,0.05);
+  border:1px solid rgba(191,122,53,0.15); color:var(--mist);
+  font-size:10px; font-weight:500; letter-spacing:0.15em; text-transform:uppercase;
+  cursor:pointer; transition:all 0.3s; text-decoration:none;
+}
+.rtab:hover, .rtab.active { background:var(--copper); border-color:var(--copper); color:var(--void); }
+
+/* Region sections */
+.region-section { padding:100px 6%; border-bottom:1px solid rgba(191,122,53,0.08); }
+.region-section:nth-child(even) { background:var(--stone); }
+.region-header {
+  display:grid; grid-template-columns:1fr 2fr; gap:80px;
+  align-items:start; margin-bottom:70px;
+}
+.region-num {
+  font-family:var(--font-serif); font-size:7rem; font-weight:300;
+  color:rgba(191,122,53,0.1); line-height:1; margin-bottom:-20px;
+}
+.region-heading {
+  font-family:var(--font-serif); font-size:clamp(2.5rem,5vw,4.5rem);
+  font-weight:300; color:var(--cream); line-height:1; margin-top:8px; margin-bottom:4px;
+}
+.region-heading em { font-style:italic; color:var(--gold); }
+.region-label {
+  font-size:10px; font-weight:600; letter-spacing:0.4em;
+  text-transform:uppercase; color:var(--copper); margin-bottom:20px;
+}
+.region-desc { font-size:14px; line-height:2.0; color:var(--mist); font-weight:300; margin-bottom:36px; margin-top:16px; }
+.region-facts { display:flex; gap:40px; flex-wrap:wrap; }
+.fact-item .val {
+  font-family:var(--font-serif); font-size:2rem; font-weight:300; color:var(--gold); line-height:1; display:block;
+}
+.fact-item .key {
+  font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--mist); margin-top:8px; display:block;
+}
+
+/* Destination cards */
+.dest-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.dest-card {
+  position:relative; overflow:hidden; border-radius:3px;
+  aspect-ratio:4/3; cursor:pointer; text-decoration:none;
+}
+.dest-card-bg {
+  position:absolute; inset:0;
+  background-size:cover; background-position:center; transition:transform 0.7s ease;
+}
+.dest-card:hover .dest-card-bg { transform:scale(1.08); }
+.dest-card::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(7,7,13,0.9) 0%, rgba(7,7,13,0.2) 55%, transparent);
+  transition:opacity 0.4s;
+}
+.dest-card:hover::after { opacity:0.75; }
+.dest-card-info {
+  position:absolute; bottom:0; left:0; right:0; z-index:2;
+  padding:24px 20px; transition:transform 0.4s;
+}
+.dest-card:hover .dest-card-info { transform:translateY(-4px); }
+.dest-card-era {
+  font-size:9px; letter-spacing:0.25em; text-transform:uppercase;
+  color:var(--copper); display:block; margin-bottom:8px;
+}
+.dest-card-name {
+  font-family:var(--font-serif); font-size:1.5rem; font-weight:400;
+  color:var(--cream); line-height:1.1; margin-bottom:8px;
+}
+.dest-card-sub { font-size:11px; color:var(--mist); font-weight:300; }
+.dest-card-badge {
+  position:absolute; top:16px; right:16px; z-index:3;
+  padding:4px 12px; background:rgba(191,122,53,0.9); color:var(--void);
+  font-size:8px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; border-radius:20px;
+}
+.badge-unesco { background:rgba(212,168,67,0.9) !important; }
+
+/* Destination card backgrounds — local images */
+.bg-taxila      { background-image:url('../htmlpictures/Jaulian-Monastery.png'); background-size:cover; background-position:center; }
+.bg-lahore      { background-image:url('../htmlpictures/Lahore.jpg'); background-size:cover; background-position:center; }
+.bg-rohtas      { background-image:url('../htmlpictures/Rohtas.jpg'); background-size:cover; background-position:center; }
+.bg-harappa     { background-image:url('../htmlpictures/harappa.jpg'); background-size:cover; background-position:center; }
+.bg-derawar     { background-image:url('../htmlpictures/derawar.jpg'); background-size:cover; background-position:center; }
+.bg-sirkap      { background-image:url('../htmlpictures/sirkap.jpg'); background-size:cover; background-position:center; }
+.bg-mohenjo     {
+  background-image:linear-gradient(to top, rgba(7,7,13,0.3), transparent),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Mohenjodaro_Sindh.jpg/800px-Mohenjodaro_Sindh.jpg');
+  background-size:cover; background-position:center;
+}
+.bg-makli       {
+  background-image:linear-gradient(to top, rgba(7,7,13,0.3), transparent),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Makli_Hill_Thatta.jpg/800px-Makli_Hill_Thatta.jpg');
+  background-size:cover; background-position:center;
+}
+.bg-thatta      { background-image:url('../htmlpictures/Stupa.jpg'); background-size:cover; background-position:center; }
+.bg-karachi     { background-image:url('../htmlpictures/cover-image-3-3-1024x444.jpg'); background-size:cover; background-position:center; }
+.bg-ranikot     { background-image:url('../htmlpictures/Taxila-Sirkap-Gandhara-2.jpg'); background-size:cover; background-position:center; }
+.bg-kotdiji     { background-image:url('../htmlpictures/Ruins of the Ancient buildings, Taxila.jpg'); background-size:cover; background-position:center; }
+.bg-takhtibahi  {
+  background-image:linear-gradient(to top, rgba(7,7,13,0.3), transparent),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Takht-i-Bahi_Monastery.jpg/800px-Takht-i-Bahi_Monastery.jpg');
+  background-size:cover; background-position:center;
+}
+.bg-peshawar    { background-image:url('../htmlpictures/artifact 1.jpg'); background-size:cover; background-position:center; }
+.bg-swat        { background-image:url('../htmlpictures/Jaulian-Monastery 1.png'); background-size:cover; background-position:center; }
+.bg-chitral     { background-image:url('../htmlpictures/artifact 2.jpg'); background-size:cover; background-position:center; }
+.bg-balahisar   { background-image:url('../htmlpictures/Jaulian-Monastery 2.png'); background-size:cover; background-position:center; }
+.bg-hund        { background-image:url('../htmlpictures/artifact 3.jpg'); background-size:cover; background-position:center; }
+.bg-mehrgarh    { background-image:url('../htmlpictures/Jaulian-Monastery 3.png'); background-size:cover; background-position:center; }
+.bg-quetta      { background-image:url('../htmlpictures/artifact 4.jpg'); background-size:cover; background-position:center; }
+.bg-ziarat      { background-image:url('../htmlpictures/artifact 5.jpg'); background-size:cover; background-position:center; }
+.bg-gwadar      { background-image:url('../htmlpictures/artifact 6.jpg'); background-size:cover; background-position:center; }
+.bg-nindowari   { background-image:url('../htmlpictures/artifact 7.jpg'); background-size:cover; background-position:center; }
+.bg-hinglaj     { background-image:url('../htmlpictures/artifact 8.jpg'); background-size:cover; background-position:center; }
+.bg-baltit      {
+  background-image:linear-gradient(to top, rgba(7,7,13,0.3), transparent),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Baltit_fort_Hunza.jpg/800px-Baltit_fort_Hunza.jpg');
+  background-size:cover; background-position:center;
+}
+.bg-altit       { background-image:url('../htmlpictures/Jaulian-Monastery 4.png'); background-size:cover; background-position:center; }
+.bg-chilas      { background-image:url('../htmlpictures/artifact 9.jpg'); background-size:cover; background-position:center; }
+.bg-khaplu      { background-image:url('../htmlpictures/coins.jpeg'); background-size:cover; background-position:center; }
+.bg-skardu      { background-image:url('../htmlpictures/Museum1.jpg'); background-size:cover; background-position:center; }
+.bg-kkh         { background-image:url('../htmlpictures/Taxila Museum.jpg'); background-size:cover; background-position:center; }
+
+/* Must-see strip */
+.must-see { padding:80px 6%; background:var(--deep); }
+.ms-grid {
+  display:grid; grid-template-columns:repeat(5,1fr); gap:2px; margin-top:50px;
+}
+.ms-item {
+  padding:36px 24px; background:var(--stone);
+  border-top:2px solid rgba(191,122,53,0.1); transition:all 0.4s; cursor:default;
+}
+.ms-item:hover { border-top-color:var(--copper); background:var(--deep); }
+.ms-icon { font-size:1.6rem; margin-bottom:16px; }
+.ms-name {
+  font-family:var(--font-serif); font-size:1.1rem; font-weight:400;
+  color:var(--cream); margin-bottom:8px; margin-top:8px;
+}
+.ms-loc { font-size:10px; color:var(--copper); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:10px; display:block; }
+.ms-desc { font-size:12px; color:var(--mist); font-weight:300; line-height:1.7; margin-top:12px; }
+
+/* Seasonal guide */
+.seasons { padding:100px 6%; background:var(--stone); }
+.seasons-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; margin-top:60px; }
+.season-card {
+  padding:48px 32px; background:var(--deep);
+  border-bottom:3px solid transparent; transition:all 0.4s;
+}
+.season-card:hover { border-bottom-color:var(--copper); }
+.season-icon { font-size:2.5rem; margin-bottom:20px; }
+.season-name {
+  font-family:var(--font-serif); font-size:1.6rem;
+  font-weight:300; color:var(--cream); margin-bottom:8px; margin-top:4px;
+}
+.season-months {
+  font-size:10px; letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--copper); margin-bottom:20px;
+}
+.season-desc { font-size:13px; line-height:1.9; color:var(--mist); font-weight:300; }
+.season-best { margin-top:20px; padding-top:14px; border-top:1px solid rgba(191,122,53,0.1); font-size:11px; color:var(--sand); }
+.season-best strong { color:var(--gold); }
+
+/* Responsive */
+@media (max-width:1024px) {
+  .dest-grid { grid-template-columns:1fr 1fr; }
+  .ms-grid { grid-template-columns:1fr 1fr 1fr; }
+  .seasons-grid { grid-template-columns:1fr 1fr; }
+}
+@media (max-width:768px) {
+  .region-header { grid-template-columns:1fr; gap:20px; }
+  .dest-grid { grid-template-columns:1fr 1fr; }
+  .ms-grid { grid-template-columns:1fr 1fr; }
+  .seasons-grid { grid-template-columns:1fr; }
+}
+@media (max-width:480px) { .dest-grid { grid-template-columns:1fr; } }

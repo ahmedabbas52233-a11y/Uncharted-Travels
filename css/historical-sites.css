@@ -1,0 +1,154 @@
+/* ══════════════════════════════════════
+   HISTORICAL SITES PAGE
+══════════════════════════════════════ */
+
+/* Page hero background */
+.page-hero {
+  min-height:calc(75vh + var(--nav-h));
+  background-image:
+    linear-gradient(to top, rgba(7,7,13,0.97) 0%, rgba(7,7,13,0.5) 50%, rgba(7,7,13,0.65) 100%),
+    url('../htmlpictures/Jaulian-Monastery.png');
+  background-position:center top;
+}
+
+/* Filter bar */
+.filter-bar { display:flex; gap:8px; flex-wrap:wrap; margin-top:32px; }
+.filter-btn {
+  padding:9px 22px; background:rgba(255,255,255,0.05);
+  border:1px solid rgba(191,122,53,0.2); color:var(--mist);
+  font-size:10px; font-weight:500; letter-spacing:0.12em;
+  text-transform:uppercase; cursor:pointer; transition:all 0.3s;
+  font-family:var(--font-sans);
+}
+.filter-btn:hover, .filter-btn.active {
+  background:var(--copper); border-color:var(--copper); color:var(--void);
+}
+
+/* UNESCO banner */
+.unesco-banner {
+  background:linear-gradient(135deg, var(--stone), var(--deep)); padding:60px 6%;
+  display:grid; grid-template-columns:auto 1fr auto; gap:40px; align-items:center;
+  border-top:1px solid rgba(212,168,67,0.2); border-bottom:1px solid rgba(212,168,67,0.2);
+}
+.unesco-count {
+  font-family:var(--font-serif); font-size:6rem; font-weight:300; color:var(--gold); line-height:1;
+}
+.unesco-text h3 {
+  font-family:var(--font-serif); font-size:1.8rem; font-weight:300; color:var(--cream); margin-bottom:14px;
+}
+.unesco-text p { font-size:13px; color:var(--mist); font-weight:300; line-height:1.9; max-width:500px; margin-top:4px; }
+.unesco-list { display:flex; flex-direction:column; gap:10px; }
+.unesco-pill { display:flex; align-items:center; gap:10px; font-size:11px; color:var(--sand); }
+.unesco-pill::before {
+  content:''; width:8px; height:8px; border-radius:50%; background:var(--gold); flex-shrink:0;
+}
+
+/* Site sections */
+.site-section { padding:100px 6%; border-bottom:1px solid rgba(191,122,53,0.07); }
+.site-section:nth-child(odd) { background:var(--stone); }
+.site-inner { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
+.site-inner.reverse { direction:rtl; }
+.site-inner.reverse > * { direction:ltr; }
+
+/* Visual */
+.site-visual { position:relative; }
+.site-img-frame { aspect-ratio:4/3; overflow:hidden; border-radius:3px; position:relative; }
+.site-img-frame img { width:100%; height:100%; object-fit:cover; }
+.site-era-badge {
+  position:absolute; bottom:-18px; right:24px;
+  background:var(--copper); color:var(--void);
+  padding:10px 24px; font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase;
+}
+.site-secondary { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:26px; }
+.site-secondary-img { aspect-ratio:3/2; overflow:hidden; border-radius:2px; }
+.site-secondary-img img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s; }
+.site-secondary-img:hover img { transform:scale(1.05); }
+
+/* Text */
+.site-label {
+  font-size:10px; font-weight:600; letter-spacing:0.4em; text-transform:uppercase;
+  color:var(--copper); margin-bottom:12px; display:flex; align-items:center; gap:12px;
+}
+.site-label .line { flex:1; height:1px; background:rgba(191,122,53,0.25); }
+.site-name {
+  font-family:var(--font-serif); font-size:clamp(2.5rem,4vw,4rem);
+  font-weight:300; color:var(--cream); line-height:1; margin-bottom:16px; margin-top:8px;
+}
+.site-name em { font-style:italic; color:var(--gold); }
+.site-subtitle { font-size:13px; color:var(--copper); letter-spacing:0.1em; margin-bottom:32px; margin-top:4px; font-weight:400; }
+.site-desc { font-size:14px; line-height:2.1; color:var(--mist); font-weight:300; margin-bottom:24px; }
+.site-desc strong { color:var(--parchment); font-weight:500; }
+
+/* Data table */
+.site-data { margin:32px 0; display:flex; flex-direction:column; }
+.data-row {
+  display:grid; grid-template-columns:140px 1fr; gap:16px;
+  padding:14px 0; border-bottom:1px solid rgba(191,122,53,0.08);
+}
+.data-key { font-size:10px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--copper); line-height:1.6; }
+.data-val { font-size:13px; color:var(--sand); font-weight:300; line-height:1.6; }
+.site-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:28px; margin-bottom:4px; }
+.site-tag {
+  padding:5px 16px; border:1px solid rgba(191,122,53,0.2);
+  color:var(--mist); font-size:10px; letter-spacing:0.15em; text-transform:uppercase; border-radius:20px;
+}
+.tag-unesco { border-color:rgba(212,168,67,0.4); color:var(--gold); }
+
+/* Visit info */
+.visit-info {
+  margin-top:36px; background:rgba(191,122,53,0.07);
+  border-left:3px solid var(--copper); padding:28px 32px;
+}
+.visit-info h4 { font-family:var(--font-serif); font-size:1.1rem; color:var(--cream); margin-bottom:20px; }
+.visit-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.visit-item .vi-label {
+  font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--copper); margin-bottom:6px; display:block;
+}
+.visit-item .vi-val { font-size:13px; color:var(--sand); font-weight:300; line-height:1.5; }
+.btn-tour {
+  display:inline-flex; align-items:center; gap:10px; margin-top:36px;
+  padding:14px 32px; background:var(--copper); color:var(--void);
+  font-size:11px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase;
+  text-decoration:none; border-radius:1px; transition:all 0.4s;
+}
+.btn-tour:hover { background:var(--gold); transform:translateY(-2px); }
+
+/* All sites table */
+.all-sites { padding:100px 6%; background:var(--deep); }
+.sites-table { margin-top:60px; width:100%; border-collapse:collapse; }
+.sites-table thead tr { border-bottom:2px solid rgba(191,122,53,0.3); }
+.sites-table th {
+  font-size:10px; font-weight:600; letter-spacing:0.25em; text-transform:uppercase;
+  color:var(--copper); padding:12px 16px; text-align:left;
+}
+.sites-table tbody tr {
+  border-bottom:1px solid rgba(191,122,53,0.07); transition:background 0.3s;
+}
+.sites-table tbody tr:hover { background:rgba(191,122,53,0.05); }
+.sites-table td {
+  padding:20px 16px; font-size:13px; color:var(--mist); font-weight:300; vertical-align:middle; line-height:1.6;
+}
+.sites-table td:first-child {
+  font-family:var(--font-serif); font-size:1.05rem; font-weight:400; color:var(--parchment);
+}
+.era-dot { width:8px; height:8px; border-radius:50%; display:inline-block; margin-right:8px; }
+.era-indus     { background:#C9A85C; }
+.era-gandhara  { background:#8AB4C9; }
+.era-mughal    { background:#C97A4A; }
+.era-medieval  { background:#7AC98A; }
+.era-colonial  { background:#A88ACA; }
+.era-prehistoric{ background:#C9C94A; }
+.badge { display:inline-block; padding:2px 10px; border-radius:20px; font-size:9px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; }
+.badge-un   { background:rgba(212,168,67,0.15); color:var(--gold); border:1px solid rgba(212,168,67,0.3); }
+.badge-prov { background:rgba(191,122,53,0.1); color:var(--copper); border:1px solid rgba(191,122,53,0.25); }
+
+/* Responsive */
+@media (max-width:900px) {
+  .site-inner { grid-template-columns:1fr; gap:40px; }
+  .site-inner.reverse { direction:ltr; }
+  .unesco-banner { grid-template-columns:1fr; }
+}
+@media (max-width:768px) {
+  .visit-grid { grid-template-columns:1fr; }
+  .sites-table { font-size:12px; }
+}

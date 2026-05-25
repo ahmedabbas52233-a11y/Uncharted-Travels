@@ -1,0 +1,459 @@
+/* ══════════════════════════════════════
+   INDEX PAGE — page-specific styles
+   (shared.css loaded first)
+══════════════════════════════════════ */
+
+/* ── HERO ── */
+.hero {
+  min-height:100vh; position:relative;
+  display:flex; align-items:center; overflow:hidden;
+}
+.hero-bg {
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(105deg, rgba(7,7,13,0.92) 0%, rgba(7,7,13,0.55) 50%, rgba(7,7,13,0.8) 100%),
+    url('../htmlpictures/Taxila-City-History_2.jpg');
+  background-size:cover; background-position:center 30%;
+}
+.hero::after {
+  content:''; position:absolute; left:6%; top:20%; bottom:20%;
+  width:1px; background:linear-gradient(transparent, var(--copper), transparent); opacity:0.5;
+}
+.hero-content {
+  position:relative; z-index:2; padding:0 6%; max-width:780px;
+  animation:heroIn 1.4s ease both;
+}
+.hero-eyebrow {
+  display:flex; align-items:center; gap:16px; margin-bottom:32px;
+}
+.hero-eyebrow span {
+  font-size:10px; font-weight:600; letter-spacing:0.4em;
+  text-transform:uppercase; color:var(--copper);
+}
+.hero-eyebrow::before {
+  content:''; width:40px; height:1px; background:var(--copper);
+}
+.hero h1 {
+  font-family:var(--font-serif); font-size:clamp(3.5rem,8vw,7.5rem);
+  font-weight:300; line-height:0.95; letter-spacing:-0.02em;
+  color:var(--cream); margin-bottom:32px;
+}
+.hero h1 em { font-style:italic; color:var(--gold); font-weight:300; }
+.hero h1 strong { font-weight:600; display:block; }
+.hero-desc {
+  font-size:15px; font-weight:300; color:var(--sand);
+  line-height:1.8; max-width:480px; margin-bottom:50px; letter-spacing:0.02em;
+}
+/* .hero-actions defined in shared.css */
+.hero-stats {
+  position:absolute; bottom:60px; right:6%;
+  display:flex; flex-direction:column; gap:28px; z-index:2;
+}
+.stat-item {
+  text-align:right; border-right:2px solid var(--copper); padding-right:20px;
+}
+.stat-item .num {
+  font-family:var(--font-serif); font-size:2.8rem;
+  font-weight:300; color:var(--gold); line-height:1;
+}
+.stat-item .label {
+  font-size:10px; letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--mist); margin-top:8px;
+}
+.hero-scroll {
+  position:absolute; bottom:36px; left:6%; display:flex;
+  align-items:center; gap:12px; color:var(--mist); font-size:10px;
+  letter-spacing:0.3em; text-transform:uppercase; z-index:2;
+  animation:scrollBounce 2.5s infinite;
+}
+.hero-scroll .line { width:40px; height:1px; background:var(--copper); }
+
+/* ── TICKER ── */
+.ticker {
+  background:var(--copper); padding:14px 0; overflow:hidden; white-space:nowrap;
+}
+.ticker-inner {
+  display:inline-flex; gap:60px; animation:ticker 30s linear infinite;
+}
+.ticker-item {
+  font-size:10px; font-weight:600; letter-spacing:0.25em;
+  text-transform:uppercase; color:var(--void);
+  display:flex; align-items:center; gap:20px;
+}
+.ticker-item::before { content:'◆'; font-size:6px; }
+
+/* ── MANIFESTO ── */
+.manifesto {
+  padding:140px 6%; display:grid;
+  grid-template-columns:1fr 1.8fr; gap:100px;
+  align-items:start; background:var(--stone); position:relative;
+}
+.manifesto::before {
+  content:'01'; position:absolute; top:60px; left:6%;
+  font-family:var(--font-serif); font-size:9rem; font-weight:600;
+  color:rgba(191,122,53,0.06); line-height:1; pointer-events:none;
+}
+.manifesto-label {
+  font-size:10px; font-weight:600; letter-spacing:0.4em;
+  text-transform:uppercase; color:var(--copper); margin-bottom:24px;
+  display:flex; align-items:center; gap:12px;
+}
+.manifesto-label::after {
+  content:''; flex:1; height:1px; background:rgba(191,122,53,0.3);
+}
+.manifesto-title {
+  font-family:var(--font-serif); font-size:clamp(2rem,3.5vw,3.2rem);
+  font-weight:300; line-height:1.15; color:var(--cream); margin-bottom:20px;
+}
+.manifesto-title em { font-style:italic; color:var(--gold); }
+.manifesto-right p {
+  font-size:16px; line-height:2.0; font-weight:300;
+  color:var(--sand); margin-bottom:28px;
+}
+.manifesto-right p strong { color:var(--parchment); font-weight:500; }
+.era-chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:36px; }
+.era-chip {
+  padding:8px 20px; border:1px solid rgba(191,122,53,0.35);
+  color:var(--sand); font-size:10px; letter-spacing:0.15em;
+  text-transform:uppercase; border-radius:20px; font-weight:400;
+}
+
+/* ── REGIONS ── */
+.regions { padding:120px 6%; background:var(--void); }
+.section-header {
+  display:flex; justify-content:space-between;
+  align-items:flex-end; margin-bottom:70px;
+}
+.section-link {
+  color:var(--copper); text-decoration:none; font-size:11px;
+  font-weight:500; letter-spacing:0.15em; text-transform:uppercase;
+  display:flex; align-items:center; gap:8px; padding-bottom:8px;
+  border-bottom:1px solid rgba(191,122,53,0.3); transition:all 0.3s; white-space:nowrap;
+}
+.section-link:hover { gap:14px; color:var(--gold); }
+
+.regions-grid {
+  display:grid; grid-template-columns:2fr 1fr 1fr;
+  grid-template-rows:340px 340px; gap:16px;
+}
+.region-card {
+  position:relative; overflow:hidden; border-radius:3px;
+  cursor:pointer; text-decoration:none;
+}
+.region-card.tall { grid-row:span 2; }
+.region-bg {
+  position:absolute; inset:0;
+  background-size:cover; background-position:center; transition:transform 0.8s ease;
+}
+.region-card:hover .region-bg { transform:scale(1.06); }
+.region-card::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(7,7,13,0.92) 0%, rgba(7,7,13,0.3) 50%, transparent 100%);
+  transition:opacity 0.4s;
+}
+.region-card:hover::after { opacity:0.85; }
+.region-info {
+  position:absolute; bottom:0; left:0; right:0; z-index:2; padding:32px 28px;
+}
+.region-tag {
+  font-size:9px; letter-spacing:0.3em; text-transform:uppercase;
+  color:var(--copper); display:block; margin-bottom:8px;
+}
+.region-name {
+  font-family:var(--font-serif); font-size:2rem; font-weight:400;
+  color:var(--cream); line-height:1.1; margin-bottom:8px;
+}
+.region-card.tall .region-name { font-size:3rem; }
+.region-count { font-size:11px; color:rgba(235,217,184,0.82); font-weight:300; }
+.region-arrow {
+  position:absolute; top:24px; right:24px; z-index:2;
+  width:40px; height:40px; border:1px solid rgba(235,217,184,0.2);
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  color:rgba(235,217,184,0.75); font-size:14px; transition:all 0.4s; transform:rotate(45deg);
+}
+.region-card:hover .region-arrow {
+  border-color:var(--copper); color:var(--copper); background:rgba(191,122,53,0.1);
+}
+
+/* Region card backgrounds */
+.r-punjab {
+  background-image:
+    linear-gradient(135deg, rgba(42,26,10,0.5) 0%, rgba(74,44,16,0.6) 100%),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Shah_Rukn_e_Alam_Multan.jpg/1280px-Shah_Rukn_e_Alam_Multan.jpg');
+  background-size:cover; background-position:center;
+}
+.r-sindh {
+  background-image:
+    linear-gradient(135deg, rgba(10,26,42,0.5) 0%, rgba(16,48,80,0.6) 100%),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Mohenjodaro_Sindh.jpg/1280px-Mohenjodaro_Sindh.jpg');
+  background-size:cover; background-position:center;
+}
+.r-kpk {
+  background-image:
+    linear-gradient(135deg, rgba(10,26,10,0.5) 0%, rgba(16,40,16,0.6) 100%),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Takht-i-Bahi_Monastery.jpg/1280px-Takht-i-Bahi_Monastery.jpg');
+  background-size:cover; background-position:center;
+}
+.r-baloch {
+  background-image:
+    linear-gradient(135deg, rgba(26,10,10,0.5) 0%, rgba(58,16,16,0.6) 100%),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/DerawarFort.jpg/1280px-DerawarFort.jpg');
+  background-size:cover; background-position:center;
+}
+.r-gb {
+  background-image:
+    linear-gradient(135deg, rgba(8,10,20,0.5) 0%, rgba(20,30,54,0.6) 100%),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Baltit_fort_Hunza.jpg/1280px-Baltit_fort_Hunza.jpg');
+  background-size:cover; background-position:center;
+}
+
+/* ── FEATURED SITES ── */
+.featured-sites {
+  padding:120px 6%; background:var(--stone);
+  position:relative; overflow:hidden;
+}
+.featured-sites::before {
+  content:'02'; position:absolute; right:4%; top:50px;
+  font-family:var(--font-serif); font-size:12rem; font-weight:600;
+  color:rgba(191,122,53,0.05); line-height:1;
+}
+.sites-scroll {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:2px; margin-top:70px;
+}
+.site-card {
+  position:relative; overflow:hidden; aspect-ratio:3/4;
+  cursor:pointer; text-decoration:none;
+}
+.site-img {
+  position:absolute; inset:0;
+  background-size:cover; background-position:center;
+  transition:transform 0.7s ease;
+}
+.site-card:hover .site-img { transform:scale(1.1); }
+.site-card::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(7,7,13,0.95) 0%, rgba(7,7,13,0.2) 60%, transparent);
+  z-index:1;
+}
+.site-card-body {
+  position:absolute; bottom:0; left:0; right:0; z-index:2;
+  padding:24px 20px; transition:transform 0.4s;
+}
+.site-card:hover .site-card-body { transform:translateY(-6px); }
+.site-era {
+  font-size:9px; letter-spacing:0.3em; text-transform:uppercase;
+  color:var(--copper); display:block; margin-bottom:6px;
+}
+.site-name {
+  font-family:var(--font-serif); font-size:1.3rem; font-weight:400;
+  color:var(--cream); line-height:1.2; margin-bottom:4px;
+}
+.site-loc { font-size:11px; color:var(--mist); font-weight:300; }
+
+/* Site card backgrounds */
+.bg-site-taxila    { background-image:url('../htmlpictures/Jaulian-Monastery.png'); background-size:cover; background-position:center; }
+.bg-site-mohenjo   {
+  background-image:
+    linear-gradient(to top, rgba(7,7,13,0.4), transparent),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Mohenjodaro_Sindh.jpg/1280px-Mohenjodaro_Sindh.jpg');
+  background-size:cover; background-position:center;
+}
+.bg-site-lahore    {
+  background-image:
+    linear-gradient(to top, rgba(7,7,13,0.4), transparent),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Lahore_Fort_-_General_view.jpg/1280px-Lahore_Fort_-_General_view.jpg');
+  background-size:cover; background-position:center;
+}
+.bg-site-takht     {
+  background-image:
+    linear-gradient(to top, rgba(7,7,13,0.4), transparent),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Takht-i-Bahi_Monastery.jpg/1280px-Takht-i-Bahi_Monastery.jpg');
+  background-size:cover; background-position:center;
+}
+
+/* ── TIMELINE STRIP ── */
+.timeline-strip {
+  background:var(--deep); padding:80px 6%; overflow-x:auto; position:relative;
+}
+.timeline-strip::before {
+  content:''; position:absolute; left:6%; right:6%; top:50%; height:1px;
+  background:linear-gradient(90deg, transparent, var(--copper), var(--gold), var(--copper), transparent);
+}
+.timeline-inner {
+  display:flex; gap:80px; min-width:max-content; position:relative;
+}
+.t-item {
+  display:flex; flex-direction:column; align-items:center; gap:20px;
+}
+.t-item:nth-child(odd) { flex-direction:column-reverse; }
+.t-dot {
+  width:12px; height:12px; border-radius:50%;
+  background:var(--copper); border:2px solid var(--deep);
+  outline:3px solid rgba(191,122,53,0.3); position:relative; z-index:2; flex-shrink:0;
+}
+.t-item:nth-child(3) .t-dot, .t-item:nth-child(6) .t-dot { background:var(--gold); }
+.t-text { text-align:center; max-width:140px; }
+.t-year {
+  font-family:var(--font-serif); font-size:1.5rem;
+  font-weight:300; color:var(--gold); line-height:1;
+}
+.t-name { font-size:11px; color:var(--sand); font-weight:400; margin-top:4px; line-height:1.4; }
+.t-sub  { font-size:10px; color:var(--mist); letter-spacing:0.1em; }
+
+/* ── WHY US ── */
+.why-us {
+  padding:120px 6%; background:var(--void);
+  display:grid; grid-template-columns:1fr 1fr; gap:100px; align-items:start;
+}
+.why-body { font-size:14px; line-height:1.9; color:var(--mist); font-weight:300; margin-top:20px; }
+.why-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; }
+.why-item {
+  background:var(--stone); padding:40px 32px; transition:all 0.4s;
+  border-bottom:2px solid transparent;
+}
+.why-item:hover { background:var(--deep); border-bottom-color:var(--copper); }
+.why-num {
+  font-family:var(--font-serif); font-size:3rem; font-weight:300;
+  color:rgba(191,122,53,0.2); line-height:1; margin-bottom:20px;
+}
+.why-item h3 {
+  font-family:var(--font-serif); font-size:1.4rem; font-weight:400;
+  color:var(--parchment); margin-bottom:14px; margin-top:4px; line-height:1.2;
+}
+.why-item p { font-size:13px; line-height:1.9; color:var(--mist); font-weight:300; margin-top:8px; }
+
+/* ── ROUTES ── */
+.routes { padding:120px 6%; background:var(--stone); }
+.routes-list { margin-top:70px; display:flex; flex-direction:column; gap:2px; }
+.route-item {
+  display:grid; grid-template-columns:80px 1fr auto;
+  align-items:center; gap:40px; padding:36px 0;
+  border-bottom:1px solid rgba(191,122,53,0.1); cursor:default; transition:all 0.3s;
+}
+.route-item:hover { padding-left:20px; }
+.route-num {
+  font-family:var(--font-serif); font-size:2.5rem;
+  font-weight:300; color:rgba(191,122,53,0.2); line-height:1;
+}
+.route-info h3 {
+  font-family:var(--font-serif); font-size:1.6rem;
+  font-weight:400; color:var(--cream); margin-bottom:10px;
+}
+.route-info p { font-size:13px; color:var(--mist); font-weight:300; line-height:1.6; margin-bottom:12px; }
+.route-meta { text-align:right; }
+.route-meta .dist {
+  font-family:var(--font-serif); font-size:1.8rem;
+  font-weight:300; color:var(--copper); display:block;
+}
+.route-meta .unit { font-size:10px; letter-spacing:0.2em; color:var(--mist); }
+.route-tag {
+  display:inline-block; padding:3px 12px;
+  border:1px solid rgba(191,122,53,0.3); color:var(--copper);
+  font-size:9px; letter-spacing:0.2em; text-transform:uppercase;
+  border-radius:20px; margin-top:12px; display:block; width:fit-content;
+}
+
+/* ── TESTIMONIALS ── */
+.testimonials { padding:120px 6%; background:var(--deep); }
+.testimonials-grid {
+  display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; margin-top:70px;
+}
+.testi-card {
+  background:var(--stone); padding:44px 36px;
+  border-top:2px solid rgba(191,122,53,0.15); transition:all 0.4s;
+}
+.testi-card:hover { border-top-color:var(--copper); transform:translateY(-4px); }
+.testi-quote {
+  font-family:var(--font-serif); font-size:4rem;
+  color:rgba(191,122,53,0.2); line-height:0.5; margin-bottom:24px;
+}
+.testi-text {
+  font-family:var(--font-serif); font-size:1.1rem; font-style:italic;
+  line-height:1.8; color:var(--parchment); margin-bottom:32px; font-weight:300;
+}
+.testi-author { display:flex; align-items:center; gap:16px; }
+.testi-avatar {
+  width:44px; height:44px; border-radius:50%; background:var(--copper);
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-serif); font-size:1.2rem;
+  color:var(--void); font-weight:600; flex-shrink:0;
+}
+.testi-name { font-size:13px; font-weight:500; color:var(--cream); margin-bottom:3px; }
+.testi-origin { font-size:11px; color:var(--mist); font-weight:300; margin-top:3px; }
+.stars { color:var(--gold); font-size:12px; margin-top:2px; }
+
+/* ── NEWSLETTER ── */
+.newsletter {
+  background:var(--rust); padding:100px 6%;
+  display:grid; grid-template-columns:1fr 1fr; gap:80px;
+  align-items:center; position:relative; overflow:hidden;
+}
+.newsletter::before {
+  content:''; position:absolute; top:-50%; right:-10%;
+  width:500px; height:500px; border-radius:50%; background:rgba(255,255,255,0.04);
+}
+.newsletter h2 {
+  font-family:var(--font-serif); font-size:clamp(2rem,3.5vw,3rem);
+  font-weight:300; color:var(--cream); line-height:1.2; margin-bottom:8px;
+}
+.newsletter h2 em { font-style:italic; color:var(--gold); }
+.newsletter p {
+  font-size:14px; color:rgba(235,217,184,0.88); font-weight:300;
+  margin-top:16px; line-height:1.8;
+}
+.newsletter-form { display:flex; flex-direction:column; gap:16px; }
+.nl-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.newsletter-form input {
+  width:100%; padding:16px 20px; background:rgba(255,255,255,0.1);
+  border:1px solid rgba(235,217,184,0.2); color:var(--cream);
+  font-family:var(--font-sans); font-size:13px; outline:none;
+  border-radius:1px; transition:border-color 0.3s;
+}
+.newsletter-form input::placeholder { color:rgba(235,217,184,0.75); }
+.newsletter-form input:focus { border-color:rgba(235,217,184,0.6); }
+.newsletter-form button {
+  padding:16px; background:var(--void); color:var(--copper);
+  border:none; font-family:var(--font-sans); font-size:11px;
+  font-weight:600; letter-spacing:0.2em; text-transform:uppercase;
+  cursor:pointer; transition:all 0.3s;
+}
+.newsletter-form button:hover { background:var(--gold); color:var(--void); }
+.nl-success {
+  color:var(--gold); font-family:var(--font-serif);
+  font-size:1.2rem; font-style:italic; padding:20px 0;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes heroIn {
+  from { opacity:0; transform:translateY(40px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes ticker {
+  from { transform:translateX(0); }
+  to   { transform:translateX(-50%); }
+}
+@keyframes scrollBounce {
+  0%,100% { transform:translateY(0); }
+  50%     { transform:translateY(8px); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width:1100px) {
+  .regions-grid { grid-template-columns:1fr 1fr; grid-template-rows:auto; }
+  .region-card.tall { grid-row:span 1; }
+  .sites-scroll { grid-template-columns:1fr 1fr; }
+}
+@media (max-width:768px) {
+  .hero-stats { display:none; }
+  .manifesto  { grid-template-columns:1fr; gap:40px; }
+  .why-us     { grid-template-columns:1fr; gap:40px; }
+  .newsletter { grid-template-columns:1fr; gap:40px; }
+  .testimonials-grid { grid-template-columns:1fr; }
+  .regions-grid { grid-template-columns:1fr; }
+  .sites-scroll { grid-template-columns:1fr 1fr; }
+  .why-grid { grid-template-columns:1fr; }
+}
+@media (max-width:480px) {
+  .sites-scroll { grid-template-columns:1fr; }
+  .nl-row { grid-template-columns:1fr; }
+}
