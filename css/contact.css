@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ══════════════════════════════════════
    CONTACT PAGE — page-specific styles
 ══════════════════════════════════════ */
@@ -282,4 +283,14 @@
   .interests-grid { grid-template-columns:1fr 1fr; }
   .tour-types { grid-template-columns:1fr; }
   .booking-form-wrap { padding:32px 24px; }
+=======
+/* contact.html — page backgrounds */
+
+.hero-bg {
+  background-image:
+    linear-gradient(to top,rgba(7,7,13,0.98) 0%,rgba(7,7,13,0.45) 50%,rgba(7,7,13,0.6) 100%),
+    url('../htmlpictures/Ruins of the Ancient buildings 1, Taxila.jpg');
+  background-size: cover;
+  background-position: center;
+>>>>>>> ad815f7150377a53bf3e86abe1f89394d7d7b289
 }

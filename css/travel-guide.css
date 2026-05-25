@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ══════════════════════════════════════
    TRAVEL GUIDE PAGE
 ══════════════════════════════════════ */
@@ -210,3 +211,14 @@
 
 /* Safety bar width via CSS custom property (set via style="--pct:XX%") */
 .safety-fill { width: var(--pct, 70%); }
+=======
+/* travel-guide.html — page backgrounds */
+
+.hero-bg {
+  background-image:
+    linear-gradient(to top,rgba(7,7,13,0.97) 0%,rgba(7,7,13,0.5) 55%,rgba(7,7,13,0.65) 100%),
+    url('../htmlpictures/Sirkap 33.jpg');
+  background-size: cover;
+  background-position: center;
+}
+>>>>>>> ad815f7150377a53bf3e86abe1f89394d7d7b289

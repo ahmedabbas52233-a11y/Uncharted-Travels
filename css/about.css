@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ══════════════════════════════════════
    ABOUT PAGE — page-specific styles
 ══════════════════════════════════════ */
@@ -303,4 +304,14 @@
   .ml-empty { display:none; }
   .awards-grid { grid-template-columns:1fr 1fr; }
   .pv-card { display:none; }
+=======
+/* about.html — page backgrounds */
+
+.hero-right-bg {
+  background-image:
+    linear-gradient(to right,rgba(18,18,26,0.6) 0%,transparent 50%),
+    url('../htmlpictures/Taxila-Sirkap-Gandhara-2.jpg');
+  background-size: cover;
+  background-position: center;
+>>>>>>> ad815f7150377a53bf3e86abe1f89394d7d7b289
 }
