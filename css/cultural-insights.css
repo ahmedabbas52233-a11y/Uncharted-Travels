@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* ══════════════════════════════════════
    CULTURAL INSIGHTS PAGE
 ══════════════════════════════════════ */
@@ -6,204 +5,430 @@
 /* Page hero background */
 .page-hero {
   background-image:
-    linear-gradient(to top, rgba(7,7,13,0.95) 0%, rgba(7,7,13,0.55) 60%, rgba(7,7,13,0.7) 100%),
-    url('../htmlpictures/Dharmarajika_stupa_&_Monastery_Taxila.jpg');
+    linear-gradient(
+      to top,
+      rgba(7, 7, 13, 0.95) 0%,
+      rgba(7, 7, 13, 0.55) 60%,
+      rgba(7, 7, 13, 0.7) 100%
+    ),
+    url("/htmlpictures/Dharmarajika_stupa_&_Monastery_Taxila.jpg");
 }
 
 /* Culture pillars */
-.pillars { padding:100px 6%; background:var(--stone); }
-.pillars-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:60px; }
+.pillars {
+  padding: 100px 6%;
+  background: var(--stone);
+}
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 60px;
+}
 .pillar {
-  padding:52px 36px; background:var(--deep);
-  border-bottom:3px solid transparent; transition:all 0.4s;
-  position:relative; overflow:hidden;
+  padding: 52px 36px;
+  background: var(--deep);
+  border-bottom: 3px solid transparent;
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
 }
 .pillar::before {
-  content:''; position:absolute; bottom:-40px; right:-40px;
-  width:120px; height:120px; border-radius:50%;
-  background:rgba(191,122,53,0.04); transition:all 0.5s;
+  content: "";
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(191, 122, 53, 0.04);
+  transition: all 0.5s;
 }
-.pillar:hover { border-bottom-color:var(--copper); background:var(--slate); }
-.pillar:hover::before { transform:scale(2); }
-.pillar-icon { font-size:2.5rem; margin-bottom:24px; display:block; }
+.pillar:hover {
+  border-bottom-color: var(--copper);
+  background: var(--slate);
+}
+.pillar:hover::before {
+  transform: scale(2);
+}
+.pillar-icon {
+  font-size: 2.5rem;
+  margin-bottom: 24px;
+  display: block;
+}
 .pillar h3 {
-  font-family:var(--font-serif); font-size:1.6rem; font-weight:400;
-  color:var(--cream); margin-bottom:16px; margin-top:6px; line-height:1.2;
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 16px;
+  margin-top: 6px;
+  line-height: 1.2;
 }
-.pillar p { font-size:13px; line-height:1.9; color:var(--mist); font-weight:300; margin-top:4px; }
+.pillar p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--mist);
+  font-weight: 300;
+  margin-top: 4px;
+}
 
 /* Deep dives */
-.deep-dive { padding:100px 6%; border-bottom:1px solid rgba(191,122,53,0.07); }
-.deep-dive:nth-child(even) { background:var(--stone); }
-.dd-inner { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
-.dd-inner.reverse { direction:rtl; }
-.dd-inner.reverse > * { direction:ltr; }
+.deep-dive {
+  padding: 100px 6%;
+  border-bottom: 1px solid rgba(191, 122, 53, 0.07);
+}
+.deep-dive:nth-child(even) {
+  background: var(--stone);
+}
+.dd-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.dd-inner.reverse {
+  direction: rtl;
+}
+.dd-inner.reverse > * {
+  direction: ltr;
+}
 .dd-visual {
-  aspect-ratio:4/3; border-radius:3px; overflow:hidden;
-  position:relative; background-size:cover; background-position:center;
-  display:flex; align-items:center; justify-content:center; font-size:5rem;
+  aspect-ratio: 4/3;
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
 }
 .dd-label {
-  font-size:10px; font-weight:600; letter-spacing:0.4em;
-  text-transform:uppercase; color:var(--copper); margin-bottom:18px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 18px;
 }
 .dd-title {
-  font-family:var(--font-serif); font-size:clamp(2rem,3.5vw,3rem);
-  font-weight:300; color:var(--cream); line-height:1.1; margin-bottom:28px; margin-top:8px;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1.1;
+  margin-bottom: 28px;
+  margin-top: 8px;
 }
-.dd-title em { font-style:italic; color:var(--gold); }
-.dd-body { font-size:14px; line-height:2.0; color:var(--mist); font-weight:300; margin-bottom:20px; }
-.dd-body strong { color:var(--parchment); font-weight:500; }
-.dd-list { list-style:none; margin-top:24px; display:flex; flex-direction:column; gap:12px; }
+.dd-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+.dd-body {
+  font-size: 14px;
+  line-height: 2;
+  color: var(--mist);
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+.dd-body strong {
+  color: var(--parchment);
+  font-weight: 500;
+}
+.dd-list {
+  list-style: none;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 .dd-list li {
-  display:flex; align-items:flex-start; gap:12px;
-  font-size:13px; color:var(--sand); font-weight:300; line-height:1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--sand);
+  font-weight: 300;
+  line-height: 1.6;
 }
-.dd-list li::before { content:'◆'; color:var(--copper); font-size:8px; margin-top:5px; flex-shrink:0; }
+.dd-list li::before {
+  content: "◆";
+  color: var(--copper);
+  font-size: 8px;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
 
 /* Deep dive backgrounds */
 .dd-bg-sufi {
   background-image:
-    linear-gradient(to bottom, rgba(7,7,13,0.3), rgba(7,7,13,0.6)),
-    url('../htmlpictures/Dharmarajika.jpeg');
-  background-size:cover; background-position:center;
+    linear-gradient(to bottom, rgba(7, 7, 13, 0.3), rgba(7, 7, 13, 0.6)),
+    url("/htmlpictures/Dharmarajika.jpeg"); background-size: cover; background-position: center;
 }
 .dd-bg-gandhara {
   background-image:
-    linear-gradient(to bottom, rgba(7,7,13,0.3), rgba(7,7,13,0.6)),
-    url('../htmlpictures/Taxila Museum 1.jpg');
-  background-size:cover; background-position:center;
+    linear-gradient(to bottom, rgba(7, 7, 13, 0.3), rgba(7, 7, 13, 0.6)),
+    url("/htmlpictures/Taxila-Gandhara.jpg"); background-size: cover; background-position: center;
 }
 .dd-bg-mughal {
   background-image:
-    linear-gradient(to bottom, rgba(7,7,13,0.3), rgba(7,7,13,0.6)),
-    url('../htmlpictures/Dharmarajika_stupa.jpg');
-  background-size:cover; background-position:center;
+    linear-gradient(to bottom, rgba(7, 7, 13, 0.3), rgba(7, 7, 13, 0.6)),
+    url("/htmlpictures/Dharmarajika_stupa.jpg"); background-size: cover; background-position: center;
 }
 .dd-bg-kalash {
   background-image:
-    linear-gradient(to bottom, rgba(7,7,13,0.3), rgba(7,7,13,0.6)),
-    url('../htmlpictures/artifact 1.jpg');
-  background-size:cover; background-position:center;
+    linear-gradient(to bottom, rgba(7, 7, 13, 0.3), rgba(7, 7, 13, 0.6)),
+    url("/htmlpictures/The-Kalesh-Valley.webp"); background-size: cover; background-position: center;
 }
 
 /* Festivals */
-.festivals { padding:100px 6%; background:var(--deep); }
-.fest-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:60px; }
+.festivals {
+  padding: 100px 6%;
+  background: var(--deep);
+}
+.fest-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 60px;
+}
 .fest-card {
-  background:var(--stone); padding:36px 24px;
-  border-top:2px solid rgba(191,122,53,0.1); transition:all 0.4s;
+  background: var(--stone);
+  padding: 36px 24px;
+  border-top: 2px solid rgba(191, 122, 53, 0.1);
+  transition: all 0.4s;
 }
-.fest-card:hover { border-top-color:var(--gold); transform:translateY(-4px); }
+.fest-card:hover {
+  border-top-color: var(--gold);
+  transform: translateY(-4px);
+}
 .fest-month {
-  font-size:10px; letter-spacing:0.25em; text-transform:uppercase; color:var(--copper); margin-bottom:14px;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 14px;
 }
-.fest-icon { font-size:2rem; margin-bottom:14px; display:block; }
+.fest-icon {
+  font-size: 2rem;
+  margin-bottom: 14px;
+  display: block;
+}
 .fest-name {
-  font-family:var(--font-serif); font-size:1.3rem; font-weight:400; color:var(--cream); margin-bottom:10px; margin-top:8px;
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 10px;
+  margin-top: 8px;
 }
-.fest-where { font-size:10px; color:var(--mist); margin-bottom:14px; letter-spacing:0.1em; display:block; }
-.fest-desc { font-size:12px; line-height:1.9; color:var(--mist); font-weight:300; margin-top:4px; }
+.fest-where {
+  font-size: 10px;
+  color: var(--mist);
+  margin-bottom: 14px;
+  letter-spacing: 0.1em;
+  display: block;
+}
+.fest-desc {
+  font-size: 12px;
+  line-height: 1.9;
+  color: var(--mist);
+  font-weight: 300;
+  margin-top: 4px;
+}
 
 /* Food */
-.food-section { padding:100px 6%; background:var(--void); }
-.food-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:2px; margin-top:60px; }
-.food-item {
-  padding:36px 24px; background:var(--stone);
-  border-bottom:2px solid transparent; transition:all 0.4s;
+.food-section {
+  padding: 100px 6%;
+  background: var(--void);
 }
-.food-item:hover { border-bottom-color:var(--copper); background:var(--deep); }
-.food-emoji { font-size:2.2rem; margin-bottom:16px; display:block; }
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+  margin-top: 60px;
+}
+.food-item {
+  padding: 36px 24px;
+  background: var(--stone);
+  border-bottom: 2px solid transparent;
+  transition: all 0.4s;
+}
+.food-item:hover {
+  border-bottom-color: var(--copper);
+  background: var(--deep);
+}
+.food-emoji {
+  font-size: 2.2rem;
+  margin-bottom: 16px;
+  display: block;
+}
 .food-name {
-  font-family:var(--font-serif); font-size:1.2rem; font-weight:400; color:var(--cream); margin-bottom:8px; margin-top:6px;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 8px;
+  margin-top: 6px;
 }
 .food-region {
-  font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--copper); margin-bottom:12px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 12px;
 }
-.food-desc { font-size:12px; line-height:1.8; color:var(--mist); font-weight:300; margin-top:4px; }
+.food-desc {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--mist);
+  font-weight: 300;
+  margin-top: 4px;
+}
 
 /* Languages */
-.languages { padding:80px 6%; background:var(--stone); }
-.lang-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:50px; }
+.languages {
+  padding: 80px 6%;
+  background: var(--stone);
+}
+.lang-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 50px;
+}
 .lang-card {
-  background:var(--deep); padding:32px 24px; border-radius:3px;
-  border-left:3px solid rgba(191,122,53,0.2); transition:all 0.3s;
+  background: var(--deep);
+  padding: 32px 24px;
+  border-radius: 3px;
+  border-left: 3px solid rgba(191, 122, 53, 0.2);
+  transition: all 0.3s;
 }
-.lang-card:hover { border-left-color:var(--copper); }
-.lang-name { font-family:var(--font-serif); font-size:1.5rem; font-weight:300; color:var(--cream); margin-bottom:8px; }
-.lang-native { font-size:1.1rem; color:var(--gold); margin-bottom:12px; letter-spacing:0.05em; display:block; }
+.lang-card:hover {
+  border-left-color: var(--copper);
+}
+.lang-name {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--cream);
+  margin-bottom: 8px;
+}
+.lang-native {
+  font-size: 1.1rem;
+  color: var(--gold);
+  margin-bottom: 12px;
+  letter-spacing: 0.05em;
+  display: block;
+}
 .lang-region {
-  font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--copper); margin-bottom:14px; display:block;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 14px;
+  display: block;
 }
-.lang-info { font-size:12px; line-height:1.8; color:var(--mist); font-weight:300; margin-top:4px; }
-.lang-speakers { font-size:11px; color:var(--sand); margin-top:16px; padding-top:12px; border-top:1px solid rgba(191,122,53,0.1); }
+.lang-info {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--mist);
+  font-weight: 300;
+  margin-top: 4px;
+}
+.lang-speakers {
+  font-size: 11px;
+  color: var(--sand);
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(191, 122, 53, 0.1);
+}
 
 /* Etiquette */
-.etiquette { padding:100px 6%; background:var(--deep); }
-.etiq-grid { display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:60px; }
-.etiq-col h3 {
-  font-family:var(--font-serif); font-size:1.5rem; font-weight:400; color:var(--cream);
-  margin-bottom:28px; padding-bottom:18px; border-bottom:1px solid rgba(191,122,53,0.15);
+.etiquette {
+  padding: 100px 6%;
+  background: var(--deep);
 }
-.etiq-list { list-style:none; display:flex; flex-direction:column; gap:16px; }
+.etiq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 60px;
+}
+.etiq-col h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 28px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(191, 122, 53, 0.15);
+}
+.etiq-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 .etiq-item {
-  display:flex; align-items:flex-start; gap:14px;
-  font-size:13px; color:var(--sand); font-weight:300; line-height:1.7;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 13px;
+  color: var(--sand);
+  font-weight: 300;
+  line-height: 1.7;
 }
 .etiq-dot {
-  width:24px; height:24px; border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  flex-shrink:0; font-size:11px; margin-top:2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 11px;
+  margin-top: 2px;
 }
-.dot-do   { background:rgba(42,92,69,0.3); color:#5DB88A; }
-.dot-dont { background:rgba(160,56,32,0.3); color:#E07050; }
+.dot-do {
+  background: rgba(42, 92, 69, 0.3);
+  color: #5db88a;
+}
+.dot-dont {
+  background: rgba(160, 56, 32, 0.3);
+  color: #e07050;
+}
 
 /* Responsive */
-@media (max-width:1024px) {
-  .pillars-grid { grid-template-columns:1fr 1fr; }
-  .fest-grid { grid-template-columns:1fr 1fr; }
-  .food-grid { grid-template-columns:1fr 1fr 1fr; }
-  .lang-grid { grid-template-columns:1fr 1fr; }
+@media (max-width: 1024px) {
+  .pillars-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .fest-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .food-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .lang-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
-@media (max-width:768px) {
-  .dd-inner, .dd-inner.reverse { grid-template-columns:1fr; direction:ltr; }
-  .pillars-grid { grid-template-columns:1fr; }
-  .etiq-grid { grid-template-columns:1fr; }
-  .food-grid { grid-template-columns:1fr 1fr; }
-=======
-/* cultural-insights.html — page backgrounds */
-
-.hero-bg {
-  background-image:
-    linear-gradient(to top,rgba(7,7,13,0.96) 0%,rgba(7,7,13,0.4) 60%,rgba(7,7,13,0.6) 100%),
-    url('../htmlpictures/Taxila-City-History_2.jpg');
-  background-size: cover;
-  background-position: center;
-}
-
-/* Deep-dive section visuals */
-.bg-gandhara-art {
-  background: linear-gradient(135deg,#0A0A18,#1A1A30);
-}
-.bg-sufi {
-  background: linear-gradient(135deg,#150805,#2A1008);
-}
-.bg-mughal-arch {
-  background: linear-gradient(135deg,#1A0A05,#301508);
-}
-
-/* Festival map-pin icon — size 8px */
-.pin-icon-sm {
-  color: var(--copper);
-  font-size: 8px;
-  margin-right: 4px;
-}
-
-.bg-peshawar-fest {
-  background-image:
-    linear-gradient(135deg,rgba(10,10,24,0.6),rgba(26,26,48,0.65)),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Mahabat_Khan_Mosque_Peshawar.jpg/1280px-Mahabat_Khan_Mosque_Peshawar.jpg');
-  background-size: cover;
-  background-position: center;
->>>>>>> ad815f7150377a53bf3e86abe1f89394d7d7b289
+@media (max-width: 768px) {
+  .dd-inner,
+  .dd-inner.reverse {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+  .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+  .etiq-grid {
+    grid-template-columns: 1fr;
+  }
+  .food-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }

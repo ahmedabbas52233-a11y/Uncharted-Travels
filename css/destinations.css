@@ -1,339 +1,508 @@
-<<<<<<< HEAD
 /* ══════════════════════════════════════
    DESTINATIONS PAGE
 ══════════════════════════════════════ */
 
 /* Page hero background */
-.page-hero {
+.page-hero-bg {
   background-image:
-    linear-gradient(to right, rgba(7,7,13,0.95) 30%, rgba(7,7,13,0.6) 100%),
-    url('../htmlpictures/Taxila-Sirkap-Gandhara-2.jpg');
+    linear-gradient(
+      to top,
+      rgba(7, 7, 13, 0.97) 0%,
+      rgba(7, 7, 13, 0.5) 50%,
+      rgba(7, 7, 13, 0.65) 100%
+    ),
+    url("/htmlpictures/cover-image.jpg");
+  background-position: center top;
 }
 
 /* Region tabs */
 .region-tabs {
-  display:flex; gap:2px; position:relative; z-index:2; margin-top:40px; flex-wrap:wrap;
+  display: flex;
+  gap: 2px;
+  position: relative;
+  z-index: 2;
+  margin-top: 40px;
+  flex-wrap: wrap;
 }
 .rtab {
-  padding:10px 24px; background:rgba(255,255,255,0.05);
-  border:1px solid rgba(191,122,53,0.15); color:var(--mist);
-  font-size:10px; font-weight:500; letter-spacing:0.15em; text-transform:uppercase;
-  cursor:pointer; transition:all 0.3s; text-decoration:none;
+  padding: 10px 24px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(191, 122, 53, 0.15);
+  color: var(--mist);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
 }
-.rtab:hover, .rtab.active { background:var(--copper); border-color:var(--copper); color:var(--void); }
+.rtab:hover,
+.rtab.active {
+  background: var(--copper);
+  border-color: var(--copper);
+  color: var(--void);
+}
 
 /* Region sections */
-.region-section { padding:100px 6%; border-bottom:1px solid rgba(191,122,53,0.08); }
-.region-section:nth-child(even) { background:var(--stone); }
+.region-section {
+  padding: 100px 6%;
+  border-bottom: 1px solid rgba(191, 122, 53, 0.08);
+}
+.region-section:nth-child(even) {
+  background: var(--stone);
+}
 .region-header {
-  display:grid; grid-template-columns:1fr 2fr; gap:80px;
-  align-items:start; margin-bottom:70px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  align-items: start;
+  margin-bottom: 70px;
 }
 .region-num {
-  font-family:var(--font-serif); font-size:7rem; font-weight:300;
-  color:rgba(191,122,53,0.1); line-height:1; margin-bottom:-20px;
+  font-family: var(--font-serif);
+  font-size: 7rem;
+  font-weight: 300;
+  color: rgba(191, 122, 53, 0.1);
+  line-height: 1;
+  margin-bottom: -20px;
 }
 .region-heading {
-  font-family:var(--font-serif); font-size:clamp(2.5rem,5vw,4.5rem);
-  font-weight:300; color:var(--cream); line-height:1; margin-top:8px; margin-bottom:4px;
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 300;
+  color: var(--cream);
+  line-height: 1;
+  margin-top: 8px;
+  margin-bottom: 4px;
 }
-.region-heading em { font-style:italic; color:var(--gold); }
+.region-heading em {
+  font-style: italic;
+  color: var(--gold);
+}
 .region-label {
-  font-size:10px; font-weight:600; letter-spacing:0.4em;
-  text-transform:uppercase; color:var(--copper); margin-bottom:20px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 20px;
 }
-.region-desc { font-size:14px; line-height:2.0; color:var(--mist); font-weight:300; margin-bottom:36px; margin-top:16px; }
-.region-facts { display:flex; gap:40px; flex-wrap:wrap; }
+.region-desc {
+  font-size: 14px;
+  line-height: 2;
+  color: var(--mist);
+  font-weight: 300;
+  margin-bottom: 36px;
+  margin-top: 16px;
+}
+.region-facts {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
 .fact-item .val {
-  font-family:var(--font-serif); font-size:2rem; font-weight:300; color:var(--gold); line-height:1; display:block;
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  display: block;
 }
 .fact-item .key {
-  font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--mist); margin-top:8px; display:block;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mist);
+  margin-top: 8px;
+  display: block;
 }
 
 /* Destination cards */
-.dest-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.dest-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
 .dest-card {
-  position:relative; overflow:hidden; border-radius:3px;
-  aspect-ratio:4/3; cursor:pointer; text-decoration:none;
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  aspect-ratio: 4/3;
+  cursor: pointer;
+  text-decoration: none;
 }
 .dest-card-bg {
-  position:absolute; inset:0;
-  background-size:cover; background-position:center; transition:transform 0.7s ease;
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.7s ease;
 }
-.dest-card:hover .dest-card-bg { transform:scale(1.08); }
+.dest-card:hover .dest-card-bg {
+  transform: scale(1.08);
+}
 .dest-card::after {
-  content:''; position:absolute; inset:0;
-  background:linear-gradient(to top, rgba(7,7,13,0.9) 0%, rgba(7,7,13,0.2) 55%, transparent);
-  transition:opacity 0.4s;
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(7, 7, 13, 0.9) 0%,
+    rgba(7, 7, 13, 0.2) 55%,
+    transparent
+  );
+  transition: opacity 0.4s;
 }
-.dest-card:hover::after { opacity:0.75; }
+.dest-card:hover::after {
+  opacity: 0.75;
+}
 .dest-card-info {
-  position:absolute; bottom:0; left:0; right:0; z-index:2;
-  padding:24px 20px; transition:transform 0.4s;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 24px 20px;
+  transition: transform 0.4s;
 }
-.dest-card:hover .dest-card-info { transform:translateY(-4px); }
+.dest-card:hover .dest-card-info {
+  transform: translateY(-4px);
+}
 .dest-card-era {
-  font-size:9px; letter-spacing:0.25em; text-transform:uppercase;
-  color:var(--copper); display:block; margin-bottom:8px;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--copper);
+  display: block;
+  margin-bottom: 8px;
 }
 .dest-card-name {
-  font-family:var(--font-serif); font-size:1.5rem; font-weight:400;
-  color:var(--cream); line-height:1.1; margin-bottom:8px;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--cream);
+  line-height: 1.1;
+  margin-bottom: 8px;
 }
-.dest-card-sub { font-size:11px; color:var(--mist); font-weight:300; }
+.dest-card-sub {
+  font-size: 11px;
+  color: var(--mist);
+  font-weight: 300;
+}
 .dest-card-badge {
-  position:absolute; top:16px; right:16px; z-index:3;
-  padding:4px 12px; background:rgba(191,122,53,0.9); color:var(--void);
-  font-size:8px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; border-radius:20px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 3;
+  padding: 4px 12px;
+  background: rgba(191, 122, 53, 0.9);
+  color: var(--void);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-radius: 20px;
 }
-.badge-unesco { background:rgba(212,168,67,0.9) !important; }
+.badge-unesco {
+  background: rgba(212, 168, 67, 0.9) !important;
+}
 
 /* Destination card backgrounds — local images */
-.bg-taxila      { background-image:url('../htmlpictures/Jaulian-Monastery.png'); background-size:cover; background-position:center; }
-.bg-lahore      { background-image:url('../htmlpictures/Lahore.jpg'); background-size:cover; background-position:center; }
-.bg-rohtas      { background-image:url('../htmlpictures/Rohtas.jpg'); background-size:cover; background-position:center; }
-.bg-harappa     { background-image:url('../htmlpictures/harappa.jpg'); background-size:cover; background-position:center; }
-.bg-derawar     { background-image:url('../htmlpictures/derawar.jpg'); background-size:cover; background-position:center; }
-.bg-sirkap      { background-image:url('../htmlpictures/sirkap.jpg'); background-size:cover; background-position:center; }
-.bg-mohenjo     {
-  background-image:linear-gradient(to top, rgba(7,7,13,0.3), transparent),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Mohenjodaro_Sindh.jpg/800px-Mohenjodaro_Sindh.jpg');
-  background-size:cover; background-position:center;
+.bg-taxila {
+  background-image: url("/htmlpictures/Dharmarajika_stupa_&_Monastery_Taxila.jpg");
+  background-size: cover;
+  background-position: center;
 }
-.bg-makli       {
-  background-image:linear-gradient(to top, rgba(7,7,13,0.3), transparent),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Makli_Hill_Thatta.jpg/800px-Makli_Hill_Thatta.jpg');
-  background-size:cover; background-position:center;
+.bg-lahore {
+  background-image: url("/htmlpictures/Lahore-fort.webp");
+  background-size: cover;
+  background-position: center;
 }
-.bg-thatta      { background-image:url('../htmlpictures/Stupa.jpg'); background-size:cover; background-position:center; }
-.bg-karachi     { background-image:url('../htmlpictures/cover-image-3-3-1024x444.jpg'); background-size:cover; background-position:center; }
-.bg-ranikot     { background-image:url('../htmlpictures/Taxila-Sirkap-Gandhara-2.jpg'); background-size:cover; background-position:center; }
-.bg-kotdiji     { background-image:url('../htmlpictures/Ruins of the Ancient buildings, Taxila.jpg'); background-size:cover; background-position:center; }
-.bg-takhtibahi  {
-  background-image:linear-gradient(to top, rgba(7,7,13,0.3), transparent),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Takht-i-Bahi_Monastery.jpg/800px-Takht-i-Bahi_Monastery.jpg');
-  background-size:cover; background-position:center;
+.bg-rohtas {
+  background-image: url("/htmlpictures/rohtas-fort.jpg");
+  background-size: cover;
+  background-position: center;
 }
-.bg-peshawar    { background-image:url('../htmlpictures/artifact 1.jpg'); background-size:cover; background-position:center; }
-.bg-swat        { background-image:url('../htmlpictures/Jaulian-Monastery 1.png'); background-size:cover; background-position:center; }
-.bg-chitral     { background-image:url('../htmlpictures/artifact 2.jpg'); background-size:cover; background-position:center; }
-.bg-balahisar   { background-image:url('../htmlpictures/Jaulian-Monastery 2.png'); background-size:cover; background-position:center; }
-.bg-hund        { background-image:url('../htmlpictures/artifact 3.jpg'); background-size:cover; background-position:center; }
-.bg-mehrgarh    { background-image:url('../htmlpictures/Jaulian-Monastery 3.png'); background-size:cover; background-position:center; }
-.bg-quetta      { background-image:url('../htmlpictures/artifact 4.jpg'); background-size:cover; background-position:center; }
-.bg-ziarat      { background-image:url('../htmlpictures/artifact 5.jpg'); background-size:cover; background-position:center; }
-.bg-gwadar      { background-image:url('../htmlpictures/artifact 6.jpg'); background-size:cover; background-position:center; }
-.bg-nindowari   { background-image:url('../htmlpictures/artifact 7.jpg'); background-size:cover; background-position:center; }
-.bg-hinglaj     { background-image:url('../htmlpictures/artifact 8.jpg'); background-size:cover; background-position:center; }
-.bg-baltit      {
-  background-image:linear-gradient(to top, rgba(7,7,13,0.3), transparent),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Baltit_fort_Hunza.jpg/800px-Baltit_fort_Hunza.jpg');
-  background-size:cover; background-position:center;
+.bg-harappa {
+  background-image: url("/htmlpictures/Harappa.jpeg");
+  background-size: cover;
+  background-position: center;
 }
-.bg-altit       { background-image:url('../htmlpictures/Jaulian-Monastery 4.png'); background-size:cover; background-position:center; }
-.bg-chilas      { background-image:url('../htmlpictures/artifact 9.jpg'); background-size:cover; background-position:center; }
-.bg-khaplu      { background-image:url('../htmlpictures/coins.jpeg'); background-size:cover; background-position:center; }
-.bg-skardu      { background-image:url('../htmlpictures/Museum1.jpg'); background-size:cover; background-position:center; }
-.bg-kkh         { background-image:url('../htmlpictures/Taxila Museum.jpg'); background-size:cover; background-position:center; }
-
-/* Must-see strip */
-.must-see { padding:80px 6%; background:var(--deep); }
-.ms-grid {
-  display:grid; grid-template-columns:repeat(5,1fr); gap:2px; margin-top:50px;
+.bg-derawar {
+  background-image: url("/htmlpictures/Derawar-Fort.jpeg");
+  background-size: cover;
+  background-position: center;
 }
-.ms-item {
-  padding:36px 24px; background:var(--stone);
-  border-top:2px solid rgba(191,122,53,0.1); transition:all 0.4s; cursor:default;
+.bg-sirkap {
+  background-image: url("/htmlpictures/Sirkap\ the\ brain\ chamber.jpeg");
+  background-size: cover;
+  background-position: center;
 }
-.ms-item:hover { border-top-color:var(--copper); background:var(--deep); }
-.ms-icon { font-size:1.6rem; margin-bottom:16px; }
-.ms-name {
-  font-family:var(--font-serif); font-size:1.1rem; font-weight:400;
-  color:var(--cream); margin-bottom:8px; margin-top:8px;
-}
-.ms-loc { font-size:10px; color:var(--copper); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:10px; display:block; }
-.ms-desc { font-size:12px; color:var(--mist); font-weight:300; line-height:1.7; margin-top:12px; }
-
-/* Seasonal guide */
-.seasons { padding:100px 6%; background:var(--stone); }
-.seasons-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; margin-top:60px; }
-.season-card {
-  padding:48px 32px; background:var(--deep);
-  border-bottom:3px solid transparent; transition:all 0.4s;
-}
-.season-card:hover { border-bottom-color:var(--copper); }
-.season-icon { font-size:2.5rem; margin-bottom:20px; }
-.season-name {
-  font-family:var(--font-serif); font-size:1.6rem;
-  font-weight:300; color:var(--cream); margin-bottom:8px; margin-top:4px;
-}
-.season-months {
-  font-size:10px; letter-spacing:0.2em; text-transform:uppercase;
-  color:var(--copper); margin-bottom:20px;
-}
-.season-desc { font-size:13px; line-height:1.9; color:var(--mist); font-weight:300; }
-.season-best { margin-top:20px; padding-top:14px; border-top:1px solid rgba(191,122,53,0.1); font-size:11px; color:var(--sand); }
-.season-best strong { color:var(--gold); }
-
-/* Responsive */
-@media (max-width:1024px) {
-  .dest-grid { grid-template-columns:1fr 1fr; }
-  .ms-grid { grid-template-columns:1fr 1fr 1fr; }
-  .seasons-grid { grid-template-columns:1fr 1fr; }
-}
-@media (max-width:768px) {
-  .region-header { grid-template-columns:1fr; gap:20px; }
-  .dest-grid { grid-template-columns:1fr 1fr; }
-  .ms-grid { grid-template-columns:1fr 1fr; }
-  .seasons-grid { grid-template-columns:1fr; }
-}
-@media (max-width:480px) { .dest-grid { grid-template-columns:1fr; } }
-=======
-/* destinations.html — all destination card backgrounds */
-
-/* Page hero */
-.page-hero-bg {
+.bg-mohenjo {
   background-image:
-    linear-gradient(to right,rgba(7,7,13,0.95) 40%,rgba(7,7,13,0.5) 100%),
-    url('../htmlpictures/Taxila-Sirkap-Gandhara-2.jpg');
+    linear-gradient(to top, rgba(7, 7, 13, 0.3), transparent),
+    url("/htmlpictures/Mohenjo-daro.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.bg-makli {
+  background-image:
+    linear-gradient(to top, rgba(7, 7, 13, 0.3), transparent),
+    url("/htmlpictures/Makli-Necropolis.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.bg-thatta {
+  background-image: url("/htmlpictures/Shahjahan_mosque_thatta.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.bg-karachi {
+  background-image: url("/htmlpictures/Karachi-Heritage.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+.bg-ranikot {
+  background-image: url("/htmlpictures/Ranikot-Fort.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+.bg-kotdiji {
+  background-image: url("/htmlpictures/kot-diji.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.bg-takhtibahi {
+  background-image:
+    linear-gradient(to top, rgba(7, 7, 13, 0.3), transparent),
+    url("/htmlpictures/Takht-i-bahi.webp");
+  background-size: cover;
+  background-position: center;
+}
+.bg-peshawar {
+  background-image: url("/htmlpictures/Peshawar-walled-city.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+.bg-swat {
+  background-image: url("/htmlpictures/Swat-Valley.webp");
+  background-size: cover;
+  background-position: center;
+}
+.bg-chitral {
+  background-image: url("/htmlpictures/The-Kalesh-Valley.webp");
+  background-size: cover;
+  background-position: center;
+}
+.bg-balahisar {
+  background-image: url("/htmlpictures/Qilla-balahisar-fort.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.bg-hund {
+  background-image: url("/htmlpictures/Hund-Sawabi.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.bg-mehrgarh {
+  background-image: url("/htmlpictures/Mehrgarh_ruins.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.bg-quetta {
+  background-image: url("/htmlpictures/Quetta-Heritage.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.bg-ziarat {
+  background-image: url("/htmlpictures/Ziarat.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.bg-gwadar {
+  background-image: url("/htmlpictures/Gwadar-town.webp");
+  background-size: cover;
+  background-position: center;
+}
+.bg-nindowari {
+  background-image: url("/htmlpictures/Nindowari.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+.bg-hinglaj {
+  background-image: url("/htmlpictures/Hinglaj-Mata-Temple.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.bg-baltit {
+  background-image:
+    linear-gradient(to top, rgba(7, 7, 13, 0.3), transparent),
+    url("/htmlpictures/Baltit-Fort.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+.bg-altit {
+  background-image: url("/htmlpictures/Altit-Fort.webp");
+  background-size: cover;
+  background-position: center;
+}
+.bg-chilas {
+  background-image: url("/htmlpictures/Chilas-rock-art.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.bg-khaplu {
+  background-image: url("/htmlpictures/Khaplu-Palace.jpeg");
+  background-size: cover;
+  background-position: center;
+}
+.bg-skardu {
+  background-image: url("/htmlpictures/Skardu-fort.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.bg-kkh {
+  background-image: url("/htmlpictures/KKH.jpeg");
   background-size: cover;
   background-position: center;
 }
 
-/* ── PUNJAB ── */
-.bg-taxila    { background-image: url('../htmlpictures/Jaulian-Monastery.png'); background-size:cover; background-position:center; }
-.bg-lahore    { background-image: url('../htmlpictures/Dharmarajika_stupa.jpg'); background-size:cover; background-position:center; }
-.bg-rohtas    { background-image: url('../htmlpictures/Sirkap 33.jpg'); background-size:cover; background-position:center; }
-.bg-harappa   { background-image: url('../htmlpictures/Ruins of the Ancient buildings, Taxila.jpg'); background-size:cover; background-position:center; }
-.bg-multan    {
-  background-image:
-    linear-gradient(135deg,rgba(42,26,10,0.5),rgba(74,44,16,0.6)),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Shah_Rukn_e_Alam_Multan.jpg/1280px-Shah_Rukn_e_Alam_Multan.jpg');
-  background-size:cover; background-position:center;
+/* Must-see strip */
+.must-see {
+  padding: 80px 6%;
+  background: var(--deep);
 }
-.bg-derawar   { background-image: url('../htmlpictures/Taxila-City-History_2.jpg'); background-size:cover; background-position:center; }
-.bg-sirkap    { background-image: url('../htmlpictures/Sirkap the brain chamber.jpeg'); background-size:cover; background-position:center; }
-
-/* ── SINDH ── */
-.bg-mohenjo   {
-  background-image:
-    linear-gradient(135deg,rgba(42,16,8,0.55),rgba(92,40,16,0.65)),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Mohenjo-daro%2C_Sindh%2C_2013.JPG/1280px-Mohenjo-daro%2C_Sindh%2C_2013.JPG');
-  background-size:cover; background-position:center;
+.ms-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+  margin-top: 50px;
 }
-.bg-makli     {
-  background-image:
-    linear-gradient(135deg,rgba(10,21,32,0.6),rgba(32,48,74,0.7)),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Makli_Necropolis_%28site%29.jpg/1280px-Makli_Necropolis_%28site%29.jpg');
-  background-size:cover; background-position:center;
+.ms-item {
+  padding: 36px 24px;
+  background: var(--stone);
+  border-top: 2px solid rgba(191, 122, 53, 0.1);
+  transition: all 0.4s;
+  cursor: default;
 }
-.bg-thatta    {
-  background-image:
-    linear-gradient(135deg,rgba(26,10,16,0.55),rgba(58,16,32,0.65)),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Shah_Jahan_Mosque_Thatta.jpg/1280px-Shah_Jahan_Mosque_Thatta.jpg');
-  background-size:cover; background-position:center;
+.ms-item:hover {
+  border-top-color: var(--copper);
+  background: var(--deep);
 }
-.bg-karachi   {
-  background-image:
-    linear-gradient(135deg,rgba(5,10,24,0.6),rgba(14,24,48,0.7)),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Karachi_frere_hall.jpg/1280px-Karachi_frere_hall.jpg');
-  background-size:cover; background-position:center;
+.ms-icon {
+  font-size: 1.6rem;
+  margin-bottom: 16px;
 }
-.bg-ranikot   {
-  background-image:
-    linear-gradient(135deg,rgba(26,18,5,0.55),rgba(48,32,16,0.65)),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Ranikot_fort.jpg/1280px-Ranikot_fort.jpg');
-  background-size:cover; background-position:center;
+.ms-name {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--cream);
+  margin-bottom: 8px;
+  margin-top: 8px;
 }
-.bg-kotdiji   {
-  background-image:
-    linear-gradient(135deg,rgba(26,21,8,0.55),rgba(48,42,16,0.65)),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Kot_Diji_Fort.jpg/1280px-Kot_Diji_Fort.jpg');
-  background-size:cover; background-position:center;
+.ms-loc {
+  font-size: 10px;
+  color: var(--copper);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: block;
+}
+.ms-desc {
+  font-size: 12px;
+  color: var(--mist);
+  font-weight: 300;
+  line-height: 1.7;
+  margin-top: 12px;
 }
 
-/* ── KPK ── */
-.bg-takhtibahi { background-image: url('../htmlpictures/Ruins of the Ancient buildings 1, Taxila.jpg'); background-size:cover; background-position:center; }
-.bg-peshawar  {
-  background-image:
-    linear-gradient(135deg,rgba(10,10,24,0.6),rgba(26,26,48,0.65)),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Mahabat_Khan_Mosque_Peshawar.jpg/1280px-Mahabat_Khan_Mosque_Peshawar.jpg');
-  background-size:cover; background-position:center;
+/* Seasonal guide */
+.seasons {
+  padding: 100px 6%;
+  background: var(--stone);
 }
-.bg-swat      {
-  background-image:
-    linear-gradient(135deg,rgba(7,20,8,0.55),rgba(15,40,16,0.65)),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Swat_valley.jpg/1280px-Swat_valley.jpg');
-  background-size:cover; background-position:center;
+.seasons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-top: 60px;
 }
-.bg-chitral   {
-  background-image:
-    linear-gradient(135deg,rgba(10,8,16,0.55),rgba(26,16,32,0.65)),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Kalash_people_of_Chitral.jpg/1280px-Kalash_people_of_Chitral.jpg');
-  background-size:cover; background-position:center;
+.season-card {
+  padding: 48px 32px;
+  background: var(--deep);
+  border-bottom: 3px solid transparent;
+  transition: all 0.4s;
 }
-.bg-balahisar {
-  background-image:
-    linear-gradient(135deg,rgba(18,16,10,0.55),rgba(36,32,15,0.65)),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Bala_Hisar_Fort%2C_Peshawar.jpg/1280px-Bala_Hisar_Fort%2C_Peshawar.jpg');
-  background-size:cover; background-position:center;
+.season-card:hover {
+  border-bottom-color: var(--copper);
 }
-.bg-hund      { background: linear-gradient(135deg,#100A0A,#201010); }
+.season-icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+.season-name {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--cream);
+  margin-bottom: 8px;
+  margin-top: 4px;
+}
+.season-months {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 20px;
+}
+.season-desc {
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--mist);
+  font-weight: 300;
+}
+.season-best {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(191, 122, 53, 0.1);
+  font-size: 11px;
+  color: var(--sand);
+}
+.season-best strong {
+  color: var(--gold);
+}
 
-/* ── BALOCHISTAN ── */
-.bg-mehrgarh  {
-  background-image:
-    linear-gradient(135deg,rgba(26,10,5,0.55),rgba(58,26,8,0.65)),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Mehrgarh%2C_Balochistan.jpg/1280px-Mehrgarh%2C_Balochistan.jpg');
-  background-size:cover; background-position:center;
+/* Responsive */
+@media (max-width: 1024px) {
+  .dest-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .ms-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .seasons-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
-.bg-quetta    {
-  background-image:
-    linear-gradient(135deg,rgba(10,10,16,0.55),rgba(26,26,32,0.65)),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Quetta.jpg/1280px-Quetta.jpg');
-  background-size:cover; background-position:center;
+@media (max-width: 768px) {
+  .region-header {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .dest-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .ms-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .seasons-grid {
+    grid-template-columns: 1fr;
+  }
 }
-.bg-ziarat    { background: linear-gradient(135deg,#060A06,#0E180E); }
-.bg-gwadar    { background: linear-gradient(135deg,#050810,#0A1020); }
-.bg-nindowari { background: linear-gradient(135deg,#150A05,#2A1408); }
-.bg-hinglaj   { background: linear-gradient(135deg,#120808,#241010); }
-
-/* ── GILGIT-BALTISTAN ── */
-.bg-baltit    {
-  background-image:
-    linear-gradient(135deg,rgba(8,10,20,0.55),rgba(20,30,54,0.65)),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Baltit_fort.jpg/1280px-Baltit_fort.jpg');
-  background-size:cover; background-position:center;
+@media (max-width: 480px) {
+  .dest-grid {
+    grid-template-columns: 1fr;
+  }
 }
-.bg-altit     {
-  background-image:
-    linear-gradient(135deg,rgba(6,8,14,0.55),rgba(16,20,30,0.65)),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Altit_Fort.jpg/1280px-Altit_Fort.jpg');
-  background-size:cover; background-position:center;
-}
-.bg-chilas    {
-  background-image:
-    linear-gradient(135deg,rgba(10,10,6,0.55),rgba(26,26,14,0.65)),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Chilas_rock_carvings.jpg/1280px-Chilas_rock_carvings.jpg');
-  background-size:cover; background-position:center;
-}
-.bg-khaplu    {
-  background-image:
-    linear-gradient(135deg,rgba(12,10,14,0.55),rgba(26,22,32,0.65)),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Khaplu_Palace.jpg/1280px-Khaplu_Palace.jpg');
-  background-size:cover; background-position:center;
-}
-.bg-skardu    {
-  background-image:
-    linear-gradient(135deg,rgba(8,14,20,0.55),rgba(16,24,42,0.65)),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Kharpocho_Fort%2C_Skardu.jpg/1280px-Kharpocho_Fort%2C_Skardu.jpg');
-  background-size:cover; background-position:center;
-}
-.bg-kkh       {
-  background-image:
-    linear-gradient(135deg,rgba(5,6,10,0.55),rgba(10,12,20,0.65)),
-    url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/KarakoramHighway.jpg/1280px-KarakoramHighway.jpg');
-  background-size:cover; background-position:center;
-}
->>>>>>> ad815f7150377a53bf3e86abe1f89394d7d7b289
